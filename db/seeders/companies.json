@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Apple Inc",
+    "imageName": "apple.png",
+    "symbol": "AAPL"
+  },
+  {
+    "name": "Microsoft Corp",
+    "imageName": "microsoft.png",
+    "symbol": "MSFT"
+  },
+  {
+    "name": "Amazon.com Inc",
+    "imageName": "amazon.png",
+    "symbol": "AMZN"
+  },
+  {
+    "name": "Nvidia Corp",
+    "imageName": "nvidia.png",
+    "symbol": "NVDA"
+  }
+]
