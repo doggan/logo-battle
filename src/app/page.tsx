@@ -3,9 +3,6 @@
 import { Logo } from '@/app/logo';
 import { useEffect, useState } from 'react';
 import { ClipLoader } from 'react-spinners';
-import { Simulate } from 'react-dom/test-utils';
-import error = Simulate.error;
-import useSWR, { useSWRConfig } from 'swr';
 
 // TODO: move to models (share with server)
 interface IBattleResponse {
@@ -18,38 +15,6 @@ interface ICompany {
   name: string;
   imageName: string;
 }
-
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-const fetcher = (...args) => fetch(...args).then((res) => res.json());
-
-function useGetBattle() {
-  const { data, error, isLoading } = useSWR(`/api/battles`, fetcher);
-
-  console.log('### useGetBattle');
-
-  return {
-    battle: data as IBattleResponse,
-    isLoading,
-    isError: error,
-  };
-}
-
-// function usePostVote() {
-//   const { mutate } = useSWRConfig();
-//
-//   // mutate(`/api/battle`, data, options)
-// }
-
-// const fetcher = (...args) => fetch(url, {
-//   method: 'post',
-//   headers: {
-//     "Content-Type": "application/json"
-//   },
-//   body: JSON.stringify(props.payload)
-// }).then(res => res.json())
-//
-// const { data, error} = useSWR(url, fetcher, { suspense: true });
 
 function api<T>(url: string): Promise<T> {
   return fetch(url).then((response) => {
@@ -133,25 +98,7 @@ export default function Page() {
     setBattle(battleResponse);
 
     setIsFighting(false);
-
-    // // - call vote api
-    // // - call fetch api to get new battle
-    // // - disable buttons after click... show some type of animation
-    // await mutate(
-    //   `/api/battle`,
-    //   {
-    //     voteForCompanyId,
-    //     voteAgainstCompanyId,
-    //   },
-    //   {
-    //     // populateCache: false,
-    //   },
-    //   // options,
-    // );
-    // myMutate(voteForCompanyId, voteAgainstCompanyId);
   };
-
-  console.log('#### swr res: ', battle);
 
   return (
     <main className={'w-screen flex flex-col items-center'}>
