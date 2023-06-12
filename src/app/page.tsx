@@ -19,66 +19,10 @@ interface ICompany {
   imageName: string;
 }
 
-function getRandomInt(max: number) {
-  return Math.floor(Math.random() * max);
-}
-
-async function getBattle(): Promise<IBattleResponse> {
-  // try {
-  //   const res = await fetch(`https://jsonplaceholder.typicode.com/posts/1`);
-  //   const data = await res.json();
-  //   console.log(data);
-  // } catch (err) {
-  //   console.log(err);
-  // }
-
-  // TODO: use swr?
-
-  // await new Promise((r) => setTimeout(r, 2000));
-
-  return {
-    company1: {
-      id: '6481560c009f8d9a55773e95',
-    },
-    company2: {
-      id: '6481562d009f8d9a55773e96',
-    },
-  };
-}
-
-async function postVote(
-  voteForCompanyId: string,
-  voteAgainstCompanyId: string,
-) {
-  console.log('### postVote');
-  const response = await fetch('/api/vote', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      voteForCompanyId,
-      voteAgainstCompanyId,
-    }),
-  });
-  // .catch((e) => {
-  // console.log('### error: ', e);
-  // });
-  //   .then(() => {
-  //   console.log('### response: ');
-  //   console.log(response.json());
-  // });
-
-  console.log('### response: ');
-  console.log(response);
-
-  // if (response.st)
-}
-
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 function useGetBattle() {
-  const { data, error, isLoading } = useSWR(`/api/battle`, fetcher);
+  const { data, error, isLoading } = useSWR(`/api/battles`, fetcher);
 
   console.log('### useGetBattle');
 
@@ -105,44 +49,103 @@ function useGetBattle() {
 //
 // const { data, error} = useSWR(url, fetcher, { suspense: true });
 
+function api<T>(url: string): Promise<T> {
+  return fetch(url).then((response) => {
+    if (!response.ok) {
+      throw new Error(response.statusText);
+    }
+    return response.json() as Promise<T>;
+  });
+}
+
+function getBattle(): Promise<IBattleResponse> {
+  //Promise<IBattleResponse> {
+  // api<{ title: string; message: string }>('v1/posts/1')
+  //   .then(({ title, message }) => {
+  //     console.log(title, message)
+  //   })
+  //   .catch(error => {
+  //     /* show error message */
+  //   })
+
+  return api<IBattleResponse>('api/battles');
+  // .then((battle) => {
+  //   console.log('### got batle:', battle);
+  // })
+  // .catch((error) => {
+  //   console.error(error);
+  // });
+
+  // const response = await fetch('/api/battles', {
+  //   method: 'GET',
+  // });
+
+  // return result;
+}
+
 export default function Page() {
   // TODO: ideas for effect on click
   // - highlight winner in green, loser in red (flash animation)
   // - fade out  or disolve loser
   // - fade in new logos or shrink/grow animation with bounce
 
-  // const { data, error, isLoading } = useSWR('/api/user/123', fetcher);
-  // const { data, error, isLoading } = useGetBattle();
-  const { battle, isLoading, isError } = useGetBattle();
-  const { mutate } = useSWRConfig();
-  // const { mutate } = usePostVote();
+  const [battle, setBattle] = useState<IBattleResponse | null>();
+  const [isFighting, setIsFighting] = useState<boolean>(false);
 
-  if (isError) return <div>failed to load</div>;
-  if (isLoading) return <div>loading...</div>;
+  useEffect(() => {
+    const fetchData = async () => {
+      const battleResponse = await getBattle();
+      setBattle(battleResponse);
+    };
+
+    // TODO:
+    fetchData().catch(console.error);
+  }, []);
 
   const onVoteHandler = async (
-    voteForCompanyId: string,
-    voteAgainstCompanyId: string,
+    companyId1: string,
+    companyId2: string,
+    didVoteForCompany1: boolean,
   ) => {
-    // setCurrentBattle(null); // TODO: hack
-    // postVote(voteForCompanyId, voteAgainstCompanyId);
-    // const battleResponse = await getBattle();
-    // setCurrentBattle(battleResponse);
+    setIsFighting(true);
+
+    console.log('### postVote');
+
+    const response = await fetch('/api/results', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        companyId1,
+        companyId2,
+        didVoteForCompany1,
+      }),
+    });
+    // TOOD: error handling
+
+    console.log('### response: ');
+    console.log(response);
+
+    const battleResponse = await getBattle();
+    setBattle(battleResponse);
+
+    setIsFighting(false);
+
     // // - call vote api
     // // - call fetch api to get new battle
     // // - disable buttons after click... show some type of animation
-
-    await mutate(
-      `/api/battle`,
-      {
-        voteForCompanyId,
-        voteAgainstCompanyId,
-      },
-      {
-        // populateCache: false,
-      },
-      // options,
-    );
+    // await mutate(
+    //   `/api/battle`,
+    //   {
+    //     voteForCompanyId,
+    //     voteAgainstCompanyId,
+    //   },
+    //   {
+    //     // populateCache: false,
+    //   },
+    //   // options,
+    // );
     // myMutate(voteForCompanyId, voteAgainstCompanyId);
   };
 
@@ -166,7 +169,7 @@ export default function Page() {
             companyName={battle.company1.name}
             imageName={`/logos/${battle.company1.imageName}`}
             onClick={() =>
-              onVoteHandler(battle?.company1.id, battle?.company2.id)
+              onVoteHandler(battle.company1.id, battle.company2.id, true)
             }
           />
         )}
@@ -184,8 +187,17 @@ export default function Page() {
             companyName={battle.company2.name}
             imageName={`/logos/${battle.company2.imageName}`}
             onClick={() =>
-              onVoteHandler(battle?.company2.id, battle?.company1.id)
+              onVoteHandler(battle.company1.id, battle.company2.id, false)
             }
+          />
+        )}
+      </div>
+      <div>
+        {isFighting && (
+          <ClipLoader
+            color={'red'}
+            aria-label="Loading Spinner"
+            data-testid="loader"
           />
         )}
       </div>
