@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 
-function getRandomInt(max) {
+function getRandomInt(max: number) {
   return Math.floor(Math.random() * max);
 }
 
