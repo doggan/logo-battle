@@ -1,20 +1,29 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import clientPromise from '@/utils/mongodb';
 import { ObjectId } from 'mongodb';
-// import Vote from '@/models/vote';
-// import Company from '@/models/company';
-// import mongoose from 'mongoose';
 
-export type Error = {
-  error: string;
-};
+function getBattle(req: NextApiRequest, res: NextApiResponse) {
+  // TODO:randomly get 2 companies from the DB (different ones) and return them
+  // https://stackoverflow.com/questions/2824157/how-can-i-get-a-random-record-from-mongodb
 
-type Vote = {
-  voteForCompanyId: string;
-  voteAgainstCompanyId: string;
-  // createdAt: { type: Date, default: Date.now },
-};
+  console.log('### get battle return');
+  res.status(200).json({
+    company1: {
+      id: '6484bfe2053e1512c97c1cf8',
+      name: 'Apple Inc',
+      imageName: 'apple.png',
+      symbol: 'AAPL',
+    },
+    company2: {
+      id: '6484bfe2053e1512c97c1cf9',
+      name: 'Microsoft Corp',
+      imageName: 'microsoft.png',
+      symbol: 'MSFT',
+    },
+  });
+}
 
+// TODO: cleanup
 function getId(req: NextApiRequest, paramName: string): ObjectId | null {
   const paramStr = req.body[paramName];
 
@@ -29,18 +38,7 @@ function getId(req: NextApiRequest, paramName: string): ObjectId | null {
   }
 }
 
-export default async function handler(
-  req: NextApiRequest,
-  // res: NextApiResponse<Vote | Error>,
-  // TODO: type safety??
-  res: NextApiResponse,
-) {
-  const { method } = req;
-
-  if (method !== 'POST') {
-    return res.status(422).send({ error: 'Invalid request: expected POST.' });
-  }
-
+async function postBattle(req: NextApiRequest, res: NextApiResponse) {
   const voteForCompanyId = getId(req, 'voteForCompanyId');
   if (!voteForCompanyId) {
     return res
@@ -91,4 +89,23 @@ export default async function handler(
 
   console.log('### new vote: ', newVote);
   res.status(200).json(newVote);
+}
+
+export default async function handler(
+  req: NextApiRequest,
+  // res: NextApiResponse<Vote | Error>,
+  // TODO: type safety??
+  res: NextApiResponse,
+) {
+  const { method } = req;
+
+  if (method === 'GET') {
+    return getBattle(req, res);
+  } else if (method === 'POST') {
+    return postBattle(req, res);
+  } else {
+    return res
+      .status(422)
+      .send({ error: 'Invalid request: expected GET or POST.' });
+  }
 }

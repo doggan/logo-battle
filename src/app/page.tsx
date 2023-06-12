@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { ClipLoader } from 'react-spinners';
 import { Simulate } from 'react-dom/test-utils';
 import error = Simulate.error;
+import useSWR, { useSWRConfig } from 'swr';
 
 // TODO: move to models (share with server)
 interface IBattleResponse {
@@ -14,6 +15,8 @@ interface IBattleResponse {
 
 interface ICompany {
   id: string;
+  name: string;
+  imageName: string;
 }
 
 function getRandomInt(max: number) {
@@ -72,81 +75,116 @@ async function postVote(
   // if (response.st)
 }
 
-export default function Page() {
-  const [currentBattle, setCurrentBattle] = useState<IBattleResponse | null>();
+const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
+function useGetBattle() {
+  const { data, error, isLoading } = useSWR(`/api/battle`, fetcher);
+
+  console.log('### useGetBattle');
+
+  return {
+    battle: data as IBattleResponse,
+    isLoading,
+    isError: error,
+  };
+}
+
+// function usePostVote() {
+//   const { mutate } = useSWRConfig();
+//
+//   // mutate(`/api/battle`, data, options)
+// }
+
+// const fetcher = (...args) => fetch(url, {
+//   method: 'post',
+//   headers: {
+//     "Content-Type": "application/json"
+//   },
+//   body: JSON.stringify(props.payload)
+// }).then(res => res.json())
+//
+// const { data, error} = useSWR(url, fetcher, { suspense: true });
+
+export default function Page() {
   // TODO: ideas for effect on click
   // - highlight winner in green, loser in red (flash animation)
   // - fade out  or disolve loser
   // - fade in new logos or shrink/grow animation with bounce
 
+  // const { data, error, isLoading } = useSWR('/api/user/123', fetcher);
+  // const { data, error, isLoading } = useGetBattle();
+  const { battle, isLoading, isError } = useGetBattle();
+  const { mutate } = useSWRConfig();
+  // const { mutate } = usePostVote();
+
+  if (isError) return <div>failed to load</div>;
+  if (isLoading) return <div>loading...</div>;
+
   const onVoteHandler = async (
     voteForCompanyId: string,
     voteAgainstCompanyId: string,
   ) => {
-    setCurrentBattle(null); // TODO: hack
-    postVote(voteForCompanyId, voteAgainstCompanyId);
-    const battleResponse = await getBattle();
-    setCurrentBattle(battleResponse);
-
+    // setCurrentBattle(null); // TODO: hack
+    // postVote(voteForCompanyId, voteAgainstCompanyId);
+    // const battleResponse = await getBattle();
+    // setCurrentBattle(battleResponse);
     // // - call vote api
     // // - call fetch api to get new battle
     // // - disable buttons after click... show some type of animation
+
+    await mutate(
+      `/api/battle`,
+      {
+        voteForCompanyId,
+        voteAgainstCompanyId,
+      },
+      {
+        // populateCache: false,
+      },
+      // options,
+    );
+    // myMutate(voteForCompanyId, voteAgainstCompanyId);
   };
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const battleResponse = await getBattle();
-      setCurrentBattle(battleResponse);
-    };
-
-    // TODO:
-    fetchData().catch(console.error);
-  }, []);
-
-  console.log(currentBattle);
+  console.log('#### swr res: ', battle);
 
   return (
     <main className={'w-screen flex flex-col items-center'}>
       <div
         className={'p-8 flex justify-between items-center flex-col md:flex-row'}
       >
-        {!currentBattle && (
+        {!battle && (
           <div
             className={'w-[300px] h-[300px] flex items-center justify-center'}
           >
             <ClipLoader aria-label="Loading Spinner" data-testid="loader" />
           </div>
         )}
-        {currentBattle && (
+        {battle && (
           <Logo
-            companyId={currentBattle.company1.id}
-            imageName={'/logos/test1.svg'}
+            companyId={battle.company1.id}
+            companyName={battle.company1.name}
+            imageName={`/logos/${battle.company1.imageName}`}
             onClick={() =>
-              onVoteHandler(
-                currentBattle?.company1.id,
-                currentBattle?.company2.id,
-              )
+              onVoteHandler(battle?.company1.id, battle?.company2.id)
             }
           />
         )}
         <div className={'p-5'}>vs.</div>
-        {!currentBattle && (
+        {!battle && (
           <div
             className={'w-[300px] h-[300px] flex items-center justify-center'}
           >
             <ClipLoader aria-label="Loading Spinner" data-testid="loader" />
           </div>
         )}
-        {currentBattle && (
+        {battle && (
           <Logo
-            companyId={currentBattle.company2.id}
-            imageName={'/logos/test1.svg'}
+            companyId={battle.company2.id}
+            companyName={battle.company2.name}
+            imageName={`/logos/${battle.company2.imageName}`}
             onClick={() =>
-              onVoteHandler(
-                currentBattle?.company2.id,
-                currentBattle?.company1.id,
-              )
+              onVoteHandler(battle?.company2.id, battle?.company1.id)
             }
           />
         )}
