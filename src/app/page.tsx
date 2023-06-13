@@ -16,7 +16,7 @@ interface ICompany {
   imageName: string;
 }
 
-function api<T>(url: string): Promise<T> {
+export function api<T>(url: string): Promise<T> {
   return fetch(url).then((response) => {
     if (!response.ok) {
       throw new Error(response.statusText);

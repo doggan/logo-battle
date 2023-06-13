@@ -11,7 +11,7 @@ export default function Footer() {
         <Link href="https://shy.am" target="_blank" className={'underline'}>
           Shyam Guthikonda
         </Link>{' '}
-        in 2023.
+        in 2023
       </div>
       <div className="pt-2">
         <a

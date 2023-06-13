@@ -26,8 +26,7 @@ export function Logo({
           alt={companyName}
         />
       </button>
-      <br />
-      {companyId} - {companyName}
+      <div>{companyName}</div>
     </div>
   );
 }
