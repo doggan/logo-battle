@@ -2,7 +2,8 @@ import { NextResponse } from 'next/server';
 import clientPromise from '@/utils/mongodb';
 import { Document } from 'mongodb';
 
-type Company = {
+// TODO: move to shared types
+export type Company = {
   id: string;
   name: string;
   imageName: string;
@@ -19,7 +20,7 @@ type Error = {
   error: string;
 };
 
-function toCompany(document: Document): Company {
+export function toCompany(document: Document): Company {
   return {
     id: document._id,
     name: document.name,

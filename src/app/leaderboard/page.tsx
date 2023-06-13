@@ -5,7 +5,8 @@ import { Logo } from '@/app/logo';
 export default function Page() {
   return (
     <main>
-      <div>results!</div>
+      <h1>Leaderboard</h1>
+      <div></div>
     </main>
   );
 }
