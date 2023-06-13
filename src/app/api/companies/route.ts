@@ -24,6 +24,9 @@ export async function GET(
   // - take a sort parameter (win %)
 
   // console.log('### query: ', req.url);
+
+  // const { searchParams } = new URL(request.url)
+  // const id = searchParams.get('id')
   //
   // const url = new URL(req.url);
   // const searchParams = url.searchParams;

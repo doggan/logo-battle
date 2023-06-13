@@ -4,23 +4,25 @@ import { useState } from 'react';
 import useSWR from 'swr';
 import Image from 'next/image';
 import { Company } from '@/app/api/battles/route';
+import { useRouter } from 'next/navigation';
 
 const fetcher = (url) => fetch(url).then((r) => r.json());
 
 interface ICompanyItemProps {
   rank: number;
   company: Company;
+  onClick: (companyId: string) => void;
 }
 
 export function formatPercentage(ratio: number) {
   return `${(ratio * 100).toFixed(2)}`;
 }
 
-function CompanyItem({ rank, company }: ICompanyItemProps) {
-  const { imageName, name, wins, losses } = company;
+function CompanyItem({ rank, company, onClick }: ICompanyItemProps) {
+  const { id, imageName, name, wins, losses } = company;
 
   return (
-    <div className="shadow-md relative">
+    <button className="shadow-md relative" onClick={() => onClick(id)}>
       <div
         className={'absolute top-0 left-0 bg-gray-400 rounded-tl rounded-br'}
       >
@@ -50,11 +52,11 @@ function CompanyItem({ rank, company }: ICompanyItemProps) {
           </p>
         </div>
       </div>
-    </div>
+    </button>
   );
 }
 
-function SinglePage({ index }) {
+function SinglePage({ index, onCompanyItemClick }) {
   const { data } = useSWR(`/api/companies?page=${index}`, fetcher);
 
   if (!data || data.companies.length === 0) {
@@ -62,16 +64,29 @@ function SinglePage({ index }) {
   }
 
   return data.companies.map((item, i) => (
-    <CompanyItem key={item.name} rank={i + 1} company={item} />
+    <CompanyItem
+      key={item.name}
+      rank={i + 1}
+      company={item}
+      onClick={onCompanyItemClick}
+    />
   ));
 }
 
 export default function Page() {
   const [cnt, setCnt] = useState(1);
 
+  const router = useRouter();
+
+  const companyClickHandler = (companyId: string) => {
+    router.push(`/companies/${companyId}`);
+  };
+
   const pages = [];
   for (let i = 0; i < cnt; i++) {
-    pages.push(<SinglePage index={i} key={i} />);
+    pages.push(
+      <SinglePage index={i} key={i} onCompanyItemClick={companyClickHandler} />,
+    );
   }
 
   return (
