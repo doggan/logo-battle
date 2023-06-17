@@ -3,14 +3,14 @@
 import { useState } from 'react';
 import useSWR from 'swr';
 import { useRouter } from 'next/navigation';
-import { CompaniesResponseData, CompanySortBy } from '@/utils/requests';
+import { GetCompaniesResponse, CompanySortBy } from '@/utils/requests';
 import { urlToCompanyItemPage } from '@/utils/routes';
 import { CompanyItem } from '@/components/company-item';
 
 const fetcher = (url) => fetch(url).then((r) => r.json());
 
 function SinglePage({ index, onCompanyItemClick }) {
-  const { data } = useSWR<CompaniesResponseData>(
+  const { data } = useSWR<GetCompaniesResponse>(
     `/api/companies?${new URLSearchParams({
       sortBy: CompanySortBy.WinPercentageDesc,
     })}`,

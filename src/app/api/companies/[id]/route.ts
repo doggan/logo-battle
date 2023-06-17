@@ -1,15 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import clientPromise from '@/utils/mongodb';
 import { ObjectId } from 'mongodb';
-import { Company, toCompany } from '@/utils/models';
-
-type ResponseData = {
-  company: Company;
-};
-
-type Error = {
-  error: string;
-};
+import { toCompany } from '@/utils/models';
+import { GetCompanyResponse, ErrorResponse } from '@/utils/requests';
 
 // TODO: should ideally return a Company | null... not a promise. Then we can make
 // easier to use service functions
@@ -41,7 +34,7 @@ async function getCompany(companyId: string) {
 export function GET(
   req: NextRequest,
   context: { params },
-): Promise<NextResponse<ResponseData | Error>> {
+): Promise<NextResponse<GetCompanyResponse | ErrorResponse>> {
   // TODO: error handling
   // - exists, is valid object id, etc
 

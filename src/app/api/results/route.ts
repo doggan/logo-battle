@@ -4,13 +4,9 @@ import { z } from 'zod';
 import clientPromise from '@/utils/mongodb';
 import { toResult } from '@/utils/models';
 import { clamp } from '@/utils/math';
-import { ResultsResponseData } from '@/utils/requests';
+import { ErrorResponse, GetResultsResponse } from '@/utils/requests';
 
 type PostResponseData = Record<string, never>;
-
-type Error = {
-  error: string;
-};
 
 function getBodySchema() {
   return z.object({
@@ -22,7 +18,7 @@ function getBodySchema() {
 
 export async function POST(
   req: Request,
-): Promise<NextResponse<PostResponseData | Error>> {
+): Promise<NextResponse<PostResponseData | ErrorResponse>> {
   const result = getBodySchema().safeParse(await req.json());
   if (!result.success) {
     const { path, message } = result.error.issues[0];
@@ -97,7 +93,7 @@ const MAX_LIMIT = 20;
 
 export async function GET(
   req: NextRequest,
-): Promise<NextResponse<ResultsResponseData | Error>> {
+): Promise<NextResponse<GetResultsResponse | ErrorResponse>> {
   // TODO:
   // - paginate (limit, offset)... if we sort in code, we need to handle this.
   //    if we want to do it on the db layer, we'll need to store win % in the document.

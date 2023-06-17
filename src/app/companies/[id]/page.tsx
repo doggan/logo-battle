@@ -5,13 +5,8 @@ import { Company, Result } from '@/utils/models';
 import { CompanyItem } from '@/components/company-item';
 import { PageNavigator } from '@/components/page-navigator';
 import { SinglePage } from '@/app/recent/page';
-import {
-  CompaniesResponseData,
-  CompanySortBy,
-  ResultsResponseData,
-} from '@/utils/requests';
+import { GetResultsResponse } from '@/utils/requests';
 import { useState } from 'react';
-import { urlToCompanyItemPage } from '@/utils/routes';
 
 const MAX_RESULTS = 500;
 const PAGE_SIZE = 4;
@@ -23,7 +18,7 @@ export default function Page({ params }: { params: { id: string } }) {
 
   const { data } = useSWR(`/api/companies/${companyId}`, fetcher);
 
-  const { data: resultsData } = useSWR<ResultsResponseData>(
+  const { data: resultsData } = useSWR<GetResultsResponse>(
     `/api/results?${new URLSearchParams({
       companyId: companyId,
     })}`,

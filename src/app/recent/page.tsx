@@ -6,7 +6,7 @@ import useSWR from 'swr';
 import { useRouter } from 'next/navigation';
 import { Company, Result } from '@/utils/models';
 import Image from 'next/image';
-import { CompaniesResponseData } from '@/utils/requests';
+import { GetCompaniesResponse } from '@/utils/requests';
 import { urlToCompanyItemPage } from '@/utils/routes';
 import { PageNavigator } from '@/components/page-navigator';
 
@@ -64,7 +64,7 @@ export function SinglePage({ results, onCompanyItemClick }: ISinglePageProps) {
     new Set<string>(),
   );
 
-  const { data } = useSWR<CompaniesResponseData>(
+  const { data } = useSWR<GetCompaniesResponse>(
     `/api/companies?${new URLSearchParams({
       ids: Array.from(companyIds).join(','),
     })}`,

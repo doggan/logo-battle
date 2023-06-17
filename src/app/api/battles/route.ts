@@ -1,19 +1,11 @@
 import { NextResponse } from 'next/server';
 import clientPromise from '@/utils/mongodb';
-import { Company, toCompany } from '@/utils/models';
-
-type ResponseData = {
-  company1: Company;
-  company2: Company;
-};
-
-type Error = {
-  error: string;
-};
+import { toCompany } from '@/utils/models';
+import { ErrorResponse, GetBattleResponse } from '@/utils/requests';
 
 export async function GET(
   _req: Request,
-): Promise<NextResponse<ResponseData | Error>> {
+): Promise<NextResponse<GetBattleResponse | ErrorResponse>> {
   // TODO: clean this up; how to predefine the available collections and db?
   // Ref: https://www.mongodb.com/compatibility/using-typescript-with-mongodb-tutorial
   const client = await clientPromise;

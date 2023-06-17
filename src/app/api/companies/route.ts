@@ -2,15 +2,15 @@ import { NextRequest, NextResponse } from 'next/server';
 import clientPromise from '@/utils/mongodb';
 import { Company, toCompany } from '@/utils/models';
 import { ObjectId } from 'mongodb';
-import { CompaniesResponseData, CompanySortBy } from '@/utils/requests';
-
-type Error = {
-  error: string;
-};
+import {
+  GetCompaniesResponse,
+  CompanySortBy,
+  ErrorResponse,
+} from '@/utils/requests';
 
 export async function GET(
   req: NextRequest,
-): Promise<NextResponse<CompaniesResponseData | Error>> {
+): Promise<NextResponse<GetCompaniesResponse | ErrorResponse>> {
   // TODO:
   // - paginate (limit, offset)... if we sort in code, we need to handle this.
   //    if we want to do it on the db layer, we'll need to store win % in the document.
