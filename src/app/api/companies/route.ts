@@ -1,36 +1,21 @@
 import { NextRequest, NextResponse } from 'next/server';
 import clientPromise from '@/utils/mongodb';
-import { Company, toCompany } from '@/app/api/battles/route';
-import { NextApiRequest } from 'next';
-import { Request } from 'next/dist/compiled/@edge-runtime/primitives/fetch';
-
-type ResponseData = {
-  companies: Company[];
-};
+import { Company, toCompany } from '@/utils/models';
+import { ObjectId } from 'mongodb';
+import { CompaniesResponseData, CompanySortBy } from '@/utils/requests';
 
 type Error = {
   error: string;
 };
 
-const clamp = (num: number, min: number, max: number) =>
-  Math.min(Math.max(num, min), max);
-
 export async function GET(
   req: NextRequest,
-): Promise<NextResponse<ResponseData | Error>> {
+): Promise<NextResponse<CompaniesResponseData | Error>> {
   // TODO:
   // - paginate (limit, offset)... if we sort in code, we need to handle this.
   //    if we want to do it on the db layer, we'll need to store win % in the document.
   // - take a sort parameter (win %)
 
-  // console.log('### query: ', req.url);
-
-  // const { searchParams } = new URL(request.url)
-  // const id = searchParams.get('id')
-  //
-  // const url = new URL(req.url);
-  // const searchParams = url.searchParams;
-  //
   // const limit = searchParams.has('limit')
   //   ? clamp(searchParams.get('limit'), 1, 20)
   //   : 20;
@@ -38,40 +23,78 @@ export async function GET(
   // console.log(searchParams.has('limit'));
   // console.log(searchParams.get('limit'));
 
+  const { searchParams } = new URL(req.url);
+
+  let companyIds: string[] = [];
+  if (searchParams.has('ids')) {
+    const companyIdsParam = searchParams.get('ids');
+    if (companyIdsParam) {
+      companyIds = companyIdsParam.split(',');
+    }
+  }
+
+  let sortBy: CompanySortBy | undefined;
+  if (searchParams.has('sortBy')) {
+    const sortByParam = searchParams.get('sortBy');
+    if (sortByParam) {
+      sortBy = (<any>CompanySortBy)[sortByParam];
+      if (!sortBy) {
+        return NextResponse.json(
+          {
+            error: 'Invalid sortBy parameter.',
+          },
+          { status: 400 },
+        );
+      }
+    }
+  }
+
   // TODO: clean this up; how to predefine the available collections and db?
   // Ref: https://www.mongodb.com/compatibility/using-typescript-with-mongodb-tutorial
   const client = await clientPromise;
   const db = client.db();
 
-  const companies = db.collection('companies');
-  const cursor = companies.find();
+  const companiesCollection = db.collection('companies');
+
+  let filter = {};
+  if (companyIds.length > 0) {
+    filter = {
+      _id: {
+        $in: companyIds.map((v) => new ObjectId(v)),
+      },
+    };
+  }
+
+  const cursor = companiesCollection.find(filter);
   const companyDocuments = await cursor.toArray();
 
-  const allCompanies = companyDocuments.map((d) => toCompany(d));
+  const companies = companyDocuments.map((d) => toCompany(d));
 
-  allCompanies.sort((x, y) => {
-    const xTotalBattles = x.wins + x.losses;
-    const yTotalBattles = y.wins + y.losses;
+  if (sortBy === CompanySortBy.WinPercentageDesc) {
+    companies.sort((x, y) => {
+      const xTotalBattles = x.wins + x.losses;
+      const yTotalBattles = y.wins + y.losses;
 
-    if (xTotalBattles === 0 && yTotalBattles === 0) {
-      return 0;
-    }
-    if (xTotalBattles === 0) {
-      return -1;
-    }
-    if (yTotalBattles === 0) {
-      return 1;
-    }
+      if (xTotalBattles === 0 && yTotalBattles === 0) {
+        return 0;
+      }
+      if (xTotalBattles === 0) {
+        return -1;
+      }
+      if (yTotalBattles === 0) {
+        return 1;
+      }
 
-    const xWinPercentage = x.wins / xTotalBattles;
-    const yWinPercentage = y.wins / yTotalBattles;
+      const xWinPercentage = x.wins / xTotalBattles;
+      const yWinPercentage = y.wins / yTotalBattles;
 
-    return xWinPercentage > yWinPercentage ? -1 : 1;
-  });
+      return xWinPercentage > yWinPercentage ? -1 : 1;
+    });
+  }
 
   return NextResponse.json(
     {
-      companies: allCompanies,
+      companies: companies,
     },
     { status: 200 },
   );

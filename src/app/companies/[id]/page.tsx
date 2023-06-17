@@ -1,8 +1,20 @@
 'use client';
 
 import useSWR from 'swr';
-import Image from 'next/image';
-import { Company } from '@/app/api/battles/route';
+import { Company, Result } from '@/utils/models';
+import { CompanyItem } from '@/components/company-item';
+import { PageNavigator } from '@/components/page-navigator';
+import { SinglePage } from '@/app/recent/page';
+import {
+  CompaniesResponseData,
+  CompanySortBy,
+  ResultsResponseData,
+} from '@/utils/requests';
+import { useState } from 'react';
+import { urlToCompanyItemPage } from '@/utils/routes';
+
+const MAX_RESULTS = 500;
+const PAGE_SIZE = 4;
 
 const fetcher = (url) => fetch(url).then((r) => r.json());
 
@@ -11,23 +23,60 @@ export default function Page({ params }: { params: { id: string } }) {
 
   const { data } = useSWR(`/api/companies/${companyId}`, fetcher);
 
-  if (!data) {
+  const { data: resultsData } = useSWR<ResultsResponseData>(
+    `/api/results?${new URLSearchParams({
+      companyId: companyId,
+    })}`,
+    fetcher,
+  );
+
+  const [pageIndex, setPageIndex] = useState(0);
+  const [allResults, setAllResults] = useState<Result[]>([]);
+
+  if (!data || !resultsData) {
     return 'loading...';
   }
 
   const company: Company = data.company;
 
-  console.log(company);
+  const pageChangedHandler = (pageIndex: number) => {
+    console.log('### pageIndex changed: ', pageIndex);
+    // setPageIndex(pageIndex);
+  };
+
+  // TODO: get rank for the company
+
+  const companyClickHandler = (companyId: string) => {
+    console.log('## lcick: ', companyId);
+    // router.push(urlToCompanyItemPage({ companyId }));
+  };
 
   return (
-    <div>
-      <Image
-        className="w-full"
-        src={`/logos/${company.imageName}`}
-        width={100}
-        height={100}
-        alt={company.name}
-      />
-    </div>
+    <main>
+      <div className={'w-1/2 m-auto flex flex-col items-center'}>
+        <div className={'pt-4 pb-4'}>
+          <CompanyItem key={company.id} rank={0} company={company} />
+        </div>
+      </div>
+      <div
+        className={
+          'bg-blue-400 w-1/2 m-auto rounded-xl flex flex-col items-center'
+        }
+      >
+        <div>Battle History</div>
+        <PageNavigator pageCount={5} onPageChanged={pageChangedHandler} />
+        <div className={'flex flex-col gap-4 pt-4 pb-4'}>
+          <SinglePage
+            results={resultsData.results.slice(
+              PAGE_SIZE * pageIndex,
+              PAGE_SIZE * (pageIndex + 1),
+            )}
+            onCompanyItemClick={companyClickHandler}
+          />
+          {/*<button onClick={() => setPageIndex(pageIndex - 1)}>Previous</button>*/}
+          {/*<button onClick={() => setPageIndex(pageIndex + 1)}>Next</button>*/}
+        </div>
+      </div>
+    </main>
   );
 }

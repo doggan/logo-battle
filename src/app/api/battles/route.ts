@@ -1,15 +1,6 @@
 import { NextResponse } from 'next/server';
 import clientPromise from '@/utils/mongodb';
-import { Document } from 'mongodb';
-
-// TODO: move to shared types
-export type Company = {
-  id: string;
-  name: string;
-  imageName: string;
-  wins: number;
-  losses: number;
-};
+import { Company, toCompany } from '@/utils/models';
 
 type ResponseData = {
   company1: Company;
@@ -19,16 +10,6 @@ type ResponseData = {
 type Error = {
   error: string;
 };
-
-export function toCompany(document: Document): Company {
-  return {
-    id: document._id,
-    name: document.name,
-    imageName: document.imageName,
-    wins: document.wins,
-    losses: document.losses,
-  };
-}
 
 export async function GET(
   _req: Request,

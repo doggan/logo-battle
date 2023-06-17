@@ -2,62 +2,20 @@
 
 import { useState } from 'react';
 import useSWR from 'swr';
-import Image from 'next/image';
-import { Company } from '@/app/api/battles/route';
 import { useRouter } from 'next/navigation';
+import { CompaniesResponseData, CompanySortBy } from '@/utils/requests';
+import { urlToCompanyItemPage } from '@/utils/routes';
+import { CompanyItem } from '@/components/company-item';
 
 const fetcher = (url) => fetch(url).then((r) => r.json());
 
-interface ICompanyItemProps {
-  rank: number;
-  company: Company;
-  onClick: (companyId: string) => void;
-}
-
-export function formatPercentage(ratio: number) {
-  return `${(ratio * 100).toFixed(2)}`;
-}
-
-function CompanyItem({ rank, company, onClick }: ICompanyItemProps) {
-  const { id, imageName, name, wins, losses } = company;
-
-  return (
-    <button className="shadow-md relative" onClick={() => onClick(id)}>
-      <div
-        className={'absolute top-0 left-0 bg-gray-400 rounded-tl rounded-br'}
-      >
-        <span className={'p-1 text-white font-bold'}>{rank}</span>
-      </div>
-      <div className="p-4 flex flex-row">
-        <div className={'flex items-center'}>
-          <Image
-            className="w-full"
-            src={`/logos/${imageName}`}
-            width={100}
-            height={100}
-            alt={name}
-          />
-        </div>
-        <div className="pl-4">
-          <div className="text-gray-900 font-bold text-xl mb-2">{name}</div>
-          <p className="text-gray-700 text-base">
-            Win Rate:{' '}
-            <span className={'font-bold'}>
-              {formatPercentage(wins / (wins + losses))}%
-            </span>
-            <br />
-            Wins: <span className={'text-green-500 font-bold'}>{wins}</span>
-            <br />
-            Losses: <span className={'text-red-500 font-bold'}>{losses}</span>
-          </p>
-        </div>
-      </div>
-    </button>
-  );
-}
-
 function SinglePage({ index, onCompanyItemClick }) {
-  const { data } = useSWR(`/api/companies?page=${index}`, fetcher);
+  const { data } = useSWR<CompaniesResponseData>(
+    `/api/companies?${new URLSearchParams({
+      sortBy: CompanySortBy.WinPercentageDesc,
+    })}`,
+    fetcher,
+  );
 
   if (!data || data.companies.length === 0) {
     return null;
@@ -79,7 +37,7 @@ export default function Page() {
   const router = useRouter();
 
   const companyClickHandler = (companyId: string) => {
-    router.push(`/companies/${companyId}`);
+    router.push(urlToCompanyItemPage({ companyId }));
   };
 
   const pages = [];
@@ -90,7 +48,11 @@ export default function Page() {
   }
 
   return (
-    <main className={'flex flex-col items-center'}>
+    <main
+      className={
+        'bg-blue-400 w-1/2 m-auto rounded-xl flex flex-col items-center'
+      }
+    >
       <div>Leaderboard</div>
       <div className={'flex flex-col gap-4'}>
         {pages}

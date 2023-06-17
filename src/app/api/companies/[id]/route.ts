@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { Company, toCompany } from '@/app/api/battles/route';
 import clientPromise from '@/utils/mongodb';
 import { ObjectId } from 'mongodb';
+import { Company, toCompany } from '@/utils/models';
 
 type ResponseData = {
   company: Company;
@@ -11,14 +11,9 @@ type Error = {
   error: string;
 };
 
-export async function GET(
-  req: NextRequest,
-  context: { params },
-): Promise<NextResponse<ResponseData | Error>> {
-  // TODO: error handling
-  // - exists, is valid object id, etc.
-  const companyId = context.params.id;
-
+// TODO: should ideally return a Company | null... not a promise. Then we can make
+// easier to use service functions
+async function getCompany(companyId: string) {
   // TODO: clean this up; how to predefine the available collections and db?
   // Ref: https://www.mongodb.com/compatibility/using-typescript-with-mongodb-tutorial
   const client = await clientPromise;
@@ -41,4 +36,15 @@ export async function GET(
     },
     { status: 200 },
   );
+}
+
+export function GET(
+  req: NextRequest,
+  context: { params },
+): Promise<NextResponse<ResponseData | Error>> {
+  // TODO: error handling
+  // - exists, is valid object id, etc
+
+  const companyId = context.params.id;
+  return getCompany(companyId);
 }
