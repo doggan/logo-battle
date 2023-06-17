@@ -9,8 +9,7 @@ import Image from 'next/image';
 import { GetCompaniesResponse } from '@/utils/requests';
 import { urlToCompanyItemPage } from '@/utils/routes';
 import { PageNavigator } from '@/components/page-navigator';
-
-const fetcher = (url) => fetch(url).then((r) => r.json());
+import { fetcher } from '@/utils/fetcher';
 
 const MAX_RESULTS = 500;
 const PAGE_SIZE = 4;

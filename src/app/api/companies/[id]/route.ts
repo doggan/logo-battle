@@ -33,7 +33,7 @@ async function getCompany(companyId: string) {
 
 export function GET(
   req: NextRequest,
-  context: { params },
+  context: { params: { id: string } },
 ): Promise<NextResponse<GetCompanyResponse | ErrorResponse>> {
   // TODO: error handling
   // - exists, is valid object id, etc

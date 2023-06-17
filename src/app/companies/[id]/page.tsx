@@ -7,14 +7,17 @@ import { PageNavigator } from '@/components/page-navigator';
 import { SinglePage } from '@/app/recent/page';
 import { GetResultsResponse } from '@/utils/requests';
 import { useState } from 'react';
+import { fetcher } from '@/utils/fetcher';
+import { urlToCompanyItemPage } from '@/utils/routes';
+import { useRouter } from 'next/navigation';
 
 const MAX_RESULTS = 500;
 const PAGE_SIZE = 4;
 
-const fetcher = (url) => fetch(url).then((r) => r.json());
-
 export default function Page({ params }: { params: { id: string } }) {
   const companyId = params.id;
+
+  const router = useRouter();
 
   const { data } = useSWR(`/api/companies/${companyId}`, fetcher);
 
@@ -43,7 +46,7 @@ export default function Page({ params }: { params: { id: string } }) {
 
   const companyClickHandler = (companyId: string) => {
     console.log('## lcick: ', companyId);
-    // router.push(urlToCompanyItemPage({ companyId }));
+    router.push(urlToCompanyItemPage({ companyId }));
   };
 
   return (

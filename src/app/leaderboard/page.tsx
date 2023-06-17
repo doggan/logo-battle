@@ -6,8 +6,7 @@ import { useRouter } from 'next/navigation';
 import { GetCompaniesResponse, CompanySortBy } from '@/utils/requests';
 import { urlToCompanyItemPage } from '@/utils/routes';
 import { CompanyItem } from '@/components/company-item';
-
-const fetcher = (url) => fetch(url).then((r) => r.json());
+import { fetcher } from '@/utils/fetcher';
 
 function SinglePage({ index, onCompanyItemClick }) {
   const { data } = useSWR<GetCompaniesResponse>(
