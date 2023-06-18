@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { Company } from '@/utils/models';
 import { ClipLoader } from 'react-spinners';
 import { useEffect, useState } from 'react';
+import { clsx } from 'clsx';
 
 function Spinner() {
   return (
@@ -18,15 +19,27 @@ interface ILogoProps {
 }
 
 function Logo({ company, onClick, isWinner }: ILogoProps) {
+  const boxBorderClassname = 'w-64 h-64 sm:w-80 sm:h-80 shadow-md p-4';
+
   if (!company) {
-    return <Spinner />;
+    return (
+      <div className={boxBorderClassname}>
+        <Spinner />
+      </div>
+    );
   }
 
+  const showWinner = isWinner !== undefined && isWinner;
   const showLoser = isWinner !== undefined && !isWinner;
 
   return (
     <div>
-      <div className={'w-64 h-64 sm:w-80 sm:h-80 shadow-md p-4'}>
+      <div
+        className={clsx({
+          [boxBorderClassname]: true,
+          'winner-selected': showWinner,
+        })}
+      >
         <button className={'relative w-full h-full'} onClick={onClick}>
           <Image
             className="w-full"
@@ -35,18 +48,17 @@ function Logo({ company, onClick, isWinner }: ILogoProps) {
             height={200}
             alt={company.name}
           />
-          {showLoser && (
+          {(showWinner || showLoser) && (
             <Image
               className={'w-full top-0 left-0 absolute opacity-80'}
-              src={'/x2.png'}
+              src={showWinner ? '/o.png' : '/x.png'}
               width={200}
               height={200}
-              alt={'X'}
+              alt={showWinner ? 'O' : 'X'}
             />
           )}
         </button>
       </div>
-      <div className={'pt-2 text-center'}>{company.name}</div>
     </div>
   );
 }
@@ -115,7 +127,7 @@ interface ICompanyBattleProps {
  * finish before this time, the next battle won't be shown until this time has
  * elapsed.
  */
-const MIN_BATTLE_TIME_MS = 2000;
+const MIN_BATTLE_TIME_MS = 1000;
 
 export function CompanyBattle({
   company1,
@@ -127,20 +139,6 @@ export function CompanyBattle({
     [Company, Company] | null
   >(null);
   const [startTime, setStartTime] = useState<number | null>(null);
-
-  // TODO: ideas for effect on click
-  // - highlight winner in green, loser in red (flash animation)
-  // - fade out  or disolve loser
-  // - fade in new logos or shrink/grow animation with bounce
-  // - show winner in a crown
-  // - show loser in a trash can
-  // - show winner in a crown and loser in a trash can
-  // - show winner in a crown and loser in a trash can and fade out loser
-  // - show winner in a crown and loser in a trash can and fade out loser and fade in new logos
-  // - show winner in a crown and loser in a trash can and fade out loser and fade in new logos and shrink/grow animation with bounce
-  // - show winner in a crown and loser in a trash can and fade out loser and fade in new logos and shrink/grow animation with bounce and flash animation
-  // - show winner in a crown and loser in a trash can and fade out loser and fade in new logos and shrink/grow animation with bounce and flash animation and fade in new logos
-  // - show winner in a crown and loser in a trash can and fade out loser and fade in new logos and shrink/grow animation with bounce and flash animation and fade in new logos and fade out loser
 
   useEffect(() => {
     if (!company1 || !company2) {
@@ -165,7 +163,7 @@ export function CompanyBattle({
     if (!activeCompanies || timeDiff > MIN_BATTLE_TIME_MS) {
       doWork();
     } else {
-      const timer = setTimeout(() => doWork(), 5000 - timeDiff);
+      const timer = setTimeout(() => doWork(), MIN_BATTLE_TIME_MS - timeDiff);
       return () => clearTimeout(timer);
     }
   }, [activeCompanies, startTime, company1, company2]);

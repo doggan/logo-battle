@@ -45,7 +45,6 @@ export default function Page({ params }: { params: { id: string } }) {
   // TODO: get rank for the company
 
   const companyClickHandler = (companyId: string) => {
-    console.log('## lcick: ', companyId);
     router.push(urlToCompanyItemPage({ companyId }));
   };
 

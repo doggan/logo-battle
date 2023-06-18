@@ -9,6 +9,8 @@ export default function Page() {
   const [battle, setBattle] = useState<GetBattleResponse | null>();
 
   const getNewBattle = () => {
+    // TODO: this will be called twice in dev mode with react strict mode. Try changing
+    // to useSWR so the call is cached.
     api<GetBattleResponse>('api/battles').then((battleResponse) => {
       setBattle(battleResponse);
     });
