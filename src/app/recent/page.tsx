@@ -1,121 +1,17 @@
 'use client';
 // TODO: could this be a server component?? ^^ no need for state or use effect?
 
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import useSWR from 'swr';
 import { useRouter } from 'next/navigation';
-import { Company, Result } from '@/utils/models';
-import Image from 'next/image';
-import { GetCompaniesResponse } from '@/utils/requests';
+import { Result } from '@/utils/models';
 import { urlToCompanyItemPage } from '@/utils/routes';
 import { PageNavigator } from '@/components/page-navigator';
 import { fetcher } from '@/utils/fetcher';
+import { SinglePage } from '@/components/single-page';
 
 const MAX_RESULTS = 500;
 const PAGE_SIZE = 4;
-
-interface IBattleResult {
-  company: Company;
-  onClickCompany: (companyId: string) => void;
-  isWinner: boolean;
-}
-
-function BattleResult({ company, onClickCompany, isWinner }: IBattleResult) {
-  return (
-    <button
-      className={'relative w-28 h-24'}
-      onClick={() => onClickCompany(company.id)}
-    >
-      <Image
-        className="w-full"
-        src={`/logos/${company.imageName}`}
-        width={100}
-        height={100}
-        alt={company.name}
-      />
-      {!isWinner && (
-        <Image
-          className={'w-full top-0 left-0 absolute opacity-80'}
-          src={'/x.png'}
-          width={64}
-          height={64}
-          alt={'X'}
-        />
-      )}
-    </button>
-  );
-}
-
-interface ISinglePageProps {
-  results: Result[];
-  onCompanyItemClick: (companyId: string) => void;
-}
-
-// TODO: move somewhere else and share logic
-export function SinglePage({ results, onCompanyItemClick }: ISinglePageProps) {
-  const companyIds = results.reduce(
-    (accumulator: Set<string>, currentValue) => {
-      accumulator.add(currentValue.companyId1);
-      accumulator.add(currentValue.companyId2);
-      return accumulator;
-    },
-    new Set<string>(),
-  );
-
-  const { data } = useSWR<GetCompaniesResponse>(
-    `/api/companies?${new URLSearchParams({
-      ids: Array.from(companyIds).join(','),
-    })}`,
-    fetcher,
-  );
-
-  const companiesMap = useMemo(() => {
-    if (!data) {
-      return null;
-    }
-
-    const map = new Map<string, Company>();
-    data.companies.forEach((c) => {
-      map.set(c.id, c);
-    });
-    return map;
-  }, [data]);
-
-  if (!data || !companiesMap) {
-    return null;
-  }
-
-  const renderedResults = results.map((r) => {
-    return (
-      <div key={r.id}>
-        <div
-          className={
-            'flex flex-row items-center shadow-md p-4 bg-white rounded'
-          }
-        >
-          <BattleResult
-            company={companiesMap.get(r.companyId1) as Company}
-            onClickCompany={onCompanyItemClick}
-            isWinner={r.didVoteForCompany1}
-          />
-          <div className={'p-4'}>vs.</div>
-          <BattleResult
-            company={companiesMap.get(r.companyId2) as Company}
-            onClickCompany={onCompanyItemClick}
-            isWinner={!r.didVoteForCompany1}
-          />
-        </div>
-      </div>
-    );
-  });
-
-  const companies = data.companies;
-
-  console.log('final companies: ', companies);
-  // TODO: instead of rendering the companies, we need to render the battle (2 companies per result).
-
-  return <>{renderedResults}</>;
-}
 
 export default function Page() {
   const [pageIndex, setPageIndex] = useState(0);

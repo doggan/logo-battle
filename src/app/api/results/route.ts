@@ -1,4 +1,4 @@
-import { ObjectId } from 'mongodb';
+import { ObjectId, SortDirection } from 'mongodb';
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 import clientPromise from '@/utils/mongodb';
@@ -134,7 +134,7 @@ export async function GET(
   }
 
   // Sorting from recent -> oldest.
-  const sort = { createdAt: -1 };
+  const sort = { createdAt: -1 as SortDirection };
 
   const cursor = resultsCollection.find(filter).sort(sort).limit(limit);
   const resultsDocuments = await cursor.toArray();

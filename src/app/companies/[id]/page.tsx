@@ -4,12 +4,12 @@ import useSWR from 'swr';
 import { Company } from '@/utils/models';
 import { CompanyItem } from '@/components/company-item';
 import { PageNavigator } from '@/components/page-navigator';
-import { SinglePage } from '@/app/recent/page';
 import { GetResultsResponse } from '@/utils/requests';
 import { useState } from 'react';
 import { fetcher } from '@/utils/fetcher';
 import { urlToCompanyItemPage } from '@/utils/routes';
 import { useRouter } from 'next/navigation';
+import { SinglePage } from '@/components/single-page';
 
 const MAX_RESULTS = 500;
 const PAGE_SIZE = 4;
