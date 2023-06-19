@@ -19,7 +19,7 @@ interface ILogoProps {
 }
 
 function Logo({ company, onClick, isWinner }: ILogoProps) {
-  const boxBorderClassname = 'w-64 h-64 sm:w-80 sm:h-80 shadow-md p-4';
+  const boxBorderClassname = 'w-64 h-64 md:w-80 md:h-80 shadow-md p-4';
 
   if (!company) {
     return (
