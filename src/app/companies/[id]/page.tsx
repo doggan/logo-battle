@@ -1,7 +1,7 @@
 'use client';
 
 import useSWR from 'swr';
-import { Company, Result } from '@/utils/models';
+import { Company } from '@/utils/models';
 import { CompanyItem } from '@/components/company-item';
 import { PageNavigator } from '@/components/page-navigator';
 import { SinglePage } from '@/app/recent/page';
@@ -24,12 +24,13 @@ export default function Page({ params }: { params: { id: string } }) {
   const { data: resultsData } = useSWR<GetResultsResponse>(
     `/api/results?${new URLSearchParams({
       companyId: companyId,
+      limit: MAX_RESULTS.toString(),
     })}`,
     fetcher,
   );
 
   const [pageIndex, setPageIndex] = useState(0);
-  const [allResults, setAllResults] = useState<Result[]>([]);
+  // const [allResults, setAllResults] = useState<Result[]>([]);
 
   if (!data || !resultsData) {
     return 'loading...';
@@ -39,7 +40,7 @@ export default function Page({ params }: { params: { id: string } }) {
 
   const pageChangedHandler = (pageIndex: number) => {
     console.log('### pageIndex changed: ', pageIndex);
-    // setPageIndex(pageIndex);
+    setPageIndex(pageIndex);
   };
 
   // TODO: get rank for the company

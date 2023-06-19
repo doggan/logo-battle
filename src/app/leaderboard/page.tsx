@@ -8,7 +8,12 @@ import { urlToCompanyItemPage } from '@/utils/routes';
 import { CompanyItem } from '@/components/company-item';
 import { fetcher } from '@/utils/fetcher';
 
-function SinglePage({ index, onCompanyItemClick }) {
+interface ISinglePageProps {
+  index: number;
+  onCompanyItemClick: (companyId: string) => void;
+}
+
+function SinglePage({ index: _index, onCompanyItemClick }: ISinglePageProps) {
   const { data } = useSWR<GetCompaniesResponse>(
     `/api/companies?${new URLSearchParams({
       sortBy: CompanySortBy.WinPercentageDesc,
@@ -20,14 +25,18 @@ function SinglePage({ index, onCompanyItemClick }) {
     return null;
   }
 
-  return data.companies.map((item, i) => (
-    <CompanyItem
-      key={item.name}
-      rank={i + 1}
-      company={item}
-      onClick={onCompanyItemClick}
-    />
-  ));
+  return (
+    <>
+      {data.companies.map((item, i) => (
+        <CompanyItem
+          key={item.name}
+          rank={i + 1}
+          company={item}
+          onClick={onCompanyItemClick}
+        />
+      ))}
+    </>
+  );
 }
 
 export default function Page() {

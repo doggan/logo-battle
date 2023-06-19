@@ -1,11 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
 import clientPromise from '@/utils/mongodb';
-import { Company, toCompany } from '@/utils/models';
+import { toCompany } from '@/utils/models';
 import { ObjectId } from 'mongodb';
 import {
-  GetCompaniesResponse,
   CompanySortBy,
   ErrorResponse,
+  GetCompaniesResponse,
 } from '@/utils/requests';
 
 export async function GET(

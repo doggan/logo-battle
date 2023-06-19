@@ -2,10 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import logoImage from '@/public/logo.png';
 import { useState } from 'react';
-import fnv1a from 'next/dist/shared/lib/fnv1a';
-import { func } from 'ts-interface-checker';
 
 interface INavLinkProps {
   href: string;
