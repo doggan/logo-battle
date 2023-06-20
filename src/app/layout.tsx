@@ -13,7 +13,10 @@ const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: `Logo Battle`,
-  description: `....`,
+  description: `Which S&P 500 company has the best logo?`,
+  icons: {
+    icon: '/icon.png',
+  },
 };
 
 export default function RootLayout({
