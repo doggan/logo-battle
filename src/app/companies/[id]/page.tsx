@@ -10,6 +10,7 @@ import { fetcher } from '@/utils/fetcher';
 import { urlToCompanyItemPage } from '@/utils/routes';
 import { useRouter } from 'next/navigation';
 import { SinglePage } from '@/components/single-page';
+import { Spinner } from '@/components/spinner';
 
 const MAX_RESULTS = 500;
 const PAGE_SIZE = 4;
@@ -33,7 +34,7 @@ export default function Page({ params }: { params: { id: string } }) {
   // const [allResults, setAllResults] = useState<Result[]>([]);
 
   if (!data || !resultsData) {
-    return 'loading...';
+    return <Spinner />;
   }
 
   const company: Company = data.company;

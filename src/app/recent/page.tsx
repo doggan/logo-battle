@@ -38,18 +38,15 @@ export default function Page() {
   }
 
   const companyClickHandler = (companyId: string) => {
-    console.log('## lcick: ', companyId);
     router.push(urlToCompanyItemPage({ companyId }));
   };
 
   const pageChangedHandler = (pageIndex: number) => {
-    console.log('### pageIndex changed: ', pageIndex);
     setPageIndex(pageIndex);
   };
 
   const pageCount = Math.ceil(data.results.length / PAGE_SIZE);
 
-  console.log('## all results: ', allResults);
   if (allResults.length === 0) {
     return null;
   }
@@ -57,10 +54,10 @@ export default function Page() {
   return (
     <main
       className={
-        'bg-blue-400 w-1/2 m-auto rounded-xl flex flex-col items-center'
+        'my-6 flex flex-col items-center md:shadow md:w-1/2 md:m-auto md:rounded md:py-2'
       }
     >
-      <div>Recent Battles</div>
+      <div className={'text-xl py-1'}>Recent Battles</div>
       <PageNavigator pageCount={pageCount} onPageChanged={pageChangedHandler} />
       <div className={'flex flex-col gap-4 pt-4 pb-4'}>
         <SinglePage
@@ -70,36 +67,7 @@ export default function Page() {
           )}
           onCompanyItemClick={companyClickHandler}
         />
-        {/*<button onClick={() => setPageIndex(pageIndex - 1)}>Previous</button>*/}
-        {/*<button onClick={() => setPageIndex(pageIndex + 1)}>Next</button>*/}
       </div>
     </main>
   );
-
-  //
-  // const [cnt, setCnt] = useState(1);
-  //
-  // const router = useRouter();
-  //
-  // // TODO: move to shared place... for the route definition
-  // const companyClickHandler = (companyId: string) => {
-  //   router.push(`/companies/${companyId}`);
-  // };
-  //
-  // const pages = [];
-  // for (let i = 0; i < cnt; i++) {
-  //   pages.push(
-  //     <SinglePage index={i} key={i} onCompanyItemClick={companyClickHandler} />,
-  //   );
-  // }
-
-  // return (
-  //   <main className={'flex flex-col items-center'}>
-  //     <div>Recent Battles</div>
-  //     <div className={'flex flex-col gap-4'}>
-  //       {pages}
-  //       <button onClick={() => setCnt(cnt + 1)}>Load More</button>
-  //     </div>
-  //   </main>
-  // );
 }

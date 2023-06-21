@@ -1,16 +1,8 @@
 import Image from 'next/image';
 import { Company } from '@/utils/models';
-import { ClipLoader } from 'react-spinners';
 import { useEffect, useState } from 'react';
 import { clsx } from 'clsx';
-
-function Spinner() {
-  return (
-    <div className={'w-full h-full flex items-center justify-center'}>
-      <ClipLoader aria-label="Loading Spinner" data-testid="loader" />
-    </div>
-  );
-}
+import { Spinner } from '@/components/spinner';
 
 interface ILogoProps {
   company?: Company;
