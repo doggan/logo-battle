@@ -33,7 +33,7 @@ export function Navbar() {
           <Link href={'/'}>
             <Image
               src={'/logo-no-background.png'}
-              width={140}
+              width={130}
               height={40}
               alt={'Logo Battle'}
               priority={true}
