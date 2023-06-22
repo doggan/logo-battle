@@ -67,10 +67,5 @@ export function SinglePage({ results, onCompanyItemClick }: ISinglePageProps) {
     );
   });
 
-  const companies = data.companies;
-
-  console.log('final companies: ', companies);
-  // TODO: instead of rendering the companies, we need to render the battle (2 companies per result).
-
   return <>{renderedResults}</>;
 }

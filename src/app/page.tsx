@@ -27,6 +27,9 @@ export default function Page() {
         company2={battle?.company2}
         onRequestNewBattle={getNewBattle}
       />
+      <div className={'text-md italic font-light pt-4 pb-4 px-2 text-center'}>
+        Which S&P 500 company has the best logo?
+      </div>
     </main>
   );
 }
