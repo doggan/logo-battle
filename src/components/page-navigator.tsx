@@ -1,15 +1,18 @@
 import { useState } from 'react';
 import { clsx } from 'clsx';
 
-interface IPageNavigatorProps {
+interface PageNavigatorProps {
   pageCount: number;
   onPageChanged: (pageIndex: number) => void;
 }
 
+/**
+ * Page navigator with numbered buttons for each page.
+ */
 export function PageNavigator({
   pageCount,
   onPageChanged,
-}: IPageNavigatorProps) {
+}: PageNavigatorProps) {
   const [activePage, setActivePage] = useState(0);
 
   if (pageCount < 1) {
