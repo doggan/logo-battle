@@ -8,11 +8,14 @@ import { useMemo } from 'react';
 import { Spinner } from '@/components/spinner';
 import { BattleResult } from '@/components/battle-result';
 
-// TODO: move to shared constants?
-const PAGE_SIZE = 4;
+const PAGE_SIZE = 8;
 
 export interface RecentListProps {
   pageIndex: number;
+  /**
+   * Optional filtering of results by company ID.
+   */
+  companyIdFilter?: string;
 }
 
 const getCompanyIds = (results: Result[]) => {
@@ -23,7 +26,7 @@ const getCompanyIds = (results: Result[]) => {
   }, new Set<string>());
 };
 
-export function RecentList({ pageIndex }: RecentListProps) {
+export function RecentList({ pageIndex, companyIdFilter }: RecentListProps) {
   const router = useRouter();
 
   const companyClickHandler = (companyId: string) => {
@@ -34,6 +37,7 @@ export function RecentList({ pageIndex }: RecentListProps) {
     `/api/results?${new URLSearchParams({
       offset: (pageIndex * PAGE_SIZE).toString(),
       limit: PAGE_SIZE.toString(),
+      ...(companyIdFilter && { companyId: companyIdFilter }),
     })}`,
     fetcher,
   );

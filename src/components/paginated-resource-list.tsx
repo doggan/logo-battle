@@ -24,7 +24,7 @@ export function PaginatedResourceList({
     <main className={'flex flex-col items-center'}>
       <div className={'text-xl py-1'}>{title}</div>
       <PageNavigatorSimple onPageChanged={pageChangedHandler} />
-      <div className={'flex flex-col gap-4 pt-4 pb-4 bg-red-500'}>
+      <div className={'flex flex-col gap-4 pt-4 pb-4'}>
         {renderPage({ pageIndex })}
 
         {/* Preload the next page for smoother navigation. */}
