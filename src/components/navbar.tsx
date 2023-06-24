@@ -27,13 +27,13 @@ export function Navbar() {
   const [navbarOpen, setNavbarOpen] = useState(false);
 
   return (
-    <nav className="sticky w-full top-0 z-20 flex flex-wrap items-center justify-between py-2 mb-3 bg-zinc-800">
+    <nav className="sticky w-full top-0 z-20 flex flex-wrap items-center justify-between py-2 mb-3 bg-dark-purple">
       <div className="relative container px-4 mx-auto flex flex-wrap items-center justify-between min-h-[42px]">
         <div className={'absolute top-0 left-0 ml-4'}>
           <Link href={'/'}>
             <Image
               src={'/logo-no-background.png'}
-              width={140}
+              width={130}
               height={40}
               alt={'Logo Battle'}
               priority={true}
@@ -67,7 +67,7 @@ export function Navbar() {
             (navbarOpen ? ' flex' : ' hidden')
           }
         >
-          <ul className="flex flex-col md:flex-row list-none place-items-center justify-center md:space-x-8 space-y-4 md:space-y-0 text-zinc-400 font-bold uppercase tracking-widest text-sm">
+          <ul className="flex flex-col md:flex-row list-none place-items-center justify-center md:space-x-8 space-y-4 md:space-y-0 text-battleship-grey font-bold uppercase tracking-widest text-sm">
             <li className="nav-item">
               <NavLink
                 href={'/'}

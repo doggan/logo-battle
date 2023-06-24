@@ -7,6 +7,10 @@ import {
   ErrorResponse,
   GetCompaniesResponse,
 } from '@/utils/requests';
+import { clamp } from '@/utils/math';
+
+const DEFAULT_LIMIT = 20;
+const MAX_LIMIT = 20;
 
 export async function GET(
   req: NextRequest,
@@ -24,6 +28,18 @@ export async function GET(
   // console.log(searchParams.get('limit'));
 
   const { searchParams } = new URL(req.url);
+
+  let offset = 0;
+  if (searchParams.has('offset')) {
+    offset = parseInt(searchParams.get('offset') as string) || offset;
+  }
+  offset = Math.max(offset, 0);
+
+  let limit = DEFAULT_LIMIT;
+  if (searchParams.has('limit')) {
+    limit = parseInt(searchParams.get('limit') as string) || limit;
+  }
+  limit = clamp(limit, 1, MAX_LIMIT);
 
   let companyIds: string[] = [];
   if (searchParams.has('ids')) {
@@ -65,7 +81,7 @@ export async function GET(
     };
   }
 
-  const cursor = companiesCollection.find(filter);
+  const cursor = companiesCollection.find(filter).skip(offset).limit(limit);
   const companyDocuments = await cursor.toArray();
 
   const companies = companyDocuments.map((d) => toCompany(d));
@@ -92,9 +108,12 @@ export async function GET(
     });
   }
 
+  const totalCompaniesCount = await companiesCollection.countDocuments(filter);
+
   return NextResponse.json(
     {
       companies: companies,
+      totalCompaniesCount: totalCompaniesCount,
     },
     { status: 200 },
   );

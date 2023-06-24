@@ -26,9 +26,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      {/* This combination of flexes + h-screen and the internal div flex-grow allows the page
+      contents to grow to the height of the viewport, and the footer will be pushed to the bottom. */}
+      <body className={inter.className + ' flex flex-col h-screen'}>
         <Navbar />
-        {children}
+        <div className={'flex-grow'}>{children}</div>
         <Footer />
       </body>
     </html>

@@ -106,20 +106,22 @@ export async function GET(
     companyId = searchParams.get('companyId');
   }
 
+  let offset = 0;
+  if (searchParams.has('offset')) {
+    offset = parseInt(searchParams.get('offset') as string) || offset;
+  }
+  offset = Math.max(offset, 0);
+
   let limit = DEFAULT_LIMIT;
   if (searchParams.has('limit')) {
     limit = parseInt(searchParams.get('limit') as string) || limit;
   }
   limit = clamp(limit, 1, MAX_LIMIT);
 
-  console.log('## Limit: ', limit);
-
   // TODO: clean this up; how to predefine the available collections and db?
   // Ref: https://www.mongodb.com/compatibility/using-typescript-with-mongodb-tutorial
   const client = await clientPromise;
   const db = client.db();
-
-  // TODO: if companyId is set, filter for all results where companyId1 or companyId2 == companyId
 
   const resultsCollection = db.collection('results');
 
@@ -136,14 +138,21 @@ export async function GET(
   // Sorting from recent -> oldest.
   const sort = { createdAt: -1 as SortDirection };
 
-  const cursor = resultsCollection.find(filter).sort(sort).limit(limit);
+  const cursor = resultsCollection
+    .find(filter)
+    .sort(sort)
+    .skip(offset)
+    .limit(limit);
   const resultsDocuments = await cursor.toArray();
+
+  const totalResultsCount = await resultsCollection.countDocuments(filter);
 
   const results = resultsDocuments.map((d) => toResult(d));
 
   return NextResponse.json(
     {
       results: results,
+      totalResultsCount: totalResultsCount,
     },
     { status: 200 },
   );

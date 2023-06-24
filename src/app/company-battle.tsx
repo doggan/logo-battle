@@ -1,16 +1,8 @@
 import Image from 'next/image';
 import { Company } from '@/utils/models';
-import { ClipLoader } from 'react-spinners';
 import { useEffect, useState } from 'react';
 import { clsx } from 'clsx';
-
-function Spinner() {
-  return (
-    <div className={'w-[300px] h-[300px] flex items-center justify-center'}>
-      <ClipLoader aria-label="Loading Spinner" data-testid="loader" />
-    </div>
-  );
-}
+import { Spinner } from '@/components/spinner';
 
 interface ILogoProps {
   company?: Company;
@@ -19,7 +11,7 @@ interface ILogoProps {
 }
 
 function Logo({ company, onClick, isWinner }: ILogoProps) {
-  const boxBorderClassname = 'w-64 h-64 md:w-80 md:h-80 shadow-md p-4';
+  const boxBorderClassname = 'w-60 h-60 md:w-80 md:h-80 shadow-md p-4';
 
   if (!company) {
     return (
@@ -90,7 +82,7 @@ function CompanyBattleDisplay({
 }: ICompanyBattleDisplayProps) {
   return (
     <div
-      className={'p-8 flex justify-between items-center flex-col md:flex-row'}
+      className={'flex justify-between items-center flex-col md:flex-row py-4'}
     >
       <Logo
         company={company1}
@@ -101,7 +93,7 @@ function CompanyBattleDisplay({
         }
         onClick={() => onSelectWinner(true)}
       />
-      <div className={'p-5'}>vs.</div>
+      <div className={'py-2 px-6'}>vs.</div>
       <Logo
         company={company2}
         isWinner={
