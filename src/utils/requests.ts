@@ -15,6 +15,7 @@ export type GetCompanyResponse = {
 
 export type GetCompaniesResponse = {
   companies: Company[];
+  totalCompaniesCount: number;
 };
 
 export enum CompanySortBy {
@@ -23,4 +24,5 @@ export enum CompanySortBy {
 
 export type GetResultsResponse = {
   results: Result[];
+  totalResultsCount: number;
 };

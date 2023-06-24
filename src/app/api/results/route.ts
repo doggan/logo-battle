@@ -123,8 +123,6 @@ export async function GET(
   const client = await clientPromise;
   const db = client.db();
 
-  // TODO: if companyId is set, filter for all results where companyId1 or companyId2 == companyId
-
   const resultsCollection = db.collection('results');
 
   let filter = {};
@@ -147,11 +145,14 @@ export async function GET(
     .limit(limit);
   const resultsDocuments = await cursor.toArray();
 
+  const totalResultsCount = await resultsCollection.countDocuments(filter);
+
   const results = resultsDocuments.map((d) => toResult(d));
 
   return NextResponse.json(
     {
       results: results,
+      totalResultsCount: totalResultsCount,
     },
     { status: 200 },
   );

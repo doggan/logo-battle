@@ -4,14 +4,14 @@ import { urlToCompanyItemPage } from '@/utils/routes';
 import useSWR from 'swr';
 import { GetCompaniesResponse, GetResultsResponse } from '@/utils/requests';
 import { fetcher } from '@/utils/fetcher';
-import { useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 import { Spinner } from '@/components/spinner';
 import { BattleResult } from '@/components/battle-result';
 
-const PAGE_SIZE = 8;
-
 export interface RecentListProps {
   pageIndex: number;
+  pageSize: number;
+  onTotalItemCountKnown: (totalItemCount: number) => void;
   /**
    * Optional filtering of results by company ID.
    */
@@ -26,7 +26,12 @@ const getCompanyIds = (results: Result[]) => {
   }, new Set<string>());
 };
 
-export function RecentList({ pageIndex, companyIdFilter }: RecentListProps) {
+export function RecentList({
+  pageIndex,
+  pageSize,
+  onTotalItemCountKnown,
+  companyIdFilter,
+}: RecentListProps) {
   const router = useRouter();
 
   const companyClickHandler = (companyId: string) => {
@@ -35,12 +40,18 @@ export function RecentList({ pageIndex, companyIdFilter }: RecentListProps) {
 
   const { data: resultsData } = useSWR<GetResultsResponse>(
     `/api/results?${new URLSearchParams({
-      offset: (pageIndex * PAGE_SIZE).toString(),
-      limit: PAGE_SIZE.toString(),
+      offset: (pageIndex * pageSize).toString(),
+      limit: pageSize.toString(),
       ...(companyIdFilter && { companyId: companyIdFilter }),
     })}`,
     fetcher,
   );
+
+  useEffect(() => {
+    if (resultsData) {
+      onTotalItemCountKnown(resultsData.totalResultsCount);
+    }
+  }, [resultsData, onTotalItemCountKnown]);
 
   const companyIds = resultsData
     ? getCompanyIds(resultsData.results)

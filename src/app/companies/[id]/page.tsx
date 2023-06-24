@@ -10,10 +10,13 @@ import {
   RenderPageProps,
 } from '@/components/paginated-resource-list';
 import { RecentList } from '@/components/recent-list';
+import { RECENT_RESULTS_PAGE_SIZE } from '@/utils/consts';
+import { useState } from 'react';
 
 export default function Page({ params }: { params: { id: string } }) {
   const companyId = params.id;
 
+  const [totalItemCount, setTotalItemCount] = useState<number>();
   const { data: companyData } = useSWR(`/api/companies/${companyId}`, fetcher);
 
   if (!companyData) {
@@ -24,8 +27,17 @@ export default function Page({ params }: { params: { id: string } }) {
 
   // TODO: get rank for the company
 
-  const renderPage = ({ pageIndex }: RenderPageProps) => (
-    <RecentList pageIndex={pageIndex} companyIdFilter={companyId} />
+  const renderPage = ({ pageIndex, pageSize }: RenderPageProps) => (
+    <RecentList
+      pageIndex={pageIndex}
+      companyIdFilter={companyId}
+      pageSize={pageSize}
+      onTotalItemCountKnown={(newTotalItemCount) => {
+        if (newTotalItemCount !== totalItemCount) {
+          setTotalItemCount(newTotalItemCount);
+        }
+      }}
+    />
   );
 
   return (
@@ -35,7 +47,12 @@ export default function Page({ params }: { params: { id: string } }) {
           <CompanyItem key={company.id} rank={0} company={company} />
         </div>
       </div>
-      <PaginatedResourceList title={'Battle History'} renderPage={renderPage} />
+      <PaginatedResourceList
+        title={'Battle History'}
+        renderPage={renderPage}
+        pageSize={RECENT_RESULTS_PAGE_SIZE}
+        totalItemCount={totalItemCount}
+      />
     </main>
   );
 }
