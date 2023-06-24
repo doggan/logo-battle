@@ -9,7 +9,16 @@ interface ICompanyItemProps {
 }
 
 export function CompanyItem({ rank, company, onClick }: ICompanyItemProps) {
-  const { id, imageName, name, wins, losses } = company;
+  const { id, imageName, name, wins = 0, losses = 0 } = company;
+
+  const totalBattles = wins + losses;
+  const renderPercentage = () => {
+    if (totalBattles === 0) {
+      return '-';
+    }
+
+    return formatPercentage(wins / (wins + losses)) + '%';
+  };
 
   return (
     <div className="bg-white rounded shadow-md relative">
@@ -33,10 +42,7 @@ export function CompanyItem({ rank, company, onClick }: ICompanyItemProps) {
         <div className="pl-4">
           <div className="text-gray-900 font-bold text-xl mb-2">{name}</div>
           <p className="text-gray-700 text-base">
-            Win Rate:{' '}
-            <span className={'font-bold'}>
-              {formatPercentage(wins / (wins + losses))}%
-            </span>
+            Win Rate: <span className={'font-bold'}>{renderPercentage()}</span>
             <br />
             Wins: <span className={'text-green-500 font-bold'}>{wins}</span>
             <br />

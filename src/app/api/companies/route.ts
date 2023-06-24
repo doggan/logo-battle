@@ -88,21 +88,26 @@ export async function GET(
 
   if (sortBy === CompanySortBy.WinPercentageDesc) {
     companies.sort((x, y) => {
-      const xTotalBattles = x.wins + x.losses;
-      const yTotalBattles = y.wins + y.losses;
+      const xWins = x.wins ?? 0;
+      const xLosses = x.losses ?? 0;
+      const yWins = y.wins ?? 0;
+      const yLosses = y.losses ?? 0;
+
+      const xTotalBattles = xWins + xLosses;
+      const yTotalBattles = yWins + yLosses;
 
       if (xTotalBattles === 0 && yTotalBattles === 0) {
         return 0;
       }
       if (xTotalBattles === 0) {
-        return -1;
-      }
-      if (yTotalBattles === 0) {
         return 1;
       }
+      if (yTotalBattles === 0) {
+        return -1;
+      }
 
-      const xWinPercentage = x.wins / xTotalBattles;
-      const yWinPercentage = y.wins / yTotalBattles;
+      const xWinPercentage = xWins / xTotalBattles;
+      const yWinPercentage = yWins / yTotalBattles;
 
       return xWinPercentage > yWinPercentage ? -1 : 1;
     });

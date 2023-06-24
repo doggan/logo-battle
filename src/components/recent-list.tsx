@@ -7,6 +7,7 @@ import { fetcher } from '@/utils/fetcher';
 import { useEffect, useMemo } from 'react';
 import { Spinner } from '@/components/spinner';
 import { BattleResult } from '@/components/battle-result';
+import { NonIdealState } from '@/components/non-ideal-state';
 
 export interface RecentListProps {
   pageIndex: number;
@@ -38,14 +39,15 @@ export function RecentList({
     router.push(urlToCompanyItemPage({ companyId }));
   };
 
-  const { data: resultsData } = useSWR<GetResultsResponse>(
-    `/api/results?${new URLSearchParams({
-      offset: (pageIndex * pageSize).toString(),
-      limit: pageSize.toString(),
-      ...(companyIdFilter && { companyId: companyIdFilter }),
-    })}`,
-    fetcher,
-  );
+  const { data: resultsData, isLoading: isResultsLoading } =
+    useSWR<GetResultsResponse>(
+      `/api/results?${new URLSearchParams({
+        offset: (pageIndex * pageSize).toString(),
+        limit: pageSize.toString(),
+        ...(companyIdFilter && { companyId: companyIdFilter }),
+      })}`,
+      fetcher,
+    );
 
   useEffect(() => {
     if (resultsData) {
@@ -67,7 +69,7 @@ export function RecentList({
 
   const companiesMap = useMemo(() => {
     if (!companyData) {
-      return null;
+      return new Map<string, Company>();
     }
 
     const map = new Map<string, Company>();
@@ -77,7 +79,16 @@ export function RecentList({
     return map;
   }, [companyData]);
 
-  if (!resultsData || !companyData || !companiesMap) {
+  if (resultsData?.totalResultsCount === 0) {
+    return <NonIdealState message={'No recent battles.'} />;
+  }
+
+  if (
+    isResultsLoading ||
+    !resultsData ||
+    !companyData ||
+    companiesMap.size === 0
+  ) {
     return <Spinner />;
   }
 
