@@ -7,6 +7,7 @@ import { fetcher } from '@/utils/fetcher';
 import { useEffect, useMemo } from 'react';
 import { Spinner } from '@/components/spinner';
 import { BattleResult } from '@/components/battle-result';
+import { NonIdealState } from '@/components/non-ideal-state';
 
 export interface RecentListProps {
   pageIndex: number;
@@ -38,14 +39,15 @@ export function RecentList({
     router.push(urlToCompanyItemPage({ companyId }));
   };
 
-  const { data: resultsData } = useSWR<GetResultsResponse>(
-    `/api/results?${new URLSearchParams({
-      offset: (pageIndex * pageSize).toString(),
-      limit: pageSize.toString(),
-      ...(companyIdFilter && { companyId: companyIdFilter }),
-    })}`,
-    fetcher,
-  );
+  const { data: resultsData, isLoading: isResultsLoading } =
+    useSWR<GetResultsResponse>(
+      `/api/results?${new URLSearchParams({
+        offset: (pageIndex * pageSize).toString(),
+        limit: pageSize.toString(),
+        ...(companyIdFilter && { companyId: companyIdFilter }),
+      })}`,
+      fetcher,
+    );
 
   useEffect(() => {
     if (resultsData) {
@@ -77,8 +79,12 @@ export function RecentList({
     return map;
   }, [companyData]);
 
-  if (!resultsData || !companyData || !companiesMap) {
+  if (isResultsLoading) {
     return <Spinner />;
+  }
+
+  if (!resultsData || !companyData || !companiesMap) {
+    return <NonIdealState message={'No recent battles.'} />;
   }
 
   // TODO:

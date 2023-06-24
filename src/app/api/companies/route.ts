@@ -88,17 +88,17 @@ export async function GET(
 
   if (sortBy === CompanySortBy.WinPercentageDesc) {
     companies.sort((x, y) => {
-      const xTotalBattles = x.wins + x.losses;
-      const yTotalBattles = y.wins + y.losses;
+      const xTotalBattles = (x.wins ?? 0) + (x.losses ?? 0);
+      const yTotalBattles = (y.wins ?? 0) + (y.losses ?? 0);
 
       if (xTotalBattles === 0 && yTotalBattles === 0) {
         return 0;
       }
       if (xTotalBattles === 0) {
-        return -1;
+        return 1;
       }
       if (yTotalBattles === 0) {
-        return 1;
+        return -1;
       }
 
       const xWinPercentage = x.wins / xTotalBattles;
