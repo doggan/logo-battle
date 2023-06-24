@@ -79,12 +79,12 @@ export function RecentList({
     return map;
   }, [companyData]);
 
-  if (isResultsLoading) {
-    return <Spinner />;
+  if (resultsData?.totalResultsCount === 0) {
+    return <NonIdealState message={'No recent battles.'} />;
   }
 
-  if (!resultsData || !companyData || !companiesMap) {
-    return <NonIdealState message={'No recent battles.'} />;
+  if (isResultsLoading || !resultsData || !companiesMap) {
+    return <Spinner />;
   }
 
   // TODO:
