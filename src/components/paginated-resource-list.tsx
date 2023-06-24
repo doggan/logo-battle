@@ -48,7 +48,7 @@ export function PaginatedResourceList({
 
   return (
     <main className={'flex flex-col items-center'}>
-      <div className={'text-xl py-1'}>{title}</div>
+      <div className={'text-lg py-1 uppercase'}>{title}</div>
       {showPageNumbers ? (
         <PageNavigator
           pageCount={totalPageCount}
