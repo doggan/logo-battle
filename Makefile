@@ -10,7 +10,7 @@ reset-database:
 		--drop	\
 		--collection=companies --file=./db/seeders/companies.json	\
 		--jsonArray
-	# Cleanout existing votes.
+	# Cleanout existing results.
 	@echo "" | mongoimport --uri $(MONGODB_URI)	\
 		--drop	\
-		--collection=votes
+		--collection=results

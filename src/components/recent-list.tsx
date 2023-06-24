@@ -69,7 +69,7 @@ export function RecentList({
 
   const companiesMap = useMemo(() => {
     if (!companyData) {
-      return null;
+      return new Map<string, Company>();
     }
 
     const map = new Map<string, Company>();
@@ -83,7 +83,12 @@ export function RecentList({
     return <NonIdealState message={'No recent battles.'} />;
   }
 
-  if (isResultsLoading || !resultsData || !companiesMap) {
+  if (
+    isResultsLoading ||
+    !resultsData ||
+    !companyData ||
+    companiesMap.size === 0
+  ) {
     return <Spinner />;
   }
 
