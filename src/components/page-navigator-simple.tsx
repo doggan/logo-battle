@@ -1,18 +1,16 @@
 import { useEffect, useState } from 'react';
 
 interface PageNavigatorSimpleProps {
+  pageCount: number;
   onPageChanged: (pageIndex: number) => void;
-  pageSize: number;
-  totalItemCount?: number;
 }
 
 /**
  * Simple page navigator with prev/next buttons.
  */
 export function PageNavigatorSimple({
+  pageCount,
   onPageChanged,
-  pageSize,
-  totalItemCount,
 }: PageNavigatorSimpleProps) {
   const [pageIndex, setPageIndex] = useState(0);
 
@@ -52,11 +50,8 @@ export function PageNavigatorSimple({
   //   </div>
   // </div>
 
-  const totalPageCount = totalItemCount
-    ? Math.ceil(totalItemCount / pageSize)
-    : 1;
   const hasPreviousPage = pageIndex > 0;
-  const hasNextPage = pageIndex < totalPageCount - 1;
+  const hasNextPage = pageIndex < pageCount - 1;
 
   return (
     <div className={'flex flex-row gap-4'}>

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { PageNavigatorSimple } from '@/components/page-navigator-simple';
+import { PageNavigator } from '@/components/page-navigator';
 
 export interface RenderPageProps {
   pageIndex: number;
@@ -20,6 +21,11 @@ interface PaginatedResourceListProps {
    * a period of time when the total # of items is unknown.
    */
   totalItemCount?: number;
+  /**
+   * If true, show numbered buttons for each page.
+   * Otherwise, simpler next/previous buttons are shown.
+   */
+  showPageNumbers?: boolean;
 }
 
 export function PaginatedResourceList({
@@ -27,6 +33,7 @@ export function PaginatedResourceList({
   renderPage,
   pageSize,
   totalItemCount,
+  showPageNumbers = false,
 }: PaginatedResourceListProps) {
   const [pageIndex, setPageIndex] = useState(0);
 
@@ -42,11 +49,17 @@ export function PaginatedResourceList({
   return (
     <main className={'flex flex-col items-center'}>
       <div className={'text-xl py-1'}>{title}</div>
-      <PageNavigatorSimple
-        onPageChanged={pageChangedHandler}
-        pageSize={pageSize}
-        totalItemCount={totalItemCount}
-      />
+      {showPageNumbers ? (
+        <PageNavigator
+          pageCount={totalPageCount}
+          onPageChanged={pageChangedHandler}
+        />
+      ) : (
+        <PageNavigatorSimple
+          pageCount={totalPageCount}
+          onPageChanged={pageChangedHandler}
+        />
+      )}
       <div className={'flex flex-col gap-4 pt-4 pb-4'}>
         {renderPage({ pageIndex, pageSize })}
 

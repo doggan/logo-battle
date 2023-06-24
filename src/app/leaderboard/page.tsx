@@ -34,6 +34,7 @@ export default function Page() {
         renderPage={renderPage}
         pageSize={PAGE_SIZE}
         totalItemCount={totalItemCount}
+        showPageNumbers={true}
       />
     </main>
   );
