@@ -3,6 +3,11 @@ import clientPromise from '@/utils/mongodb';
 import { toCompany } from '@/utils/models';
 import { ErrorResponse, GetBattleResponse } from '@/utils/requests';
 
+/**
+ * Force the route to avoid the cache and always dynamically render.
+ * Without this, this route will be cached on Edge network and new
+ * battle results will not be returned.
+ */
 export const revalidate = 0;
 
 export async function GET(
