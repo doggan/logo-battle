@@ -3,6 +3,8 @@ import clientPromise from '@/utils/mongodb';
 import { toCompany } from '@/utils/models';
 import { ErrorResponse, GetBattleResponse } from '@/utils/requests';
 
+export const revalidate = 0;
+
 export async function GET(
   _req: Request,
 ): Promise<NextResponse<GetBattleResponse | ErrorResponse>> {
