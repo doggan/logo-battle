@@ -10,7 +10,7 @@ import {
 import { clamp } from '@/utils/math';
 
 const DEFAULT_LIMIT = 20;
-const MAX_LIMIT = 20;
+const MAX_LIMIT = 100;
 
 export async function GET(
   req: NextRequest,
