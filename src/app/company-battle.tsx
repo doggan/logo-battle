@@ -34,18 +34,16 @@ function Logo({ company, onClick, isWinner }: ILogoProps) {
       >
         <button className={'relative w-full h-full'} onClick={onClick}>
           <Image
-            className="w-full"
+            className={'object-contain'}
             src={`/logos/${company.imageName}`}
-            width={200}
-            height={200}
+            fill={true}
             alt={company.name}
           />
           {(showWinner || showLoser) && (
             <Image
-              className={'w-full top-0 left-0 absolute opacity-80'}
+              className={'object-contain top-0 left-0 absolute opacity-80'}
               src={showWinner ? '/o.png' : '/x.png'}
-              width={200}
-              height={200}
+              fill={true}
               alt={showWinner ? 'O' : 'X'}
             />
           )}
