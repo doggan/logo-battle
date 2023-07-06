@@ -70,7 +70,10 @@ function Logo({ company, onClick, isWinner }: LogoProps) {
           'winner-selected': showWinner,
         })}
       >
-        <button className={'relative w-full h-full'} onClick={onClick}>
+        <button
+          className={'relative w-full h-full flex justify-center items-center'}
+          onClick={onClick}
+        >
           {/* We use img instead of NextJS Image class to avoid aspect ratio
           issues on load. When using NextJS Image, the logo will sometimes
            stretch to full width/height ruining the aspect ratio for a split second
