@@ -18,7 +18,7 @@ const getCompanies = async (wikiUrl) => {
   const companyResults = [];
 
   const rows = $('#constituents > tbody').find('tr');
-  for (var i = 0; i < rows.length; i++) {
+  for (let i = 0; i < rows.length; i++) {
     const current = rows[i];
     const stockSymbol = $(current).children('td:nth-child(1)').text().trim();
     if (stockSymbol === '') {
@@ -34,12 +34,12 @@ const getCompanies = async (wikiUrl) => {
       imageName: `${stockSymbol}.png`,
       // Some of the companies don't have wikipedia pages.
       url: companyUrl.includes('index.php')
-        ? '-'
+        ? ''
         : `https://en.wikipedia.org${companyUrl}`,
     });
   }
 
-  console.log(`Found ${companyResults.length} companies`);
+  console.log(`Found ${companyResults.length} companies.`);
 
   return companyResults;
 };
