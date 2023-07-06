@@ -14,3 +14,9 @@ reset-database:
 	@echo "" | mongoimport --uri $(MONGODB_URI)	\
 		--drop	\
 		--collection=results
+
+get-companies:
+	pnpm run get-companies
+
+scrape-logos:
+	pnpm run scrape-logos
