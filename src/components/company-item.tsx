@@ -2,13 +2,13 @@ import { Company } from '@/utils/models';
 import Image from 'next/image';
 import { formatPercentage } from '@/utils/math';
 
-interface ICompanyItemProps {
+interface CompanyItemProps {
   rank: number;
   company: Company;
   onClick?: (companyId: string) => void;
 }
 
-export function CompanyItem({ rank, company, onClick }: ICompanyItemProps) {
+export function CompanyItem({ rank, company, onClick }: CompanyItemProps) {
   const { id, imageName, name, wins = 0, losses = 0 } = company;
 
   const totalBattles = wins + losses;

@@ -4,13 +4,13 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
 
-interface INavLinkProps {
+interface NavLinkProps {
   href: string;
   text: string;
   onClick: () => void;
 }
 
-function NavLink({ href, text, onClick }: INavLinkProps) {
+function NavLink({ href, text, onClick }: NavLinkProps) {
   return (
     <Link
       onClick={onClick}

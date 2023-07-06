@@ -97,7 +97,7 @@ enum BattleState {
   Idle,
 }
 
-interface ICompanyBattleDisplayProps {
+interface CompanyBattleDisplayProps {
   company1?: Company;
   company2?: Company;
   onSelectWinner: (didCompany1Win: boolean) => void;
@@ -115,7 +115,7 @@ function CompanyBattleDisplay({
   company2,
   onSelectWinner,
   battleState,
-}: ICompanyBattleDisplayProps) {
+}: CompanyBattleDisplayProps) {
   return (
     <div
       className={'flex justify-between items-center flex-col md:flex-row py-4'}
@@ -143,7 +143,7 @@ function CompanyBattleDisplay({
   );
 }
 
-interface ICompanyBattleProps {
+interface CompanyBattleProps {
   company1?: Company;
   company2?: Company;
   onRequestNewBattle: () => void;
@@ -161,7 +161,7 @@ export function CompanyBattle({
   company1,
   company2,
   onRequestNewBattle,
-}: ICompanyBattleProps) {
+}: CompanyBattleProps) {
   const [battleState, setBattleState] = useState<BattleState>(BattleState.Idle);
   const [activeCompanies, setActiveCompanies] = useState<
     [Company, Company] | null

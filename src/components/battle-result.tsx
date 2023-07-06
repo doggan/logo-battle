@@ -1,7 +1,7 @@
 import { Company } from '@/utils/models';
 import Image from 'next/image';
 
-interface IBattleResult {
+interface BattleResult {
   company: Company;
   onClickCompany: (companyId: string) => void;
   isWinner: boolean;
@@ -11,7 +11,7 @@ export function BattleResult({
   company,
   onClickCompany,
   isWinner,
-}: IBattleResult) {
+}: BattleResult) {
   return (
     <button
       className={'relative w-28 h-24'}
@@ -24,6 +24,15 @@ export function BattleResult({
         height={100}
         alt={company.name}
       />
+      {isWinner && (
+        <Image
+          className={'w-full top-0 left-0 absolute opacity-80'}
+          src={'/o.png'}
+          width={64}
+          height={64}
+          alt={'X'}
+        />
+      )}
       {!isWinner && (
         <Image
           className={'w-full top-0 left-0 absolute opacity-80'}
