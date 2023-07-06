@@ -1,22 +1,3020 @@
 [
   {
-    "name": "Apple Inc",
-    "imageName": "apple.png",
-    "symbol": "AAPL"
+    "symbol": "MMM",
+    "name": "3M",
+    "imageName": "MMM.png",
+    "url": "https://en.wikipedia.org/wiki/3M"
   },
   {
-    "name": "Microsoft Corp",
-    "imageName": "microsoft.png",
-    "symbol": "MSFT"
+    "symbol": "AOS",
+    "name": "A. O. Smith",
+    "imageName": "AOS.png",
+    "url": "https://en.wikipedia.org/wiki/A._O._Smith"
   },
   {
-    "name": "Amazon.com Inc",
-    "imageName": "amazon.png",
-    "symbol": "AMZN"
+    "symbol": "ABT",
+    "name": "Abbott",
+    "imageName": "ABT.png",
+    "url": "https://en.wikipedia.org/wiki/Abbott_Laboratories"
   },
   {
-    "name": "Nvidia Corp",
-    "imageName": "nvidia.png",
-    "symbol": "NVDA"
+    "symbol": "ABBV",
+    "name": "AbbVie",
+    "imageName": "ABBV.png",
+    "url": "https://en.wikipedia.org/wiki/AbbVie"
+  },
+  {
+    "symbol": "ACN",
+    "name": "Accenture",
+    "imageName": "ACN.png",
+    "url": "https://en.wikipedia.org/wiki/Accenture"
+  },
+  {
+    "symbol": "ATVI",
+    "name": "Activision Blizzard",
+    "imageName": "ATVI.png",
+    "url": "https://en.wikipedia.org/wiki/Activision_Blizzard"
+  },
+  {
+    "symbol": "ADM",
+    "name": "ADM",
+    "imageName": "ADM.png",
+    "url": "https://en.wikipedia.org/wiki/ADM_(company)"
+  },
+  {
+    "symbol": "ADBE",
+    "name": "Adobe Inc.",
+    "imageName": "ADBE.png",
+    "url": "https://en.wikipedia.org/wiki/Adobe_Inc."
+  },
+  {
+    "symbol": "ADP",
+    "name": "ADP",
+    "imageName": "ADP.png",
+    "url": "https://en.wikipedia.org/wiki/ADP_(company)"
+  },
+  {
+    "symbol": "AAP",
+    "name": "Advance Auto Parts",
+    "imageName": "AAP.png",
+    "url": "https://en.wikipedia.org/wiki/Advance_Auto_Parts"
+  },
+  {
+    "symbol": "AES",
+    "name": "AES Corporation",
+    "imageName": "AES.png",
+    "url": "https://en.wikipedia.org/wiki/AES_Corporation"
+  },
+  {
+    "symbol": "AFL",
+    "name": "Aflac",
+    "imageName": "AFL.png",
+    "url": "https://en.wikipedia.org/wiki/Aflac"
+  },
+  {
+    "symbol": "A",
+    "name": "Agilent Technologies",
+    "imageName": "A.png",
+    "url": "https://en.wikipedia.org/wiki/Agilent_Technologies"
+  },
+  {
+    "symbol": "APD",
+    "name": "Air Products and Chemicals",
+    "imageName": "APD.png",
+    "url": "https://en.wikipedia.org/wiki/Air_Products_and_Chemicals"
+  },
+  {
+    "symbol": "AKAM",
+    "name": "Akamai",
+    "imageName": "AKAM.png",
+    "url": "https://en.wikipedia.org/wiki/Akamai"
+  },
+  {
+    "symbol": "ALK",
+    "name": "Alaska Air Group",
+    "imageName": "ALK.png",
+    "url": "https://en.wikipedia.org/wiki/Alaska_Air_Group"
+  },
+  {
+    "symbol": "ALB",
+    "name": "Albemarle Corporation",
+    "imageName": "ALB.png",
+    "url": "https://en.wikipedia.org/wiki/Albemarle_Corporation"
+  },
+  {
+    "symbol": "ARE",
+    "name": "Alexandria Real Estate Equities",
+    "imageName": "ARE.png",
+    "url": "https://en.wikipedia.org/wiki/Alexandria_Real_Estate_Equities"
+  },
+  {
+    "symbol": "ALGN",
+    "name": "Align Technology",
+    "imageName": "ALGN.png",
+    "url": "https://en.wikipedia.org/wiki/Align_Technology"
+  },
+  {
+    "symbol": "ALLE",
+    "name": "Allegion",
+    "imageName": "ALLE.png",
+    "url": "https://en.wikipedia.org/wiki/Allegion"
+  },
+  {
+    "symbol": "LNT",
+    "name": "Alliant Energy",
+    "imageName": "LNT.png",
+    "url": "https://en.wikipedia.org/wiki/Alliant_Energy"
+  },
+  {
+    "symbol": "ALL",
+    "name": "Allstate",
+    "imageName": "ALL.png",
+    "url": "https://en.wikipedia.org/wiki/Allstate"
+  },
+  {
+    "symbol": "GOOGL",
+    "name": "Alphabet Inc. (Class A)",
+    "imageName": "GOOGL.png",
+    "url": "https://en.wikipedia.org/wiki/Alphabet_Inc."
+  },
+  {
+    "symbol": "GOOG",
+    "name": "Alphabet Inc. (Class C)",
+    "imageName": "GOOG.png",
+    "url": "https://en.wikipedia.org/wiki/Alphabet_Inc."
+  },
+  {
+    "symbol": "MO",
+    "name": "Altria",
+    "imageName": "MO.png",
+    "url": "https://en.wikipedia.org/wiki/Altria"
+  },
+  {
+    "symbol": "AMZN",
+    "name": "Amazon",
+    "imageName": "AMZN.png",
+    "url": "https://en.wikipedia.org/wiki/Amazon_(company)"
+  },
+  {
+    "symbol": "AMCR",
+    "name": "Amcor",
+    "imageName": "AMCR.png",
+    "url": "https://en.wikipedia.org/wiki/Amcor"
+  },
+  {
+    "symbol": "AMD",
+    "name": "AMD",
+    "imageName": "AMD.png",
+    "url": "https://en.wikipedia.org/wiki/AMD"
+  },
+  {
+    "symbol": "AEE",
+    "name": "Ameren",
+    "imageName": "AEE.png",
+    "url": "https://en.wikipedia.org/wiki/Ameren"
+  },
+  {
+    "symbol": "AAL",
+    "name": "American Airlines Group",
+    "imageName": "AAL.png",
+    "url": "https://en.wikipedia.org/wiki/American_Airlines_Group"
+  },
+  {
+    "symbol": "AEP",
+    "name": "American Electric Power",
+    "imageName": "AEP.png",
+    "url": "https://en.wikipedia.org/wiki/American_Electric_Power"
+  },
+  {
+    "symbol": "AXP",
+    "name": "American Express",
+    "imageName": "AXP.png",
+    "url": "https://en.wikipedia.org/wiki/American_Express"
+  },
+  {
+    "symbol": "AIG",
+    "name": "American International Group",
+    "imageName": "AIG.png",
+    "url": "https://en.wikipedia.org/wiki/American_International_Group"
+  },
+  {
+    "symbol": "AMT",
+    "name": "American Tower",
+    "imageName": "AMT.png",
+    "url": "https://en.wikipedia.org/wiki/American_Tower"
+  },
+  {
+    "symbol": "AWK",
+    "name": "American Water Works",
+    "imageName": "AWK.png",
+    "url": "https://en.wikipedia.org/wiki/American_Water_Works"
+  },
+  {
+    "symbol": "AMP",
+    "name": "Ameriprise Financial",
+    "imageName": "AMP.png",
+    "url": "https://en.wikipedia.org/wiki/Ameriprise_Financial"
+  },
+  {
+    "symbol": "ABC",
+    "name": "AmerisourceBergen",
+    "imageName": "ABC.png",
+    "url": "https://en.wikipedia.org/wiki/AmerisourceBergen"
+  },
+  {
+    "symbol": "AME",
+    "name": "Ametek",
+    "imageName": "AME.png",
+    "url": "https://en.wikipedia.org/wiki/Ametek"
+  },
+  {
+    "symbol": "AMGN",
+    "name": "Amgen",
+    "imageName": "AMGN.png",
+    "url": "https://en.wikipedia.org/wiki/Amgen"
+  },
+  {
+    "symbol": "APH",
+    "name": "Amphenol",
+    "imageName": "APH.png",
+    "url": "https://en.wikipedia.org/wiki/Amphenol"
+  },
+  {
+    "symbol": "ADI",
+    "name": "Analog Devices",
+    "imageName": "ADI.png",
+    "url": "https://en.wikipedia.org/wiki/Analog_Devices"
+  },
+  {
+    "symbol": "ANSS",
+    "name": "Ansys",
+    "imageName": "ANSS.png",
+    "url": "https://en.wikipedia.org/wiki/Ansys"
+  },
+  {
+    "symbol": "AON",
+    "name": "Aon",
+    "imageName": "AON.png",
+    "url": "https://en.wikipedia.org/wiki/Aon_(company)"
+  },
+  {
+    "symbol": "APA",
+    "name": "APA Corporation",
+    "imageName": "APA.png",
+    "url": "https://en.wikipedia.org/wiki/APA_Corporation"
+  },
+  {
+    "symbol": "AAPL",
+    "name": "Apple Inc.",
+    "imageName": "AAPL.png",
+    "url": "https://en.wikipedia.org/wiki/Apple_Inc."
+  },
+  {
+    "symbol": "AMAT",
+    "name": "Applied Materials",
+    "imageName": "AMAT.png",
+    "url": "https://en.wikipedia.org/wiki/Applied_Materials"
+  },
+  {
+    "symbol": "APTV",
+    "name": "Aptiv",
+    "imageName": "APTV.png",
+    "url": "https://en.wikipedia.org/wiki/Aptiv"
+  },
+  {
+    "symbol": "ACGL",
+    "name": "Arch Capital Group",
+    "imageName": "ACGL.png",
+    "url": "https://en.wikipedia.org/wiki/Arch_Capital_Group"
+  },
+  {
+    "symbol": "ANET",
+    "name": "Arista Networks",
+    "imageName": "ANET.png",
+    "url": "https://en.wikipedia.org/wiki/Arista_Networks"
+  },
+  {
+    "symbol": "AJG",
+    "name": "Arthur J. Gallagher & Co.",
+    "imageName": "AJG.png",
+    "url": "https://en.wikipedia.org/wiki/Arthur_J._Gallagher_%26_Co."
+  },
+  {
+    "symbol": "AIZ",
+    "name": "Assurant",
+    "imageName": "AIZ.png",
+    "url": "https://en.wikipedia.org/wiki/Assurant"
+  },
+  {
+    "symbol": "T",
+    "name": "AT&T",
+    "imageName": "T.png",
+    "url": "https://en.wikipedia.org/wiki/AT%26T"
+  },
+  {
+    "symbol": "ATO",
+    "name": "Atmos Energy",
+    "imageName": "ATO.png",
+    "url": "https://en.wikipedia.org/wiki/Atmos_Energy"
+  },
+  {
+    "symbol": "ADSK",
+    "name": "Autodesk",
+    "imageName": "ADSK.png",
+    "url": "https://en.wikipedia.org/wiki/Autodesk"
+  },
+  {
+    "symbol": "AZO",
+    "name": "AutoZone",
+    "imageName": "AZO.png",
+    "url": "https://en.wikipedia.org/wiki/AutoZone"
+  },
+  {
+    "symbol": "AVB",
+    "name": "AvalonBay Communities",
+    "imageName": "AVB.png",
+    "url": "https://en.wikipedia.org/wiki/AvalonBay_Communities"
+  },
+  {
+    "symbol": "AVY",
+    "name": "Avery Dennison",
+    "imageName": "AVY.png",
+    "url": "https://en.wikipedia.org/wiki/Avery_Dennison"
+  },
+  {
+    "symbol": "AXON",
+    "name": "Axon Enterprise",
+    "imageName": "AXON.png",
+    "url": "https://en.wikipedia.org/wiki/Axon_Enterprise"
+  },
+  {
+    "symbol": "BKR",
+    "name": "Baker Hughes",
+    "imageName": "BKR.png",
+    "url": "https://en.wikipedia.org/wiki/Baker_Hughes"
+  },
+  {
+    "symbol": "BALL",
+    "name": "Ball Corporation",
+    "imageName": "BALL.png",
+    "url": "https://en.wikipedia.org/wiki/Ball_Corporation"
+  },
+  {
+    "symbol": "BAC",
+    "name": "Bank of America",
+    "imageName": "BAC.png",
+    "url": "https://en.wikipedia.org/wiki/Bank_of_America"
+  },
+  {
+    "symbol": "BBWI",
+    "name": "Bath & Body Works, Inc.",
+    "imageName": "BBWI.png",
+    "url": "https://en.wikipedia.org/wiki/Bath_%26_Body_Works,_Inc."
+  },
+  {
+    "symbol": "BAX",
+    "name": "Baxter International",
+    "imageName": "BAX.png",
+    "url": "https://en.wikipedia.org/wiki/Baxter_International"
+  },
+  {
+    "symbol": "BDX",
+    "name": "Becton Dickinson",
+    "imageName": "BDX.png",
+    "url": "https://en.wikipedia.org/wiki/BD_(company)"
+  },
+  {
+    "symbol": "WRB",
+    "name": "Berkley",
+    "imageName": "WRB.png",
+    "url": "https://en.wikipedia.org/wiki/W._R._Berkley_Corporation"
+  },
+  {
+    "symbol": "BRK.B",
+    "name": "Berkshire Hathaway",
+    "imageName": "BRK.B.png",
+    "url": "https://en.wikipedia.org/wiki/Berkshire_Hathaway"
+  },
+  {
+    "symbol": "BBY",
+    "name": "Best Buy",
+    "imageName": "BBY.png",
+    "url": "https://en.wikipedia.org/wiki/Best_Buy"
+  },
+  {
+    "symbol": "BIO",
+    "name": "Bio-Rad",
+    "imageName": "BIO.png",
+    "url": "https://en.wikipedia.org/wiki/Bio-Rad"
+  },
+  {
+    "symbol": "TECH",
+    "name": "Bio-Techne",
+    "imageName": "TECH.png",
+    "url": "https://en.wikipedia.org/wiki/Bio-Techne"
+  },
+  {
+    "symbol": "BIIB",
+    "name": "Biogen",
+    "imageName": "BIIB.png",
+    "url": "https://en.wikipedia.org/wiki/Biogen"
+  },
+  {
+    "symbol": "BLK",
+    "name": "BlackRock",
+    "imageName": "BLK.png",
+    "url": "https://en.wikipedia.org/wiki/BlackRock"
+  },
+  {
+    "symbol": "BK",
+    "name": "BNY Mellon",
+    "imageName": "BK.png",
+    "url": "https://en.wikipedia.org/wiki/BNY_Mellon"
+  },
+  {
+    "symbol": "BA",
+    "name": "Boeing",
+    "imageName": "BA.png",
+    "url": "https://en.wikipedia.org/wiki/Boeing"
+  },
+  {
+    "symbol": "BKNG",
+    "name": "Booking Holdings",
+    "imageName": "BKNG.png",
+    "url": "https://en.wikipedia.org/wiki/Booking_Holdings"
+  },
+  {
+    "symbol": "BWA",
+    "name": "BorgWarner",
+    "imageName": "BWA.png",
+    "url": "https://en.wikipedia.org/wiki/BorgWarner"
+  },
+  {
+    "symbol": "BXP",
+    "name": "Boston Properties",
+    "imageName": "BXP.png",
+    "url": "https://en.wikipedia.org/wiki/Boston_Properties"
+  },
+  {
+    "symbol": "BSX",
+    "name": "Boston Scientific",
+    "imageName": "BSX.png",
+    "url": "https://en.wikipedia.org/wiki/Boston_Scientific"
+  },
+  {
+    "symbol": "BMY",
+    "name": "Bristol Myers Squibb",
+    "imageName": "BMY.png",
+    "url": "https://en.wikipedia.org/wiki/Bristol_Myers_Squibb"
+  },
+  {
+    "symbol": "AVGO",
+    "name": "Broadcom Inc.",
+    "imageName": "AVGO.png",
+    "url": "https://en.wikipedia.org/wiki/Broadcom_Inc."
+  },
+  {
+    "symbol": "BR",
+    "name": "Broadridge Financial Solutions",
+    "imageName": "BR.png",
+    "url": "https://en.wikipedia.org/wiki/Broadridge_Financial_Solutions"
+  },
+  {
+    "symbol": "BRO",
+    "name": "Brown & Brown",
+    "imageName": "BRO.png",
+    "url": "https://en.wikipedia.org/wiki/Brown_%26_Brown"
+  },
+  {
+    "symbol": "BF.B",
+    "name": "Brown–Forman",
+    "imageName": "BF.B.png",
+    "url": "https://en.wikipedia.org/wiki/Brown%E2%80%93Forman"
+  },
+  {
+    "symbol": "BG",
+    "name": "Bunge Limited",
+    "imageName": "BG.png",
+    "url": "https://en.wikipedia.org/wiki/Bunge_Limited"
+  },
+  {
+    "symbol": "CHRW",
+    "name": "C.H. Robinson",
+    "imageName": "CHRW.png",
+    "url": "https://en.wikipedia.org/wiki/C.H._Robinson"
+  },
+  {
+    "symbol": "CDNS",
+    "name": "Cadence Design Systems",
+    "imageName": "CDNS.png",
+    "url": "https://en.wikipedia.org/wiki/Cadence_Design_Systems"
+  },
+  {
+    "symbol": "CZR",
+    "name": "Caesars Entertainment",
+    "imageName": "CZR.png",
+    "url": "https://en.wikipedia.org/wiki/Caesars_Entertainment_(2020)"
+  },
+  {
+    "symbol": "CPT",
+    "name": "Camden Property Trust",
+    "imageName": "CPT.png",
+    "url": "https://en.wikipedia.org/wiki/Camden_Property_Trust"
+  },
+  {
+    "symbol": "CPB",
+    "name": "Campbell Soup Company",
+    "imageName": "CPB.png",
+    "url": "https://en.wikipedia.org/wiki/Campbell_Soup_Company"
+  },
+  {
+    "symbol": "COF",
+    "name": "Capital One",
+    "imageName": "COF.png",
+    "url": "https://en.wikipedia.org/wiki/Capital_One"
+  },
+  {
+    "symbol": "CAH",
+    "name": "Cardinal Health",
+    "imageName": "CAH.png",
+    "url": "https://en.wikipedia.org/wiki/Cardinal_Health"
+  },
+  {
+    "symbol": "KMX",
+    "name": "CarMax",
+    "imageName": "KMX.png",
+    "url": "https://en.wikipedia.org/wiki/CarMax"
+  },
+  {
+    "symbol": "CCL",
+    "name": "Carnival",
+    "imageName": "CCL.png",
+    "url": "https://en.wikipedia.org/wiki/Carnival_Corporation_%26_plc"
+  },
+  {
+    "symbol": "CARR",
+    "name": "Carrier Global",
+    "imageName": "CARR.png",
+    "url": "https://en.wikipedia.org/wiki/Carrier_Global"
+  },
+  {
+    "symbol": "CTLT",
+    "name": "Catalent",
+    "imageName": "CTLT.png",
+    "url": "https://en.wikipedia.org/wiki/Catalent"
+  },
+  {
+    "symbol": "CAT",
+    "name": "Caterpillar Inc.",
+    "imageName": "CAT.png",
+    "url": "https://en.wikipedia.org/wiki/Caterpillar_Inc."
+  },
+  {
+    "symbol": "CBOE",
+    "name": "Cboe Global Markets",
+    "imageName": "CBOE.png",
+    "url": "https://en.wikipedia.org/wiki/Cboe_Global_Markets"
+  },
+  {
+    "symbol": "CBRE",
+    "name": "CBRE Group",
+    "imageName": "CBRE.png",
+    "url": "https://en.wikipedia.org/wiki/CBRE_Group"
+  },
+  {
+    "symbol": "CDW",
+    "name": "CDW",
+    "imageName": "CDW.png",
+    "url": "https://en.wikipedia.org/wiki/CDW"
+  },
+  {
+    "symbol": "CE",
+    "name": "Celanese",
+    "imageName": "CE.png",
+    "url": "https://en.wikipedia.org/wiki/Celanese"
+  },
+  {
+    "symbol": "CNC",
+    "name": "Centene Corporation",
+    "imageName": "CNC.png",
+    "url": "https://en.wikipedia.org/wiki/Centene_Corporation"
+  },
+  {
+    "symbol": "CNP",
+    "name": "CenterPoint Energy",
+    "imageName": "CNP.png",
+    "url": "https://en.wikipedia.org/wiki/CenterPoint_Energy"
+  },
+  {
+    "symbol": "CDAY",
+    "name": "Ceridian",
+    "imageName": "CDAY.png",
+    "url": "https://en.wikipedia.org/wiki/Ceridian"
+  },
+  {
+    "symbol": "CF",
+    "name": "CF Industries",
+    "imageName": "CF.png",
+    "url": "https://en.wikipedia.org/wiki/CF_Industries"
+  },
+  {
+    "symbol": "CRL",
+    "name": "Charles River Laboratories",
+    "imageName": "CRL.png",
+    "url": "https://en.wikipedia.org/wiki/Charles_River_Laboratories"
+  },
+  {
+    "symbol": "SCHW",
+    "name": "Charles Schwab Corporation",
+    "imageName": "SCHW.png",
+    "url": "https://en.wikipedia.org/wiki/Charles_Schwab_Corporation"
+  },
+  {
+    "symbol": "CHTR",
+    "name": "Charter Communications",
+    "imageName": "CHTR.png",
+    "url": "https://en.wikipedia.org/wiki/Charter_Communications"
+  },
+  {
+    "symbol": "CVX",
+    "name": "Chevron Corporation",
+    "imageName": "CVX.png",
+    "url": "https://en.wikipedia.org/wiki/Chevron_Corporation"
+  },
+  {
+    "symbol": "CMG",
+    "name": "Chipotle Mexican Grill",
+    "imageName": "CMG.png",
+    "url": "https://en.wikipedia.org/wiki/Chipotle_Mexican_Grill"
+  },
+  {
+    "symbol": "CB",
+    "name": "Chubb Limited",
+    "imageName": "CB.png",
+    "url": "https://en.wikipedia.org/wiki/Chubb_Limited"
+  },
+  {
+    "symbol": "CHD",
+    "name": "Church & Dwight",
+    "imageName": "CHD.png",
+    "url": "https://en.wikipedia.org/wiki/Church_%26_Dwight"
+  },
+  {
+    "symbol": "CI",
+    "name": "Cigna",
+    "imageName": "CI.png",
+    "url": "https://en.wikipedia.org/wiki/Cigna"
+  },
+  {
+    "symbol": "CINF",
+    "name": "Cincinnati Financial",
+    "imageName": "CINF.png",
+    "url": "https://en.wikipedia.org/wiki/Cincinnati_Financial"
+  },
+  {
+    "symbol": "CTAS",
+    "name": "Cintas",
+    "imageName": "CTAS.png",
+    "url": "https://en.wikipedia.org/wiki/Cintas"
+  },
+  {
+    "symbol": "CSCO",
+    "name": "Cisco",
+    "imageName": "CSCO.png",
+    "url": "https://en.wikipedia.org/wiki/Cisco"
+  },
+  {
+    "symbol": "C",
+    "name": "Citigroup",
+    "imageName": "C.png",
+    "url": "https://en.wikipedia.org/wiki/Citigroup"
+  },
+  {
+    "symbol": "CFG",
+    "name": "Citizens Financial Group",
+    "imageName": "CFG.png",
+    "url": "https://en.wikipedia.org/wiki/Citizens_Financial_Group"
+  },
+  {
+    "symbol": "CLX",
+    "name": "Clorox",
+    "imageName": "CLX.png",
+    "url": "https://en.wikipedia.org/wiki/Clorox"
+  },
+  {
+    "symbol": "CME",
+    "name": "CME Group",
+    "imageName": "CME.png",
+    "url": "https://en.wikipedia.org/wiki/CME_Group"
+  },
+  {
+    "symbol": "CMS",
+    "name": "CMS Energy",
+    "imageName": "CMS.png",
+    "url": "https://en.wikipedia.org/wiki/CMS_Energy"
+  },
+  {
+    "symbol": "KO",
+    "name": "Coca-Cola Company (The)",
+    "imageName": "KO.png",
+    "url": "https://en.wikipedia.org/wiki/The_Coca-Cola_Company"
+  },
+  {
+    "symbol": "CTSH",
+    "name": "Cognizant",
+    "imageName": "CTSH.png",
+    "url": "https://en.wikipedia.org/wiki/Cognizant"
+  },
+  {
+    "symbol": "CL",
+    "name": "Colgate-Palmolive",
+    "imageName": "CL.png",
+    "url": "https://en.wikipedia.org/wiki/Colgate-Palmolive"
+  },
+  {
+    "symbol": "CMCSA",
+    "name": "Comcast",
+    "imageName": "CMCSA.png",
+    "url": "https://en.wikipedia.org/wiki/Comcast"
+  },
+  {
+    "symbol": "CMA",
+    "name": "Comerica",
+    "imageName": "CMA.png",
+    "url": "https://en.wikipedia.org/wiki/Comerica"
+  },
+  {
+    "symbol": "CAG",
+    "name": "Conagra Brands",
+    "imageName": "CAG.png",
+    "url": "https://en.wikipedia.org/wiki/Conagra_Brands"
+  },
+  {
+    "symbol": "COP",
+    "name": "ConocoPhillips",
+    "imageName": "COP.png",
+    "url": "https://en.wikipedia.org/wiki/ConocoPhillips"
+  },
+  {
+    "symbol": "ED",
+    "name": "Consolidated Edison",
+    "imageName": "ED.png",
+    "url": "https://en.wikipedia.org/wiki/Consolidated_Edison"
+  },
+  {
+    "symbol": "STZ",
+    "name": "Constellation Brands",
+    "imageName": "STZ.png",
+    "url": "https://en.wikipedia.org/wiki/Constellation_Brands"
+  },
+  {
+    "symbol": "CEG",
+    "name": "Constellation Energy",
+    "imageName": "CEG.png",
+    "url": "https://en.wikipedia.org/wiki/Constellation_Energy"
+  },
+  {
+    "symbol": "COO",
+    "name": "CooperCompanies",
+    "imageName": "COO.png",
+    "url": "https://en.wikipedia.org/wiki/CooperCompanies"
+  },
+  {
+    "symbol": "CPRT",
+    "name": "Copart",
+    "imageName": "CPRT.png",
+    "url": "https://en.wikipedia.org/wiki/Copart"
+  },
+  {
+    "symbol": "GLW",
+    "name": "Corning Inc.",
+    "imageName": "GLW.png",
+    "url": "https://en.wikipedia.org/wiki/Corning_Inc."
+  },
+  {
+    "symbol": "CTVA",
+    "name": "Corteva",
+    "imageName": "CTVA.png",
+    "url": "https://en.wikipedia.org/wiki/Corteva"
+  },
+  {
+    "symbol": "CSGP",
+    "name": "CoStar Group",
+    "imageName": "CSGP.png",
+    "url": "https://en.wikipedia.org/wiki/CoStar_Group"
+  },
+  {
+    "symbol": "COST",
+    "name": "Costco",
+    "imageName": "COST.png",
+    "url": "https://en.wikipedia.org/wiki/Costco"
+  },
+  {
+    "symbol": "CTRA",
+    "name": "Coterra",
+    "imageName": "CTRA.png",
+    "url": "https://en.wikipedia.org/wiki/Coterra"
+  },
+  {
+    "symbol": "CCI",
+    "name": "Crown Castle",
+    "imageName": "CCI.png",
+    "url": "https://en.wikipedia.org/wiki/Crown_Castle"
+  },
+  {
+    "symbol": "CSX",
+    "name": "CSX",
+    "imageName": "CSX.png",
+    "url": "https://en.wikipedia.org/wiki/CSX_Corporation"
+  },
+  {
+    "symbol": "CMI",
+    "name": "Cummins",
+    "imageName": "CMI.png",
+    "url": "https://en.wikipedia.org/wiki/Cummins"
+  },
+  {
+    "symbol": "CVS",
+    "name": "CVS Health",
+    "imageName": "CVS.png",
+    "url": "https://en.wikipedia.org/wiki/CVS_Health"
+  },
+  {
+    "symbol": "DHI",
+    "name": "D.R. Horton",
+    "imageName": "DHI.png",
+    "url": "https://en.wikipedia.org/wiki/D.R._Horton"
+  },
+  {
+    "symbol": "DHR",
+    "name": "Danaher Corporation",
+    "imageName": "DHR.png",
+    "url": "https://en.wikipedia.org/wiki/Danaher_Corporation"
+  },
+  {
+    "symbol": "DRI",
+    "name": "Darden Restaurants",
+    "imageName": "DRI.png",
+    "url": "https://en.wikipedia.org/wiki/Darden_Restaurants"
+  },
+  {
+    "symbol": "DVA",
+    "name": "DaVita Inc.",
+    "imageName": "DVA.png",
+    "url": "https://en.wikipedia.org/wiki/DaVita_Inc."
+  },
+  {
+    "symbol": "DE",
+    "name": "John Deere",
+    "imageName": "DE.png",
+    "url": "https://en.wikipedia.org/wiki/John_Deere"
+  },
+  {
+    "symbol": "DAL",
+    "name": "Delta Air Lines",
+    "imageName": "DAL.png",
+    "url": "https://en.wikipedia.org/wiki/Delta_Air_Lines"
+  },
+  {
+    "symbol": "XRAY",
+    "name": "Dentsply Sirona",
+    "imageName": "XRAY.png",
+    "url": "https://en.wikipedia.org/wiki/Dentsply_Sirona"
+  },
+  {
+    "symbol": "DVN",
+    "name": "Devon Energy",
+    "imageName": "DVN.png",
+    "url": "https://en.wikipedia.org/wiki/Devon_Energy"
+  },
+  {
+    "symbol": "DXCM",
+    "name": "Dexcom",
+    "imageName": "DXCM.png",
+    "url": "https://en.wikipedia.org/wiki/Dexcom"
+  },
+  {
+    "symbol": "FANG",
+    "name": "Diamondback Energy",
+    "imageName": "FANG.png",
+    "url": "https://en.wikipedia.org/wiki/Diamondback_Energy"
+  },
+  {
+    "symbol": "DLR",
+    "name": "Digital Realty",
+    "imageName": "DLR.png",
+    "url": "https://en.wikipedia.org/wiki/Digital_Realty"
+  },
+  {
+    "symbol": "DFS",
+    "name": "Discover Financial",
+    "imageName": "DFS.png",
+    "url": "https://en.wikipedia.org/wiki/Discover_Financial"
+  },
+  {
+    "symbol": "DIS",
+    "name": "Disney",
+    "imageName": "DIS.png",
+    "url": "https://en.wikipedia.org/wiki/Disney"
+  },
+  {
+    "symbol": "DG",
+    "name": "Dollar General",
+    "imageName": "DG.png",
+    "url": "https://en.wikipedia.org/wiki/Dollar_General"
+  },
+  {
+    "symbol": "DLTR",
+    "name": "Dollar Tree",
+    "imageName": "DLTR.png",
+    "url": "https://en.wikipedia.org/wiki/Dollar_Tree"
+  },
+  {
+    "symbol": "D",
+    "name": "Dominion Energy",
+    "imageName": "D.png",
+    "url": "https://en.wikipedia.org/wiki/Dominion_Energy"
+  },
+  {
+    "symbol": "DPZ",
+    "name": "Domino's",
+    "imageName": "DPZ.png",
+    "url": "https://en.wikipedia.org/wiki/Domino%27s"
+  },
+  {
+    "symbol": "DOV",
+    "name": "Dover Corporation",
+    "imageName": "DOV.png",
+    "url": "https://en.wikipedia.org/wiki/Dover_Corporation"
+  },
+  {
+    "symbol": "DOW",
+    "name": "Dow Inc.",
+    "imageName": "DOW.png",
+    "url": "https://en.wikipedia.org/wiki/Dow_Inc."
+  },
+  {
+    "symbol": "DTE",
+    "name": "DTE Energy",
+    "imageName": "DTE.png",
+    "url": "https://en.wikipedia.org/wiki/DTE_Energy"
+  },
+  {
+    "symbol": "DUK",
+    "name": "Duke Energy",
+    "imageName": "DUK.png",
+    "url": "https://en.wikipedia.org/wiki/Duke_Energy"
+  },
+  {
+    "symbol": "DD",
+    "name": "DuPont",
+    "imageName": "DD.png",
+    "url": "https://en.wikipedia.org/wiki/DuPont"
+  },
+  {
+    "symbol": "DXC",
+    "name": "DXC Technology",
+    "imageName": "DXC.png",
+    "url": "https://en.wikipedia.org/wiki/DXC_Technology"
+  },
+  {
+    "symbol": "EMN",
+    "name": "Eastman Chemical Company",
+    "imageName": "EMN.png",
+    "url": "https://en.wikipedia.org/wiki/Eastman_Chemical_Company"
+  },
+  {
+    "symbol": "ETN",
+    "name": "Eaton Corporation",
+    "imageName": "ETN.png",
+    "url": "https://en.wikipedia.org/wiki/Eaton_Corporation"
+  },
+  {
+    "symbol": "EBAY",
+    "name": "eBay",
+    "imageName": "EBAY.png",
+    "url": "https://en.wikipedia.org/wiki/EBay"
+  },
+  {
+    "symbol": "ECL",
+    "name": "Ecolab",
+    "imageName": "ECL.png",
+    "url": "https://en.wikipedia.org/wiki/Ecolab"
+  },
+  {
+    "symbol": "EIX",
+    "name": "Edison International",
+    "imageName": "EIX.png",
+    "url": "https://en.wikipedia.org/wiki/Edison_International"
+  },
+  {
+    "symbol": "EW",
+    "name": "Edwards Lifesciences",
+    "imageName": "EW.png",
+    "url": "https://en.wikipedia.org/wiki/Edwards_Lifesciences"
+  },
+  {
+    "symbol": "EA",
+    "name": "Electronic Arts",
+    "imageName": "EA.png",
+    "url": "https://en.wikipedia.org/wiki/Electronic_Arts"
+  },
+  {
+    "symbol": "ELV",
+    "name": "Elevance Health",
+    "imageName": "ELV.png",
+    "url": "https://en.wikipedia.org/wiki/Elevance_Health"
+  },
+  {
+    "symbol": "LLY",
+    "name": "Eli Lilly and Company",
+    "imageName": "LLY.png",
+    "url": "https://en.wikipedia.org/wiki/Eli_Lilly_and_Company"
+  },
+  {
+    "symbol": "EMR",
+    "name": "Emerson Electric",
+    "imageName": "EMR.png",
+    "url": "https://en.wikipedia.org/wiki/Emerson_Electric"
+  },
+  {
+    "symbol": "ENPH",
+    "name": "Enphase",
+    "imageName": "ENPH.png",
+    "url": "https://en.wikipedia.org/wiki/Enphase"
+  },
+  {
+    "symbol": "ETR",
+    "name": "Entergy",
+    "imageName": "ETR.png",
+    "url": "https://en.wikipedia.org/wiki/Entergy"
+  },
+  {
+    "symbol": "EOG",
+    "name": "EOG Resources",
+    "imageName": "EOG.png",
+    "url": "https://en.wikipedia.org/wiki/EOG_Resources"
+  },
+  {
+    "symbol": "EPAM",
+    "name": "EPAM Systems",
+    "imageName": "EPAM.png",
+    "url": "https://en.wikipedia.org/wiki/EPAM_Systems"
+  },
+  {
+    "symbol": "EQT",
+    "name": "EQT",
+    "imageName": "EQT.png",
+    "url": "https://en.wikipedia.org/wiki/EQT"
+  },
+  {
+    "symbol": "EFX",
+    "name": "Equifax",
+    "imageName": "EFX.png",
+    "url": "https://en.wikipedia.org/wiki/Equifax"
+  },
+  {
+    "symbol": "EQIX",
+    "name": "Equinix",
+    "imageName": "EQIX.png",
+    "url": "https://en.wikipedia.org/wiki/Equinix"
+  },
+  {
+    "symbol": "EQR",
+    "name": "Equity Residential",
+    "imageName": "EQR.png",
+    "url": "https://en.wikipedia.org/wiki/Equity_Residential"
+  },
+  {
+    "symbol": "ESS",
+    "name": "Essex Property Trust",
+    "imageName": "ESS.png",
+    "url": "https://en.wikipedia.org/wiki/Essex_Property_Trust"
+  },
+  {
+    "symbol": "EL",
+    "name": "Estée Lauder Companies (The)",
+    "imageName": "EL.png",
+    "url": "https://en.wikipedia.org/wiki/The_Est%C3%A9e_Lauder_Companies"
+  },
+  {
+    "symbol": "ETSY",
+    "name": "Etsy",
+    "imageName": "ETSY.png",
+    "url": "https://en.wikipedia.org/wiki/Etsy"
+  },
+  {
+    "symbol": "RE",
+    "name": "Everest Re",
+    "imageName": "RE.png",
+    "url": "https://en.wikipedia.org/wiki/Everest_Re"
+  },
+  {
+    "symbol": "EVRG",
+    "name": "Evergy",
+    "imageName": "EVRG.png",
+    "url": "https://en.wikipedia.org/wiki/Evergy"
+  },
+  {
+    "symbol": "ES",
+    "name": "Eversource",
+    "imageName": "ES.png",
+    "url": "https://en.wikipedia.org/wiki/Eversource"
+  },
+  {
+    "symbol": "EXC",
+    "name": "Exelon",
+    "imageName": "EXC.png",
+    "url": "https://en.wikipedia.org/wiki/Exelon"
+  },
+  {
+    "symbol": "EXPE",
+    "name": "Expedia Group",
+    "imageName": "EXPE.png",
+    "url": "https://en.wikipedia.org/wiki/Expedia_Group"
+  },
+  {
+    "symbol": "EXPD",
+    "name": "Expeditors International",
+    "imageName": "EXPD.png",
+    "url": "https://en.wikipedia.org/wiki/Expeditors_International"
+  },
+  {
+    "symbol": "EXR",
+    "name": "Extra Space Storage",
+    "imageName": "EXR.png",
+    "url": "https://en.wikipedia.org/wiki/Extra_Space_Storage"
+  },
+  {
+    "symbol": "XOM",
+    "name": "ExxonMobil",
+    "imageName": "XOM.png",
+    "url": "https://en.wikipedia.org/wiki/ExxonMobil"
+  },
+  {
+    "symbol": "FFIV",
+    "name": "F5, Inc.",
+    "imageName": "FFIV.png",
+    "url": "https://en.wikipedia.org/wiki/F5,_Inc."
+  },
+  {
+    "symbol": "FDS",
+    "name": "FactSet",
+    "imageName": "FDS.png",
+    "url": "https://en.wikipedia.org/wiki/FactSet"
+  },
+  {
+    "symbol": "FICO",
+    "name": "Fair Isaac",
+    "imageName": "FICO.png",
+    "url": "https://en.wikipedia.org/wiki/FICO"
+  },
+  {
+    "symbol": "FAST",
+    "name": "Fastenal",
+    "imageName": "FAST.png",
+    "url": "https://en.wikipedia.org/wiki/Fastenal"
+  },
+  {
+    "symbol": "FRT",
+    "name": "Federal Realty",
+    "imageName": "FRT.png",
+    "url": "https://en.wikipedia.org/wiki/Federal_Realty"
+  },
+  {
+    "symbol": "FDX",
+    "name": "FedEx",
+    "imageName": "FDX.png",
+    "url": "https://en.wikipedia.org/wiki/FedEx"
+  },
+  {
+    "symbol": "FITB",
+    "name": "Fifth Third Bank",
+    "imageName": "FITB.png",
+    "url": "https://en.wikipedia.org/wiki/Fifth_Third_Bank"
+  },
+  {
+    "symbol": "FSLR",
+    "name": "First Solar",
+    "imageName": "FSLR.png",
+    "url": "https://en.wikipedia.org/wiki/First_Solar"
+  },
+  {
+    "symbol": "FE",
+    "name": "FirstEnergy",
+    "imageName": "FE.png",
+    "url": "https://en.wikipedia.org/wiki/FirstEnergy"
+  },
+  {
+    "symbol": "FIS",
+    "name": "FIS",
+    "imageName": "FIS.png",
+    "url": "https://en.wikipedia.org/wiki/FIS_(company)"
+  },
+  {
+    "symbol": "FI",
+    "name": "Fiserv",
+    "imageName": "FI.png",
+    "url": "https://en.wikipedia.org/wiki/Fiserv"
+  },
+  {
+    "symbol": "FLT",
+    "name": "Fleetcor",
+    "imageName": "FLT.png",
+    "url": "https://en.wikipedia.org/wiki/Fleetcor"
+  },
+  {
+    "symbol": "FMC",
+    "name": "FMC Corporation",
+    "imageName": "FMC.png",
+    "url": "https://en.wikipedia.org/wiki/FMC_Corporation"
+  },
+  {
+    "symbol": "F",
+    "name": "Ford Motor Company",
+    "imageName": "F.png",
+    "url": "https://en.wikipedia.org/wiki/Ford_Motor_Company"
+  },
+  {
+    "symbol": "FTNT",
+    "name": "Fortinet",
+    "imageName": "FTNT.png",
+    "url": "https://en.wikipedia.org/wiki/Fortinet"
+  },
+  {
+    "symbol": "FTV",
+    "name": "Fortive",
+    "imageName": "FTV.png",
+    "url": "https://en.wikipedia.org/wiki/Fortive"
+  },
+  {
+    "symbol": "FOXA",
+    "name": "Fox Corporation (Class A)",
+    "imageName": "FOXA.png",
+    "url": "https://en.wikipedia.org/wiki/Fox_Corporation"
+  },
+  {
+    "symbol": "FOX",
+    "name": "Fox Corporation (Class B)",
+    "imageName": "FOX.png",
+    "url": "https://en.wikipedia.org/wiki/Fox_Corporation"
+  },
+  {
+    "symbol": "BEN",
+    "name": "Franklin Templeton",
+    "imageName": "BEN.png",
+    "url": "https://en.wikipedia.org/wiki/Franklin_Templeton"
+  },
+  {
+    "symbol": "FCX",
+    "name": "Freeport-McMoRan",
+    "imageName": "FCX.png",
+    "url": "https://en.wikipedia.org/wiki/Freeport-McMoRan"
+  },
+  {
+    "symbol": "GRMN",
+    "name": "Garmin",
+    "imageName": "GRMN.png",
+    "url": "https://en.wikipedia.org/wiki/Garmin"
+  },
+  {
+    "symbol": "IT",
+    "name": "Gartner",
+    "imageName": "IT.png",
+    "url": "https://en.wikipedia.org/wiki/Gartner"
+  },
+  {
+    "symbol": "GEHC",
+    "name": "GE HealthCare",
+    "imageName": "GEHC.png",
+    "url": "https://en.wikipedia.org/wiki/GE_HealthCare"
+  },
+  {
+    "symbol": "GEN",
+    "name": "Gen Digital",
+    "imageName": "GEN.png",
+    "url": "https://en.wikipedia.org/wiki/Gen_Digital"
+  },
+  {
+    "symbol": "GNRC",
+    "name": "Generac",
+    "imageName": "GNRC.png",
+    "url": "https://en.wikipedia.org/wiki/Generac"
+  },
+  {
+    "symbol": "GD",
+    "name": "General Dynamics",
+    "imageName": "GD.png",
+    "url": "https://en.wikipedia.org/wiki/General_Dynamics"
+  },
+  {
+    "symbol": "GE",
+    "name": "General Electric",
+    "imageName": "GE.png",
+    "url": "https://en.wikipedia.org/wiki/General_Electric"
+  },
+  {
+    "symbol": "GIS",
+    "name": "General Mills",
+    "imageName": "GIS.png",
+    "url": "https://en.wikipedia.org/wiki/General_Mills"
+  },
+  {
+    "symbol": "GM",
+    "name": "General Motors",
+    "imageName": "GM.png",
+    "url": "https://en.wikipedia.org/wiki/General_Motors"
+  },
+  {
+    "symbol": "GPC",
+    "name": "Genuine Parts Company",
+    "imageName": "GPC.png",
+    "url": "https://en.wikipedia.org/wiki/Genuine_Parts_Company"
+  },
+  {
+    "symbol": "GILD",
+    "name": "Gilead Sciences",
+    "imageName": "GILD.png",
+    "url": "https://en.wikipedia.org/wiki/Gilead_Sciences"
+  },
+  {
+    "symbol": "GL",
+    "name": "Globe Life",
+    "imageName": "GL.png",
+    "url": "https://en.wikipedia.org/wiki/Globe_Life"
+  },
+  {
+    "symbol": "GPN",
+    "name": "Global Payments",
+    "imageName": "GPN.png",
+    "url": "https://en.wikipedia.org/wiki/Global_Payments"
+  },
+  {
+    "symbol": "GS",
+    "name": "Goldman Sachs",
+    "imageName": "GS.png",
+    "url": "https://en.wikipedia.org/wiki/Goldman_Sachs"
+  },
+  {
+    "symbol": "HAL",
+    "name": "Halliburton",
+    "imageName": "HAL.png",
+    "url": "https://en.wikipedia.org/wiki/Halliburton"
+  },
+  {
+    "symbol": "HIG",
+    "name": "Hartford (The)",
+    "imageName": "HIG.png",
+    "url": "https://en.wikipedia.org/wiki/The_Hartford"
+  },
+  {
+    "symbol": "HAS",
+    "name": "Hasbro",
+    "imageName": "HAS.png",
+    "url": "https://en.wikipedia.org/wiki/Hasbro"
+  },
+  {
+    "symbol": "HCA",
+    "name": "HCA Healthcare",
+    "imageName": "HCA.png",
+    "url": "https://en.wikipedia.org/wiki/HCA_Healthcare"
+  },
+  {
+    "symbol": "PEAK",
+    "name": "Healthpeak",
+    "imageName": "PEAK.png",
+    "url": "https://en.wikipedia.org/wiki/Healthpeak_Properties"
+  },
+  {
+    "symbol": "HSIC",
+    "name": "Henry Schein",
+    "imageName": "HSIC.png",
+    "url": "https://en.wikipedia.org/wiki/Henry_Schein"
+  },
+  {
+    "symbol": "HSY",
+    "name": "Hershey's",
+    "imageName": "HSY.png",
+    "url": "https://en.wikipedia.org/wiki/The_Hershey_Company"
+  },
+  {
+    "symbol": "HES",
+    "name": "Hess Corporation",
+    "imageName": "HES.png",
+    "url": "https://en.wikipedia.org/wiki/Hess_Corporation"
+  },
+  {
+    "symbol": "HPE",
+    "name": "Hewlett Packard Enterprise",
+    "imageName": "HPE.png",
+    "url": "https://en.wikipedia.org/wiki/Hewlett_Packard_Enterprise"
+  },
+  {
+    "symbol": "HLT",
+    "name": "Hilton Worldwide",
+    "imageName": "HLT.png",
+    "url": "https://en.wikipedia.org/wiki/Hilton_Worldwide"
+  },
+  {
+    "symbol": "HOLX",
+    "name": "Hologic",
+    "imageName": "HOLX.png",
+    "url": "https://en.wikipedia.org/wiki/Hologic"
+  },
+  {
+    "symbol": "HD",
+    "name": "Home Depot (The)",
+    "imageName": "HD.png",
+    "url": "https://en.wikipedia.org/wiki/The_Home_Depot"
+  },
+  {
+    "symbol": "HON",
+    "name": "Honeywell",
+    "imageName": "HON.png",
+    "url": "https://en.wikipedia.org/wiki/Honeywell"
+  },
+  {
+    "symbol": "HRL",
+    "name": "Hormel Foods",
+    "imageName": "HRL.png",
+    "url": "https://en.wikipedia.org/wiki/Hormel_Foods"
+  },
+  {
+    "symbol": "HST",
+    "name": "Host Hotels & Resorts",
+    "imageName": "HST.png",
+    "url": "https://en.wikipedia.org/wiki/Host_Hotels_%26_Resorts"
+  },
+  {
+    "symbol": "HWM",
+    "name": "Howmet Aerospace",
+    "imageName": "HWM.png",
+    "url": "https://en.wikipedia.org/wiki/Howmet_Aerospace"
+  },
+  {
+    "symbol": "HPQ",
+    "name": "HP Inc.",
+    "imageName": "HPQ.png",
+    "url": "https://en.wikipedia.org/wiki/HP_Inc."
+  },
+  {
+    "symbol": "HUM",
+    "name": "Humana",
+    "imageName": "HUM.png",
+    "url": "https://en.wikipedia.org/wiki/Humana"
+  },
+  {
+    "symbol": "HBAN",
+    "name": "Huntington Bancshares",
+    "imageName": "HBAN.png",
+    "url": "https://en.wikipedia.org/wiki/Huntington_Bancshares"
+  },
+  {
+    "symbol": "HII",
+    "name": "Huntington Ingalls Industries",
+    "imageName": "HII.png",
+    "url": "https://en.wikipedia.org/wiki/Huntington_Ingalls_Industries"
+  },
+  {
+    "symbol": "IBM",
+    "name": "IBM",
+    "imageName": "IBM.png",
+    "url": "https://en.wikipedia.org/wiki/IBM"
+  },
+  {
+    "symbol": "IEX",
+    "name": "IDEX Corporation",
+    "imageName": "IEX.png",
+    "url": "https://en.wikipedia.org/wiki/IDEX_Corporation"
+  },
+  {
+    "symbol": "IDXX",
+    "name": "Idexx Laboratories",
+    "imageName": "IDXX.png",
+    "url": "https://en.wikipedia.org/wiki/Idexx_Laboratories"
+  },
+  {
+    "symbol": "ITW",
+    "name": "Illinois Tool Works",
+    "imageName": "ITW.png",
+    "url": "https://en.wikipedia.org/wiki/Illinois_Tool_Works"
+  },
+  {
+    "symbol": "ILMN",
+    "name": "Illumina",
+    "imageName": "ILMN.png",
+    "url": "https://en.wikipedia.org/wiki/Illumina,_Inc."
+  },
+  {
+    "symbol": "INCY",
+    "name": "Incyte",
+    "imageName": "INCY.png",
+    "url": "https://en.wikipedia.org/wiki/Incyte"
+  },
+  {
+    "symbol": "IR",
+    "name": "Ingersoll Rand",
+    "imageName": "IR.png",
+    "url": "https://en.wikipedia.org/wiki/Ingersoll_Rand"
+  },
+  {
+    "symbol": "PODD",
+    "name": "Insulet",
+    "imageName": "PODD.png",
+    "url": ""
+  },
+  {
+    "symbol": "INTC",
+    "name": "Intel",
+    "imageName": "INTC.png",
+    "url": "https://en.wikipedia.org/wiki/Intel"
+  },
+  {
+    "symbol": "ICE",
+    "name": "Intercontinental Exchange",
+    "imageName": "ICE.png",
+    "url": "https://en.wikipedia.org/wiki/Intercontinental_Exchange"
+  },
+  {
+    "symbol": "IFF",
+    "name": "International Flavors & Fragrances",
+    "imageName": "IFF.png",
+    "url": "https://en.wikipedia.org/wiki/International_Flavors_%26_Fragrances"
+  },
+  {
+    "symbol": "IP",
+    "name": "International Paper",
+    "imageName": "IP.png",
+    "url": "https://en.wikipedia.org/wiki/International_Paper"
+  },
+  {
+    "symbol": "IPG",
+    "name": "Interpublic Group of Companies (The)",
+    "imageName": "IPG.png",
+    "url": "https://en.wikipedia.org/wiki/The_Interpublic_Group_of_Companies"
+  },
+  {
+    "symbol": "INTU",
+    "name": "Intuit",
+    "imageName": "INTU.png",
+    "url": "https://en.wikipedia.org/wiki/Intuit"
+  },
+  {
+    "symbol": "ISRG",
+    "name": "Intuitive Surgical",
+    "imageName": "ISRG.png",
+    "url": "https://en.wikipedia.org/wiki/Intuitive_Surgical"
+  },
+  {
+    "symbol": "IVZ",
+    "name": "Invesco",
+    "imageName": "IVZ.png",
+    "url": "https://en.wikipedia.org/wiki/Invesco"
+  },
+  {
+    "symbol": "INVH",
+    "name": "Invitation Homes",
+    "imageName": "INVH.png",
+    "url": "https://en.wikipedia.org/wiki/Invitation_Homes"
+  },
+  {
+    "symbol": "IQV",
+    "name": "IQVIA",
+    "imageName": "IQV.png",
+    "url": "https://en.wikipedia.org/wiki/IQVIA"
+  },
+  {
+    "symbol": "IRM",
+    "name": "Iron Mountain",
+    "imageName": "IRM.png",
+    "url": "https://en.wikipedia.org/wiki/Iron_Mountain_(company)"
+  },
+  {
+    "symbol": "JBHT",
+    "name": "J.B. Hunt",
+    "imageName": "JBHT.png",
+    "url": "https://en.wikipedia.org/wiki/J.B._Hunt"
+  },
+  {
+    "symbol": "JKHY",
+    "name": "Jack Henry & Associates",
+    "imageName": "JKHY.png",
+    "url": "https://en.wikipedia.org/wiki/Jack_Henry_%26_Associates"
+  },
+  {
+    "symbol": "J",
+    "name": "Jacobs Solutions",
+    "imageName": "J.png",
+    "url": "https://en.wikipedia.org/wiki/Jacobs_Solutions"
+  },
+  {
+    "symbol": "JNJ",
+    "name": "Johnson & Johnson",
+    "imageName": "JNJ.png",
+    "url": "https://en.wikipedia.org/wiki/Johnson_%26_Johnson"
+  },
+  {
+    "symbol": "JCI",
+    "name": "Johnson Controls",
+    "imageName": "JCI.png",
+    "url": "https://en.wikipedia.org/wiki/Johnson_Controls"
+  },
+  {
+    "symbol": "JPM",
+    "name": "JPMorgan Chase",
+    "imageName": "JPM.png",
+    "url": "https://en.wikipedia.org/wiki/JPMorgan_Chase"
+  },
+  {
+    "symbol": "JNPR",
+    "name": "Juniper Networks",
+    "imageName": "JNPR.png",
+    "url": "https://en.wikipedia.org/wiki/Juniper_Networks"
+  },
+  {
+    "symbol": "K",
+    "name": "Kellogg's",
+    "imageName": "K.png",
+    "url": "https://en.wikipedia.org/wiki/Kellogg%27s"
+  },
+  {
+    "symbol": "KDP",
+    "name": "Keurig Dr Pepper",
+    "imageName": "KDP.png",
+    "url": "https://en.wikipedia.org/wiki/Keurig_Dr_Pepper"
+  },
+  {
+    "symbol": "KEY",
+    "name": "KeyCorp",
+    "imageName": "KEY.png",
+    "url": "https://en.wikipedia.org/wiki/KeyBank"
+  },
+  {
+    "symbol": "KEYS",
+    "name": "Keysight",
+    "imageName": "KEYS.png",
+    "url": "https://en.wikipedia.org/wiki/Keysight"
+  },
+  {
+    "symbol": "KMB",
+    "name": "Kimberly-Clark",
+    "imageName": "KMB.png",
+    "url": "https://en.wikipedia.org/wiki/Kimberly-Clark"
+  },
+  {
+    "symbol": "KIM",
+    "name": "Kimco Realty",
+    "imageName": "KIM.png",
+    "url": "https://en.wikipedia.org/wiki/Kimco_Realty"
+  },
+  {
+    "symbol": "KMI",
+    "name": "Kinder Morgan",
+    "imageName": "KMI.png",
+    "url": "https://en.wikipedia.org/wiki/Kinder_Morgan"
+  },
+  {
+    "symbol": "KLAC",
+    "name": "KLA Corporation",
+    "imageName": "KLAC.png",
+    "url": "https://en.wikipedia.org/wiki/KLA_Corporation"
+  },
+  {
+    "symbol": "KHC",
+    "name": "Kraft Heinz",
+    "imageName": "KHC.png",
+    "url": "https://en.wikipedia.org/wiki/Kraft_Heinz"
+  },
+  {
+    "symbol": "KR",
+    "name": "Kroger",
+    "imageName": "KR.png",
+    "url": "https://en.wikipedia.org/wiki/Kroger"
+  },
+  {
+    "symbol": "LHX",
+    "name": "L3Harris",
+    "imageName": "LHX.png",
+    "url": "https://en.wikipedia.org/wiki/L3Harris"
+  },
+  {
+    "symbol": "LH",
+    "name": "LabCorp",
+    "imageName": "LH.png",
+    "url": "https://en.wikipedia.org/wiki/LabCorp"
+  },
+  {
+    "symbol": "LRCX",
+    "name": "Lam Research",
+    "imageName": "LRCX.png",
+    "url": "https://en.wikipedia.org/wiki/Lam_Research"
+  },
+  {
+    "symbol": "LW",
+    "name": "Lamb Weston",
+    "imageName": "LW.png",
+    "url": "https://en.wikipedia.org/wiki/Lamb_Weston"
+  },
+  {
+    "symbol": "LVS",
+    "name": "Las Vegas Sands",
+    "imageName": "LVS.png",
+    "url": "https://en.wikipedia.org/wiki/Las_Vegas_Sands"
+  },
+  {
+    "symbol": "LDOS",
+    "name": "Leidos",
+    "imageName": "LDOS.png",
+    "url": "https://en.wikipedia.org/wiki/Leidos"
+  },
+  {
+    "symbol": "LEN",
+    "name": "Lennar",
+    "imageName": "LEN.png",
+    "url": "https://en.wikipedia.org/wiki/Lennar"
+  },
+  {
+    "symbol": "LNC",
+    "name": "Lincoln Financial",
+    "imageName": "LNC.png",
+    "url": "https://en.wikipedia.org/wiki/Lincoln_Financial"
+  },
+  {
+    "symbol": "LIN",
+    "name": "Linde plc",
+    "imageName": "LIN.png",
+    "url": "https://en.wikipedia.org/wiki/Linde_plc"
+  },
+  {
+    "symbol": "LYV",
+    "name": "Live Nation Entertainment",
+    "imageName": "LYV.png",
+    "url": "https://en.wikipedia.org/wiki/Live_Nation_Entertainment"
+  },
+  {
+    "symbol": "LKQ",
+    "name": "LKQ Corporation",
+    "imageName": "LKQ.png",
+    "url": "https://en.wikipedia.org/wiki/LKQ_Corporation"
+  },
+  {
+    "symbol": "LMT",
+    "name": "Lockheed Martin",
+    "imageName": "LMT.png",
+    "url": "https://en.wikipedia.org/wiki/Lockheed_Martin"
+  },
+  {
+    "symbol": "L",
+    "name": "Loews Corporation",
+    "imageName": "L.png",
+    "url": "https://en.wikipedia.org/wiki/Loews_Corporation"
+  },
+  {
+    "symbol": "LOW",
+    "name": "Lowe's",
+    "imageName": "LOW.png",
+    "url": "https://en.wikipedia.org/wiki/Lowe%27s"
+  },
+  {
+    "symbol": "LYB",
+    "name": "LyondellBasell",
+    "imageName": "LYB.png",
+    "url": "https://en.wikipedia.org/wiki/LyondellBasell"
+  },
+  {
+    "symbol": "MTB",
+    "name": "M&T Bank",
+    "imageName": "MTB.png",
+    "url": "https://en.wikipedia.org/wiki/M%26T_Bank"
+  },
+  {
+    "symbol": "MRO",
+    "name": "Marathon Oil",
+    "imageName": "MRO.png",
+    "url": "https://en.wikipedia.org/wiki/Marathon_Oil"
+  },
+  {
+    "symbol": "MPC",
+    "name": "Marathon Petroleum",
+    "imageName": "MPC.png",
+    "url": "https://en.wikipedia.org/wiki/Marathon_Petroleum"
+  },
+  {
+    "symbol": "MKTX",
+    "name": "MarketAxess",
+    "imageName": "MKTX.png",
+    "url": "https://en.wikipedia.org/wiki/MarketAxess"
+  },
+  {
+    "symbol": "MAR",
+    "name": "Marriott International",
+    "imageName": "MAR.png",
+    "url": "https://en.wikipedia.org/wiki/Marriott_International"
+  },
+  {
+    "symbol": "MMC",
+    "name": "Marsh McLennan",
+    "imageName": "MMC.png",
+    "url": "https://en.wikipedia.org/wiki/Marsh_McLennan"
+  },
+  {
+    "symbol": "MLM",
+    "name": "Martin Marietta Materials",
+    "imageName": "MLM.png",
+    "url": "https://en.wikipedia.org/wiki/Martin_Marietta_Materials"
+  },
+  {
+    "symbol": "MAS",
+    "name": "Masco",
+    "imageName": "MAS.png",
+    "url": "https://en.wikipedia.org/wiki/Masco"
+  },
+  {
+    "symbol": "MA",
+    "name": "Mastercard",
+    "imageName": "MA.png",
+    "url": "https://en.wikipedia.org/wiki/Mastercard"
+  },
+  {
+    "symbol": "MTCH",
+    "name": "Match Group",
+    "imageName": "MTCH.png",
+    "url": "https://en.wikipedia.org/wiki/Match_Group"
+  },
+  {
+    "symbol": "MKC",
+    "name": "McCormick & Company",
+    "imageName": "MKC.png",
+    "url": "https://en.wikipedia.org/wiki/McCormick_%26_Company"
+  },
+  {
+    "symbol": "MCD",
+    "name": "McDonald's",
+    "imageName": "MCD.png",
+    "url": "https://en.wikipedia.org/wiki/McDonald%27s"
+  },
+  {
+    "symbol": "MCK",
+    "name": "McKesson",
+    "imageName": "MCK.png",
+    "url": "https://en.wikipedia.org/wiki/McKesson"
+  },
+  {
+    "symbol": "MDT",
+    "name": "Medtronic",
+    "imageName": "MDT.png",
+    "url": "https://en.wikipedia.org/wiki/Medtronic"
+  },
+  {
+    "symbol": "MRK",
+    "name": "Merck & Co.",
+    "imageName": "MRK.png",
+    "url": "https://en.wikipedia.org/wiki/Merck_%26_Co."
+  },
+  {
+    "symbol": "META",
+    "name": "Meta Platforms",
+    "imageName": "META.png",
+    "url": "https://en.wikipedia.org/wiki/Meta_Platforms"
+  },
+  {
+    "symbol": "MET",
+    "name": "MetLife",
+    "imageName": "MET.png",
+    "url": "https://en.wikipedia.org/wiki/MetLife"
+  },
+  {
+    "symbol": "MTD",
+    "name": "Mettler Toledo",
+    "imageName": "MTD.png",
+    "url": "https://en.wikipedia.org/wiki/Mettler_Toledo"
+  },
+  {
+    "symbol": "MGM",
+    "name": "MGM Resorts",
+    "imageName": "MGM.png",
+    "url": "https://en.wikipedia.org/wiki/MGM_Resorts"
+  },
+  {
+    "symbol": "MCHP",
+    "name": "Microchip Technology",
+    "imageName": "MCHP.png",
+    "url": "https://en.wikipedia.org/wiki/Microchip_Technology"
+  },
+  {
+    "symbol": "MU",
+    "name": "Micron Technology",
+    "imageName": "MU.png",
+    "url": "https://en.wikipedia.org/wiki/Micron_Technology"
+  },
+  {
+    "symbol": "MSFT",
+    "name": "Microsoft",
+    "imageName": "MSFT.png",
+    "url": "https://en.wikipedia.org/wiki/Microsoft"
+  },
+  {
+    "symbol": "MAA",
+    "name": "Mid-America Apartment Communities",
+    "imageName": "MAA.png",
+    "url": "https://en.wikipedia.org/wiki/Mid-America_Apartment_Communities"
+  },
+  {
+    "symbol": "MRNA",
+    "name": "Moderna",
+    "imageName": "MRNA.png",
+    "url": "https://en.wikipedia.org/wiki/Moderna"
+  },
+  {
+    "symbol": "MHK",
+    "name": "Mohawk Industries",
+    "imageName": "MHK.png",
+    "url": "https://en.wikipedia.org/wiki/Mohawk_Industries"
+  },
+  {
+    "symbol": "MOH",
+    "name": "Molina Healthcare",
+    "imageName": "MOH.png",
+    "url": "https://en.wikipedia.org/wiki/Molina_Healthcare"
+  },
+  {
+    "symbol": "TAP",
+    "name": "Molson Coors Beverage Company",
+    "imageName": "TAP.png",
+    "url": "https://en.wikipedia.org/wiki/Molson_Coors_Beverage_Company"
+  },
+  {
+    "symbol": "MDLZ",
+    "name": "Mondelez International",
+    "imageName": "MDLZ.png",
+    "url": "https://en.wikipedia.org/wiki/Mondelez_International"
+  },
+  {
+    "symbol": "MPWR",
+    "name": "Monolithic Power Systems",
+    "imageName": "MPWR.png",
+    "url": "https://en.wikipedia.org/wiki/Monolithic_Power_Systems"
+  },
+  {
+    "symbol": "MNST",
+    "name": "Monster Beverage",
+    "imageName": "MNST.png",
+    "url": "https://en.wikipedia.org/wiki/Monster_Beverage"
+  },
+  {
+    "symbol": "MCO",
+    "name": "Moody's Corporation",
+    "imageName": "MCO.png",
+    "url": "https://en.wikipedia.org/wiki/Moody%27s_Corporation"
+  },
+  {
+    "symbol": "MS",
+    "name": "Morgan Stanley",
+    "imageName": "MS.png",
+    "url": "https://en.wikipedia.org/wiki/Morgan_Stanley"
+  },
+  {
+    "symbol": "MOS",
+    "name": "Mosaic Company (The)",
+    "imageName": "MOS.png",
+    "url": "https://en.wikipedia.org/wiki/The_Mosaic_Company"
+  },
+  {
+    "symbol": "MSI",
+    "name": "Motorola Solutions",
+    "imageName": "MSI.png",
+    "url": "https://en.wikipedia.org/wiki/Motorola_Solutions"
+  },
+  {
+    "symbol": "MSCI",
+    "name": "MSCI",
+    "imageName": "MSCI.png",
+    "url": "https://en.wikipedia.org/wiki/MSCI"
+  },
+  {
+    "symbol": "NDAQ",
+    "name": "Nasdaq, Inc.",
+    "imageName": "NDAQ.png",
+    "url": "https://en.wikipedia.org/wiki/Nasdaq,_Inc."
+  },
+  {
+    "symbol": "NTAP",
+    "name": "NetApp",
+    "imageName": "NTAP.png",
+    "url": "https://en.wikipedia.org/wiki/NetApp"
+  },
+  {
+    "symbol": "NFLX",
+    "name": "Netflix",
+    "imageName": "NFLX.png",
+    "url": "https://en.wikipedia.org/wiki/Netflix,_Inc."
+  },
+  {
+    "symbol": "NWL",
+    "name": "Newell Brands",
+    "imageName": "NWL.png",
+    "url": "https://en.wikipedia.org/wiki/Newell_Brands"
+  },
+  {
+    "symbol": "NEM",
+    "name": "Newmont",
+    "imageName": "NEM.png",
+    "url": "https://en.wikipedia.org/wiki/Newmont"
+  },
+  {
+    "symbol": "NWSA",
+    "name": "News Corp (Class A)",
+    "imageName": "NWSA.png",
+    "url": "https://en.wikipedia.org/wiki/News_Corp"
+  },
+  {
+    "symbol": "NWS",
+    "name": "News Corp (Class B)",
+    "imageName": "NWS.png",
+    "url": "https://en.wikipedia.org/wiki/News_Corp"
+  },
+  {
+    "symbol": "NEE",
+    "name": "NextEra Energy",
+    "imageName": "NEE.png",
+    "url": "https://en.wikipedia.org/wiki/NextEra_Energy"
+  },
+  {
+    "symbol": "NKE",
+    "name": "Nike, Inc.",
+    "imageName": "NKE.png",
+    "url": "https://en.wikipedia.org/wiki/Nike,_Inc."
+  },
+  {
+    "symbol": "NI",
+    "name": "NiSource",
+    "imageName": "NI.png",
+    "url": "https://en.wikipedia.org/wiki/NiSource"
+  },
+  {
+    "symbol": "NDSN",
+    "name": "Nordson Corporation",
+    "imageName": "NDSN.png",
+    "url": "https://en.wikipedia.org/wiki/Nordson_Corporation"
+  },
+  {
+    "symbol": "NSC",
+    "name": "Norfolk Southern Railway",
+    "imageName": "NSC.png",
+    "url": "https://en.wikipedia.org/wiki/Norfolk_Southern_Railway"
+  },
+  {
+    "symbol": "NTRS",
+    "name": "Northern Trust",
+    "imageName": "NTRS.png",
+    "url": "https://en.wikipedia.org/wiki/Northern_Trust"
+  },
+  {
+    "symbol": "NOC",
+    "name": "Northrop Grumman",
+    "imageName": "NOC.png",
+    "url": "https://en.wikipedia.org/wiki/Northrop_Grumman"
+  },
+  {
+    "symbol": "NCLH",
+    "name": "Norwegian Cruise Line Holdings",
+    "imageName": "NCLH.png",
+    "url": "https://en.wikipedia.org/wiki/Norwegian_Cruise_Line_Holdings"
+  },
+  {
+    "symbol": "NRG",
+    "name": "NRG Energy",
+    "imageName": "NRG.png",
+    "url": "https://en.wikipedia.org/wiki/NRG_Energy"
+  },
+  {
+    "symbol": "NUE",
+    "name": "Nucor",
+    "imageName": "NUE.png",
+    "url": "https://en.wikipedia.org/wiki/Nucor"
+  },
+  {
+    "symbol": "NVDA",
+    "name": "Nvidia",
+    "imageName": "NVDA.png",
+    "url": "https://en.wikipedia.org/wiki/Nvidia"
+  },
+  {
+    "symbol": "NVR",
+    "name": "NVR, Inc.",
+    "imageName": "NVR.png",
+    "url": "https://en.wikipedia.org/wiki/NVR,_Inc."
+  },
+  {
+    "symbol": "NXPI",
+    "name": "NXP Semiconductors",
+    "imageName": "NXPI.png",
+    "url": "https://en.wikipedia.org/wiki/NXP_Semiconductors"
+  },
+  {
+    "symbol": "ORLY",
+    "name": "O'Reilly Auto Parts",
+    "imageName": "ORLY.png",
+    "url": "https://en.wikipedia.org/wiki/O%27Reilly_Auto_Parts"
+  },
+  {
+    "symbol": "OXY",
+    "name": "Occidental Petroleum",
+    "imageName": "OXY.png",
+    "url": "https://en.wikipedia.org/wiki/Occidental_Petroleum"
+  },
+  {
+    "symbol": "ODFL",
+    "name": "Old Dominion",
+    "imageName": "ODFL.png",
+    "url": "https://en.wikipedia.org/wiki/Old_Dominion_Freight_Line"
+  },
+  {
+    "symbol": "OMC",
+    "name": "Omnicom Group",
+    "imageName": "OMC.png",
+    "url": "https://en.wikipedia.org/wiki/Omnicom_Group"
+  },
+  {
+    "symbol": "ON",
+    "name": "ON Semiconductor",
+    "imageName": "ON.png",
+    "url": "https://en.wikipedia.org/wiki/ON_Semiconductor"
+  },
+  {
+    "symbol": "OKE",
+    "name": "ONEOK",
+    "imageName": "OKE.png",
+    "url": "https://en.wikipedia.org/wiki/Oneok"
+  },
+  {
+    "symbol": "ORCL",
+    "name": "Oracle Corporation",
+    "imageName": "ORCL.png",
+    "url": "https://en.wikipedia.org/wiki/Oracle_Corporation"
+  },
+  {
+    "symbol": "OGN",
+    "name": "Organon & Co.",
+    "imageName": "OGN.png",
+    "url": "https://en.wikipedia.org/wiki/Organon_%26_Co."
+  },
+  {
+    "symbol": "OTIS",
+    "name": "Otis Worldwide",
+    "imageName": "OTIS.png",
+    "url": "https://en.wikipedia.org/wiki/Otis_Worldwide"
+  },
+  {
+    "symbol": "PCAR",
+    "name": "Paccar",
+    "imageName": "PCAR.png",
+    "url": "https://en.wikipedia.org/wiki/Paccar"
+  },
+  {
+    "symbol": "PKG",
+    "name": "Packaging Corporation of America",
+    "imageName": "PKG.png",
+    "url": "https://en.wikipedia.org/wiki/Packaging_Corporation_of_America"
+  },
+  {
+    "symbol": "PANW",
+    "name": "Palo Alto Networks",
+    "imageName": "PANW.png",
+    "url": "https://en.wikipedia.org/wiki/Palo_Alto_Networks"
+  },
+  {
+    "symbol": "PARA",
+    "name": "Paramount Global",
+    "imageName": "PARA.png",
+    "url": "https://en.wikipedia.org/wiki/Paramount_Global"
+  },
+  {
+    "symbol": "PH",
+    "name": "Parker Hannifin",
+    "imageName": "PH.png",
+    "url": "https://en.wikipedia.org/wiki/Parker_Hannifin"
+  },
+  {
+    "symbol": "PAYX",
+    "name": "Paychex",
+    "imageName": "PAYX.png",
+    "url": "https://en.wikipedia.org/wiki/Paychex"
+  },
+  {
+    "symbol": "PAYC",
+    "name": "Paycom",
+    "imageName": "PAYC.png",
+    "url": "https://en.wikipedia.org/wiki/Paycom"
+  },
+  {
+    "symbol": "PYPL",
+    "name": "PayPal",
+    "imageName": "PYPL.png",
+    "url": "https://en.wikipedia.org/wiki/PayPal"
+  },
+  {
+    "symbol": "PNR",
+    "name": "Pentair",
+    "imageName": "PNR.png",
+    "url": "https://en.wikipedia.org/wiki/Pentair"
+  },
+  {
+    "symbol": "PEP",
+    "name": "PepsiCo",
+    "imageName": "PEP.png",
+    "url": "https://en.wikipedia.org/wiki/PepsiCo"
+  },
+  {
+    "symbol": "PFE",
+    "name": "Pfizer",
+    "imageName": "PFE.png",
+    "url": "https://en.wikipedia.org/wiki/Pfizer"
+  },
+  {
+    "symbol": "PCG",
+    "name": "PG&E Corporation",
+    "imageName": "PCG.png",
+    "url": "https://en.wikipedia.org/wiki/PG%26E"
+  },
+  {
+    "symbol": "PM",
+    "name": "Philip Morris International",
+    "imageName": "PM.png",
+    "url": "https://en.wikipedia.org/wiki/Philip_Morris_International"
+  },
+  {
+    "symbol": "PSX",
+    "name": "Phillips 66",
+    "imageName": "PSX.png",
+    "url": "https://en.wikipedia.org/wiki/Phillips_66"
+  },
+  {
+    "symbol": "PNW",
+    "name": "Pinnacle West",
+    "imageName": "PNW.png",
+    "url": "https://en.wikipedia.org/wiki/Pinnacle_West"
+  },
+  {
+    "symbol": "PXD",
+    "name": "Pioneer Natural Resources",
+    "imageName": "PXD.png",
+    "url": "https://en.wikipedia.org/wiki/Pioneer_Natural_Resources"
+  },
+  {
+    "symbol": "PNC",
+    "name": "PNC Financial Services",
+    "imageName": "PNC.png",
+    "url": "https://en.wikipedia.org/wiki/PNC_Financial_Services"
+  },
+  {
+    "symbol": "POOL",
+    "name": "Pool Corporation",
+    "imageName": "POOL.png",
+    "url": ""
+  },
+  {
+    "symbol": "PPG",
+    "name": "PPG Industries",
+    "imageName": "PPG.png",
+    "url": "https://en.wikipedia.org/wiki/PPG_Industries"
+  },
+  {
+    "symbol": "PPL",
+    "name": "PPL Corporation",
+    "imageName": "PPL.png",
+    "url": "https://en.wikipedia.org/wiki/PPL_Corporation"
+  },
+  {
+    "symbol": "PFG",
+    "name": "Principal Financial Group",
+    "imageName": "PFG.png",
+    "url": "https://en.wikipedia.org/wiki/Principal_Financial_Group"
+  },
+  {
+    "symbol": "PG",
+    "name": "Procter & Gamble",
+    "imageName": "PG.png",
+    "url": "https://en.wikipedia.org/wiki/Procter_%26_Gamble"
+  },
+  {
+    "symbol": "PGR",
+    "name": "Progressive Corporation",
+    "imageName": "PGR.png",
+    "url": "https://en.wikipedia.org/wiki/Progressive_Corporation"
+  },
+  {
+    "symbol": "PLD",
+    "name": "Prologis",
+    "imageName": "PLD.png",
+    "url": "https://en.wikipedia.org/wiki/Prologis"
+  },
+  {
+    "symbol": "PRU",
+    "name": "Prudential Financial",
+    "imageName": "PRU.png",
+    "url": "https://en.wikipedia.org/wiki/Prudential_Financial"
+  },
+  {
+    "symbol": "PEG",
+    "name": "Public Service Enterprise Group",
+    "imageName": "PEG.png",
+    "url": "https://en.wikipedia.org/wiki/Public_Service_Enterprise_Group"
+  },
+  {
+    "symbol": "PTC",
+    "name": "PTC",
+    "imageName": "PTC.png",
+    "url": "https://en.wikipedia.org/wiki/PTC_(software_company)"
+  },
+  {
+    "symbol": "PSA",
+    "name": "Public Storage",
+    "imageName": "PSA.png",
+    "url": "https://en.wikipedia.org/wiki/Public_Storage"
+  },
+  {
+    "symbol": "PHM",
+    "name": "PulteGroup",
+    "imageName": "PHM.png",
+    "url": "https://en.wikipedia.org/wiki/PulteGroup"
+  },
+  {
+    "symbol": "QRVO",
+    "name": "Qorvo",
+    "imageName": "QRVO.png",
+    "url": "https://en.wikipedia.org/wiki/Qorvo"
+  },
+  {
+    "symbol": "PWR",
+    "name": "Quanta Services",
+    "imageName": "PWR.png",
+    "url": "https://en.wikipedia.org/wiki/Quanta_Services"
+  },
+  {
+    "symbol": "QCOM",
+    "name": "Qualcomm",
+    "imageName": "QCOM.png",
+    "url": "https://en.wikipedia.org/wiki/Qualcomm"
+  },
+  {
+    "symbol": "DGX",
+    "name": "Quest Diagnostics",
+    "imageName": "DGX.png",
+    "url": "https://en.wikipedia.org/wiki/Quest_Diagnostics"
+  },
+  {
+    "symbol": "RL",
+    "name": "Ralph Lauren Corporation",
+    "imageName": "RL.png",
+    "url": "https://en.wikipedia.org/wiki/Ralph_Lauren_Corporation"
+  },
+  {
+    "symbol": "RJF",
+    "name": "Raymond James",
+    "imageName": "RJF.png",
+    "url": "https://en.wikipedia.org/wiki/Raymond_James"
+  },
+  {
+    "symbol": "RTX",
+    "name": "Raytheon Technologies",
+    "imageName": "RTX.png",
+    "url": "https://en.wikipedia.org/wiki/Raytheon_Technologies"
+  },
+  {
+    "symbol": "O",
+    "name": "Realty Income",
+    "imageName": "O.png",
+    "url": "https://en.wikipedia.org/wiki/Realty_Income"
+  },
+  {
+    "symbol": "REG",
+    "name": "Regency Centers",
+    "imageName": "REG.png",
+    "url": "https://en.wikipedia.org/wiki/Regency_Centers"
+  },
+  {
+    "symbol": "REGN",
+    "name": "Regeneron",
+    "imageName": "REGN.png",
+    "url": "https://en.wikipedia.org/wiki/Regeneron"
+  },
+  {
+    "symbol": "RF",
+    "name": "Regions Financial Corporation",
+    "imageName": "RF.png",
+    "url": "https://en.wikipedia.org/wiki/Regions_Financial_Corporation"
+  },
+  {
+    "symbol": "RSG",
+    "name": "Republic Services",
+    "imageName": "RSG.png",
+    "url": "https://en.wikipedia.org/wiki/Republic_Services"
+  },
+  {
+    "symbol": "RMD",
+    "name": "ResMed",
+    "imageName": "RMD.png",
+    "url": "https://en.wikipedia.org/wiki/ResMed"
+  },
+  {
+    "symbol": "RVTY",
+    "name": "Revvity",
+    "imageName": "RVTY.png",
+    "url": "https://en.wikipedia.org/wiki/Revvity"
+  },
+  {
+    "symbol": "RHI",
+    "name": "Robert Half",
+    "imageName": "RHI.png",
+    "url": "https://en.wikipedia.org/wiki/Robert_Half"
+  },
+  {
+    "symbol": "ROK",
+    "name": "Rockwell Automation",
+    "imageName": "ROK.png",
+    "url": "https://en.wikipedia.org/wiki/Rockwell_Automation"
+  },
+  {
+    "symbol": "ROL",
+    "name": "Rollins, Inc.",
+    "imageName": "ROL.png",
+    "url": "https://en.wikipedia.org/wiki/Rollins,_Inc."
+  },
+  {
+    "symbol": "ROP",
+    "name": "Roper Technologies",
+    "imageName": "ROP.png",
+    "url": "https://en.wikipedia.org/wiki/Roper_Technologies"
+  },
+  {
+    "symbol": "ROST",
+    "name": "Ross Stores",
+    "imageName": "ROST.png",
+    "url": "https://en.wikipedia.org/wiki/Ross_Stores"
+  },
+  {
+    "symbol": "RCL",
+    "name": "Royal Caribbean Group",
+    "imageName": "RCL.png",
+    "url": "https://en.wikipedia.org/wiki/Royal_Caribbean_Group"
+  },
+  {
+    "symbol": "SPGI",
+    "name": "S&P Global",
+    "imageName": "SPGI.png",
+    "url": "https://en.wikipedia.org/wiki/S%26P_Global"
+  },
+  {
+    "symbol": "CRM",
+    "name": "Salesforce",
+    "imageName": "CRM.png",
+    "url": "https://en.wikipedia.org/wiki/Salesforce"
+  },
+  {
+    "symbol": "SBAC",
+    "name": "SBA Communications",
+    "imageName": "SBAC.png",
+    "url": "https://en.wikipedia.org/wiki/SBA_Communications"
+  },
+  {
+    "symbol": "SLB",
+    "name": "Schlumberger",
+    "imageName": "SLB.png",
+    "url": "https://en.wikipedia.org/wiki/Schlumberger"
+  },
+  {
+    "symbol": "STX",
+    "name": "Seagate Technology",
+    "imageName": "STX.png",
+    "url": "https://en.wikipedia.org/wiki/Seagate_Technology"
+  },
+  {
+    "symbol": "SEE",
+    "name": "Sealed Air",
+    "imageName": "SEE.png",
+    "url": "https://en.wikipedia.org/wiki/Sealed_Air"
+  },
+  {
+    "symbol": "SRE",
+    "name": "Sempra Energy",
+    "imageName": "SRE.png",
+    "url": "https://en.wikipedia.org/wiki/Sempra_Energy"
+  },
+  {
+    "symbol": "NOW",
+    "name": "ServiceNow",
+    "imageName": "NOW.png",
+    "url": "https://en.wikipedia.org/wiki/ServiceNow"
+  },
+  {
+    "symbol": "SHW",
+    "name": "Sherwin-Williams",
+    "imageName": "SHW.png",
+    "url": "https://en.wikipedia.org/wiki/Sherwin-Williams"
+  },
+  {
+    "symbol": "SPG",
+    "name": "Simon Property Group",
+    "imageName": "SPG.png",
+    "url": "https://en.wikipedia.org/wiki/Simon_Property_Group"
+  },
+  {
+    "symbol": "SWKS",
+    "name": "Skyworks Solutions",
+    "imageName": "SWKS.png",
+    "url": "https://en.wikipedia.org/wiki/Skyworks_Solutions"
+  },
+  {
+    "symbol": "SJM",
+    "name": "J.M. Smucker Company (The)",
+    "imageName": "SJM.png",
+    "url": "https://en.wikipedia.org/wiki/The_J.M._Smucker_Company"
+  },
+  {
+    "symbol": "SNA",
+    "name": "Snap-on",
+    "imageName": "SNA.png",
+    "url": "https://en.wikipedia.org/wiki/Snap-on"
+  },
+  {
+    "symbol": "SEDG",
+    "name": "SolarEdge",
+    "imageName": "SEDG.png",
+    "url": "https://en.wikipedia.org/wiki/SolarEdge"
+  },
+  {
+    "symbol": "SO",
+    "name": "Southern Company",
+    "imageName": "SO.png",
+    "url": "https://en.wikipedia.org/wiki/Southern_Company"
+  },
+  {
+    "symbol": "LUV",
+    "name": "Southwest Airlines",
+    "imageName": "LUV.png",
+    "url": "https://en.wikipedia.org/wiki/Southwest_Airlines"
+  },
+  {
+    "symbol": "SWK",
+    "name": "Stanley Black & Decker",
+    "imageName": "SWK.png",
+    "url": "https://en.wikipedia.org/wiki/Stanley_Black_%26_Decker"
+  },
+  {
+    "symbol": "SBUX",
+    "name": "Starbucks",
+    "imageName": "SBUX.png",
+    "url": "https://en.wikipedia.org/wiki/Starbucks"
+  },
+  {
+    "symbol": "STT",
+    "name": "State Street Corporation",
+    "imageName": "STT.png",
+    "url": "https://en.wikipedia.org/wiki/State_Street_Corporation"
+  },
+  {
+    "symbol": "STLD",
+    "name": "Steel Dynamics",
+    "imageName": "STLD.png",
+    "url": "https://en.wikipedia.org/wiki/Steel_Dynamics"
+  },
+  {
+    "symbol": "STE",
+    "name": "Steris",
+    "imageName": "STE.png",
+    "url": "https://en.wikipedia.org/wiki/Steris"
+  },
+  {
+    "symbol": "SYK",
+    "name": "Stryker Corporation",
+    "imageName": "SYK.png",
+    "url": "https://en.wikipedia.org/wiki/Stryker_Corporation"
+  },
+  {
+    "symbol": "SYF",
+    "name": "Synchrony Financial",
+    "imageName": "SYF.png",
+    "url": "https://en.wikipedia.org/wiki/Synchrony_Financial"
+  },
+  {
+    "symbol": "SNPS",
+    "name": "Synopsys",
+    "imageName": "SNPS.png",
+    "url": "https://en.wikipedia.org/wiki/Synopsys"
+  },
+  {
+    "symbol": "SYY",
+    "name": "Sysco",
+    "imageName": "SYY.png",
+    "url": "https://en.wikipedia.org/wiki/Sysco"
+  },
+  {
+    "symbol": "TMUS",
+    "name": "T-Mobile US",
+    "imageName": "TMUS.png",
+    "url": "https://en.wikipedia.org/wiki/T-Mobile_US"
+  },
+  {
+    "symbol": "TROW",
+    "name": "T. Rowe Price",
+    "imageName": "TROW.png",
+    "url": "https://en.wikipedia.org/wiki/T._Rowe_Price"
+  },
+  {
+    "symbol": "TTWO",
+    "name": "Take-Two Interactive",
+    "imageName": "TTWO.png",
+    "url": "https://en.wikipedia.org/wiki/Take-Two_Interactive"
+  },
+  {
+    "symbol": "TPR",
+    "name": "Tapestry, Inc.",
+    "imageName": "TPR.png",
+    "url": "https://en.wikipedia.org/wiki/Tapestry,_Inc."
+  },
+  {
+    "symbol": "TRGP",
+    "name": "Targa Resources",
+    "imageName": "TRGP.png",
+    "url": "https://en.wikipedia.org/wiki/Targa_Resources"
+  },
+  {
+    "symbol": "TGT",
+    "name": "Target Corporation",
+    "imageName": "TGT.png",
+    "url": "https://en.wikipedia.org/wiki/Target_Corporation"
+  },
+  {
+    "symbol": "TEL",
+    "name": "TE Connectivity",
+    "imageName": "TEL.png",
+    "url": "https://en.wikipedia.org/wiki/TE_Connectivity"
+  },
+  {
+    "symbol": "TDY",
+    "name": "Teledyne Technologies",
+    "imageName": "TDY.png",
+    "url": "https://en.wikipedia.org/wiki/Teledyne_Technologies"
+  },
+  {
+    "symbol": "TFX",
+    "name": "Teleflex",
+    "imageName": "TFX.png",
+    "url": "https://en.wikipedia.org/wiki/Teleflex"
+  },
+  {
+    "symbol": "TER",
+    "name": "Teradyne",
+    "imageName": "TER.png",
+    "url": "https://en.wikipedia.org/wiki/Teradyne"
+  },
+  {
+    "symbol": "TSLA",
+    "name": "Tesla, Inc.",
+    "imageName": "TSLA.png",
+    "url": "https://en.wikipedia.org/wiki/Tesla,_Inc."
+  },
+  {
+    "symbol": "TXN",
+    "name": "Texas Instruments",
+    "imageName": "TXN.png",
+    "url": "https://en.wikipedia.org/wiki/Texas_Instruments"
+  },
+  {
+    "symbol": "TXT",
+    "name": "Textron",
+    "imageName": "TXT.png",
+    "url": "https://en.wikipedia.org/wiki/Textron"
+  },
+  {
+    "symbol": "TMO",
+    "name": "Thermo Fisher Scientific",
+    "imageName": "TMO.png",
+    "url": "https://en.wikipedia.org/wiki/Thermo_Fisher_Scientific"
+  },
+  {
+    "symbol": "TJX",
+    "name": "TJX Companies",
+    "imageName": "TJX.png",
+    "url": "https://en.wikipedia.org/wiki/TJX_Companies"
+  },
+  {
+    "symbol": "TSCO",
+    "name": "Tractor Supply",
+    "imageName": "TSCO.png",
+    "url": "https://en.wikipedia.org/wiki/Tractor_Supply"
+  },
+  {
+    "symbol": "TT",
+    "name": "Trane Technologies",
+    "imageName": "TT.png",
+    "url": "https://en.wikipedia.org/wiki/Trane_Technologies"
+  },
+  {
+    "symbol": "TDG",
+    "name": "TransDigm Group",
+    "imageName": "TDG.png",
+    "url": "https://en.wikipedia.org/wiki/TransDigm_Group"
+  },
+  {
+    "symbol": "TRV",
+    "name": "Travelers Companies (The)",
+    "imageName": "TRV.png",
+    "url": "https://en.wikipedia.org/wiki/The_Travelers_Companies"
+  },
+  {
+    "symbol": "TRMB",
+    "name": "Trimble Inc.",
+    "imageName": "TRMB.png",
+    "url": "https://en.wikipedia.org/wiki/Trimble_Inc."
+  },
+  {
+    "symbol": "TFC",
+    "name": "Truist",
+    "imageName": "TFC.png",
+    "url": "https://en.wikipedia.org/wiki/Truist_Financial"
+  },
+  {
+    "symbol": "TYL",
+    "name": "Tyler Technologies",
+    "imageName": "TYL.png",
+    "url": "https://en.wikipedia.org/wiki/Tyler_Technologies"
+  },
+  {
+    "symbol": "TSN",
+    "name": "Tyson Foods",
+    "imageName": "TSN.png",
+    "url": "https://en.wikipedia.org/wiki/Tyson_Foods"
+  },
+  {
+    "symbol": "USB",
+    "name": "U.S. Bank",
+    "imageName": "USB.png",
+    "url": "https://en.wikipedia.org/wiki/U.S._Bank"
+  },
+  {
+    "symbol": "UDR",
+    "name": "UDR, Inc.",
+    "imageName": "UDR.png",
+    "url": "https://en.wikipedia.org/wiki/UDR,_Inc."
+  },
+  {
+    "symbol": "ULTA",
+    "name": "Ulta Beauty",
+    "imageName": "ULTA.png",
+    "url": "https://en.wikipedia.org/wiki/Ulta_Beauty"
+  },
+  {
+    "symbol": "UNP",
+    "name": "Union Pacific Corporation",
+    "imageName": "UNP.png",
+    "url": "https://en.wikipedia.org/wiki/Union_Pacific_Corporation"
+  },
+  {
+    "symbol": "UAL",
+    "name": "United Airlines Holdings",
+    "imageName": "UAL.png",
+    "url": "https://en.wikipedia.org/wiki/United_Airlines_Holdings"
+  },
+  {
+    "symbol": "UPS",
+    "name": "United Parcel Service",
+    "imageName": "UPS.png",
+    "url": "https://en.wikipedia.org/wiki/United_Parcel_Service"
+  },
+  {
+    "symbol": "URI",
+    "name": "United Rentals",
+    "imageName": "URI.png",
+    "url": "https://en.wikipedia.org/wiki/United_Rentals"
+  },
+  {
+    "symbol": "UNH",
+    "name": "UnitedHealth Group",
+    "imageName": "UNH.png",
+    "url": "https://en.wikipedia.org/wiki/UnitedHealth_Group"
+  },
+  {
+    "symbol": "UHS",
+    "name": "Universal Health Services",
+    "imageName": "UHS.png",
+    "url": "https://en.wikipedia.org/wiki/Universal_Health_Services"
+  },
+  {
+    "symbol": "VLO",
+    "name": "Valero Energy",
+    "imageName": "VLO.png",
+    "url": "https://en.wikipedia.org/wiki/Valero_Energy"
+  },
+  {
+    "symbol": "VTR",
+    "name": "Ventas",
+    "imageName": "VTR.png",
+    "url": "https://en.wikipedia.org/wiki/Ventas_(company)"
+  },
+  {
+    "symbol": "VRSN",
+    "name": "Verisign",
+    "imageName": "VRSN.png",
+    "url": "https://en.wikipedia.org/wiki/Verisign"
+  },
+  {
+    "symbol": "VRSK",
+    "name": "Verisk",
+    "imageName": "VRSK.png",
+    "url": "https://en.wikipedia.org/wiki/Verisk"
+  },
+  {
+    "symbol": "VZ",
+    "name": "Verizon",
+    "imageName": "VZ.png",
+    "url": "https://en.wikipedia.org/wiki/Verizon"
+  },
+  {
+    "symbol": "VRTX",
+    "name": "Vertex Pharmaceuticals",
+    "imageName": "VRTX.png",
+    "url": "https://en.wikipedia.org/wiki/Vertex_Pharmaceuticals"
+  },
+  {
+    "symbol": "VFC",
+    "name": "VF Corporation",
+    "imageName": "VFC.png",
+    "url": "https://en.wikipedia.org/wiki/VF_Corporation"
+  },
+  {
+    "symbol": "VTRS",
+    "name": "Viatris",
+    "imageName": "VTRS.png",
+    "url": "https://en.wikipedia.org/wiki/Viatris"
+  },
+  {
+    "symbol": "VICI",
+    "name": "Vici Properties",
+    "imageName": "VICI.png",
+    "url": "https://en.wikipedia.org/wiki/Vici_Properties"
+  },
+  {
+    "symbol": "V",
+    "name": "Visa Inc.",
+    "imageName": "V.png",
+    "url": "https://en.wikipedia.org/wiki/Visa_Inc."
+  },
+  {
+    "symbol": "VMC",
+    "name": "Vulcan Materials Company",
+    "imageName": "VMC.png",
+    "url": "https://en.wikipedia.org/wiki/Vulcan_Materials_Company"
+  },
+  {
+    "symbol": "WAB",
+    "name": "Wabtec",
+    "imageName": "WAB.png",
+    "url": "https://en.wikipedia.org/wiki/Wabtec"
+  },
+  {
+    "symbol": "WBA",
+    "name": "Walgreens Boots Alliance",
+    "imageName": "WBA.png",
+    "url": "https://en.wikipedia.org/wiki/Walgreens_Boots_Alliance"
+  },
+  {
+    "symbol": "WMT",
+    "name": "Walmart",
+    "imageName": "WMT.png",
+    "url": "https://en.wikipedia.org/wiki/Walmart"
+  },
+  {
+    "symbol": "WBD",
+    "name": "Warner Bros. Discovery",
+    "imageName": "WBD.png",
+    "url": "https://en.wikipedia.org/wiki/Warner_Bros._Discovery"
+  },
+  {
+    "symbol": "WM",
+    "name": "Waste Management",
+    "imageName": "WM.png",
+    "url": "https://en.wikipedia.org/wiki/Waste_Management_(corporation)"
+  },
+  {
+    "symbol": "WAT",
+    "name": "Waters Corporation",
+    "imageName": "WAT.png",
+    "url": "https://en.wikipedia.org/wiki/Waters_Corporation"
+  },
+  {
+    "symbol": "WEC",
+    "name": "WEC Energy Group",
+    "imageName": "WEC.png",
+    "url": "https://en.wikipedia.org/wiki/WEC_Energy_Group"
+  },
+  {
+    "symbol": "WFC",
+    "name": "Wells Fargo",
+    "imageName": "WFC.png",
+    "url": "https://en.wikipedia.org/wiki/Wells_Fargo"
+  },
+  {
+    "symbol": "WELL",
+    "name": "Welltower",
+    "imageName": "WELL.png",
+    "url": "https://en.wikipedia.org/wiki/Welltower"
+  },
+  {
+    "symbol": "WST",
+    "name": "West Pharmaceutical Services",
+    "imageName": "WST.png",
+    "url": "https://en.wikipedia.org/wiki/West_Pharmaceutical_Services"
+  },
+  {
+    "symbol": "WDC",
+    "name": "Western Digital",
+    "imageName": "WDC.png",
+    "url": "https://en.wikipedia.org/wiki/Western_Digital"
+  },
+  {
+    "symbol": "WRK",
+    "name": "WestRock",
+    "imageName": "WRK.png",
+    "url": "https://en.wikipedia.org/wiki/WestRock"
+  },
+  {
+    "symbol": "WY",
+    "name": "Weyerhaeuser",
+    "imageName": "WY.png",
+    "url": "https://en.wikipedia.org/wiki/Weyerhaeuser"
+  },
+  {
+    "symbol": "WHR",
+    "name": "Whirlpool Corporation",
+    "imageName": "WHR.png",
+    "url": "https://en.wikipedia.org/wiki/Whirlpool_Corporation"
+  },
+  {
+    "symbol": "WMB",
+    "name": "Williams Companies",
+    "imageName": "WMB.png",
+    "url": "https://en.wikipedia.org/wiki/Williams_Companies"
+  },
+  {
+    "symbol": "WTW",
+    "name": "Willis Towers Watson",
+    "imageName": "WTW.png",
+    "url": "https://en.wikipedia.org/wiki/Willis_Towers_Watson"
+  },
+  {
+    "symbol": "GWW",
+    "name": "W. W. Grainger",
+    "imageName": "GWW.png",
+    "url": "https://en.wikipedia.org/wiki/W._W._Grainger"
+  },
+  {
+    "symbol": "WYNN",
+    "name": "Wynn Resorts",
+    "imageName": "WYNN.png",
+    "url": "https://en.wikipedia.org/wiki/Wynn_Resorts"
+  },
+  {
+    "symbol": "XEL",
+    "name": "Xcel Energy",
+    "imageName": "XEL.png",
+    "url": "https://en.wikipedia.org/wiki/Xcel_Energy"
+  },
+  {
+    "symbol": "XYL",
+    "name": "Xylem Inc.",
+    "imageName": "XYL.png",
+    "url": "https://en.wikipedia.org/wiki/Xylem_Inc."
+  },
+  {
+    "symbol": "YUM",
+    "name": "Yum! Brands",
+    "imageName": "YUM.png",
+    "url": "https://en.wikipedia.org/wiki/Yum!_Brands"
+  },
+  {
+    "symbol": "ZBRA",
+    "name": "Zebra Technologies",
+    "imageName": "ZBRA.png",
+    "url": "https://en.wikipedia.org/wiki/Zebra_Technologies"
+  },
+  {
+    "symbol": "ZBH",
+    "name": "Zimmer Biomet",
+    "imageName": "ZBH.png",
+    "url": "https://en.wikipedia.org/wiki/Zimmer_Biomet"
+  },
+  {
+    "symbol": "ZION",
+    "name": "Zions Bancorporation",
+    "imageName": "ZION.png",
+    "url": "https://en.wikipedia.org/wiki/Zions_Bancorporation"
+  },
+  {
+    "symbol": "ZTS",
+    "name": "Zoetis",
+    "imageName": "ZTS.png",
+    "url": "https://en.wikipedia.org/wiki/Zoetis"
   }
 ]

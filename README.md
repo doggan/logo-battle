@@ -1,6 +1,6 @@
 # Logo Battle
 
-// TODO: description
+An app to determine which S&P 500 Company has the best looking logo, based on user votes.
 
 ## Development
 
@@ -11,6 +11,8 @@
 - `pnpm lint` — Runs ESLint for all files in the `src` directory.
 - `pnpm format` — Runs Prettier for all files in the `src` directory.
 - `make reset-database` — Seeds the database (drops all existing data).
+- `make get-companies` — Builds the list of companies via the Wikipedia S&P 500 list.
+- `make scrape-logos` — Using the master list of companies, scrape the logos from Wikipedia.
 
 ### Requirements
 

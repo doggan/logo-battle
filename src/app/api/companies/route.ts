@@ -10,23 +10,11 @@ import {
 import { clamp } from '@/utils/math';
 
 const DEFAULT_LIMIT = 20;
-const MAX_LIMIT = 20;
+const MAX_LIMIT = 100;
 
 export async function GET(
   req: NextRequest,
 ): Promise<NextResponse<GetCompaniesResponse | ErrorResponse>> {
-  // TODO:
-  // - paginate (limit, offset)... if we sort in code, we need to handle this.
-  //    if we want to do it on the db layer, we'll need to store win % in the document.
-  // - take a sort parameter (win %)
-
-  // const limit = searchParams.has('limit')
-  //   ? clamp(searchParams.get('limit'), 1, 20)
-  //   : 20;
-  //
-  // console.log(searchParams.has('limit'));
-  // console.log(searchParams.get('limit'));
-
   const { searchParams } = new URL(req.url);
 
   let offset = 0;

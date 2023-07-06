@@ -4,13 +4,51 @@ import { useEffect, useState } from 'react';
 import { clsx } from 'clsx';
 import { Spinner } from '@/components/spinner';
 
-interface ILogoProps {
+interface ResultOverlay {
+  showWinner: boolean;
+  showLoser: boolean;
+}
+
+function ResultOverlay({ showWinner, showLoser }: ResultOverlay) {
+  const baseClassName = 'object-contain top-0 left-0 absolute opacity-80';
+
+  // We always render both images but use CSS to toggle the visibilty.
+  // This guarantees the image will be loaded and ready to display whenever
+  // the user clicks on a logo. We need that response to be immediate, so the
+  // images need to already be loaded.
+  return (
+    <>
+      <Image
+        priority={true}
+        className={clsx({
+          [baseClassName]: true,
+          invisible: !showWinner,
+        })}
+        src={'/o.png'}
+        fill={true}
+        alt={'O'}
+      />
+      <Image
+        priority={true}
+        className={clsx({
+          [baseClassName]: true,
+          invisible: !showLoser,
+        })}
+        src={'/x.png'}
+        fill={true}
+        alt={'X'}
+      />
+    </>
+  );
+}
+
+interface LogoProps {
   company?: Company;
   onClick: () => void;
   isWinner?: boolean;
 }
 
-function Logo({ company, onClick, isWinner }: ILogoProps) {
+function Logo({ company, onClick, isWinner }: LogoProps) {
   const boxBorderClassname = 'w-60 h-60 md:w-80 md:h-80 shadow-md p-4';
 
   if (!company) {
@@ -32,23 +70,21 @@ function Logo({ company, onClick, isWinner }: ILogoProps) {
           'winner-selected': showWinner,
         })}
       >
-        <button className={'relative w-full h-full'} onClick={onClick}>
-          <Image
-            className="w-full"
+        <button
+          className={'relative w-full h-full flex justify-center items-center'}
+          onClick={onClick}
+        >
+          {/* We use img instead of NextJS Image class to avoid aspect ratio
+          issues on load. When using NextJS Image, the logo will sometimes
+           stretch to full width/height ruining the aspect ratio for a split second
+           on load. */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            className={'object-contain'}
             src={`/logos/${company.imageName}`}
-            width={200}
-            height={200}
             alt={company.name}
           />
-          {(showWinner || showLoser) && (
-            <Image
-              className={'w-full top-0 left-0 absolute opacity-80'}
-              src={showWinner ? '/o.png' : '/x.png'}
-              width={200}
-              height={200}
-              alt={showWinner ? 'O' : 'X'}
-            />
-          )}
+          <ResultOverlay showWinner={showWinner} showLoser={showLoser} />
         </button>
       </div>
     </div>
