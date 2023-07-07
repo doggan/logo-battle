@@ -46,20 +46,24 @@ export function PaginatedResourceList({
     : 1;
   const hasNextPage = pageIndex < totalPageCount - 1;
 
+  const pageNavigator = showPageNumbers ? (
+    <PageNavigator
+      pageCount={totalPageCount}
+      activePageIndex={pageIndex}
+      onPageChanged={pageChangedHandler}
+    />
+  ) : (
+    <PageNavigatorSimple
+      pageCount={totalPageCount}
+      activePageIndex={pageIndex}
+      onPageChanged={pageChangedHandler}
+    />
+  );
+
   return (
     <main className={'flex flex-col items-center'}>
       <div className={'text-lg py-1 uppercase'}>{title}</div>
-      {showPageNumbers ? (
-        <PageNavigator
-          pageCount={totalPageCount}
-          onPageChanged={pageChangedHandler}
-        />
-      ) : (
-        <PageNavigatorSimple
-          pageCount={totalPageCount}
-          onPageChanged={pageChangedHandler}
-        />
-      )}
+      {pageNavigator}
       <div className={'flex flex-col gap-4 pt-4 pb-4'}>
         {renderPage({ pageIndex, pageSize })}
 
@@ -70,6 +74,9 @@ export function PaginatedResourceList({
           </div>
         )}
       </div>
+      {/* Keep another navigator on the bottom of the page so users don't have
+      to scroll back to the top to go to the next page. */}
+      {pageNavigator}
     </main>
   );
 }
