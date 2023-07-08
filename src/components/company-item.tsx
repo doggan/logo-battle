@@ -22,7 +22,7 @@ export function CompanyItem({ rank, company, onClick }: CompanyItemProps) {
 
   return (
     <div className={'w-full flex justify-center px-4 md:px-0'}>
-      <div className="bg-white rounded-sm shadow-md relative w-full md:w-2/5">
+      <div className="bg-white rounded-sm shadow-md relative w-full md:w-1/2">
         <div
           className={
             'absolute top-0 left-0 bg-gray-400 rounded-tl-sm rounded-br-sm'
@@ -32,7 +32,7 @@ export function CompanyItem({ rank, company, onClick }: CompanyItemProps) {
         </div>
         <div className="p-4 flex flex-row">
           <button
-            className={'w-1/4'}
+            className={'w-1/3'}
             disabled={!onClick}
             onClick={() => onClick?.(id)}
           >
@@ -46,7 +46,7 @@ export function CompanyItem({ rank, company, onClick }: CompanyItemProps) {
               />
             </div>
           </button>
-          <div className="w-3/4 pl-4">
+          <div className="w-2/3 pl-4">
             <div className="font-bold text-lg">{name}</div>
             <p className="">
               Win Rate:{' '}
