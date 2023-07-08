@@ -34,6 +34,16 @@ export async function GET(
     const companyIdsParam = searchParams.get('ids');
     if (companyIdsParam) {
       companyIds = companyIdsParam.split(',');
+      if (companyIds.length > 500) {
+        return NextResponse.json(
+          {
+            error: 'Too many company IDs.',
+          },
+          { status: 400 },
+        );
+      }
+
+      limit = companyIds.length;
     }
   }
 
