@@ -58,5 +58,7 @@ export function LeaderboardList({
     );
   });
 
-  return <>{renderedResults}</>;
+  return (
+    <div className={'flex flex-col gap-4 items-center'}>{renderedResults}</div>
+  );
 }

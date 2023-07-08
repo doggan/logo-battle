@@ -21,35 +21,42 @@ export function CompanyItem({ rank, company, onClick }: CompanyItemProps) {
   };
 
   return (
-    <div className="bg-white rounded-sm shadow-md relative">
-      <div
-        className={
-          'absolute top-0 left-0 bg-gray-400 rounded-tl-sm rounded-br-sm'
-        }
-      >
-        <span className={'p-1 text-white font-bold'}>#{rank}</span>
-      </div>
-      <div className="p-4 flex flex-row">
-        <button disabled={!onClick} onClick={() => onClick?.(id)}>
-          <div className={'flex items-center'}>
-            <Image
-              className="w-full"
-              src={`/logos/${imageName}`}
-              width={100}
-              height={100}
-              alt={name}
-            />
+    <div className={'w-full flex justify-center px-4 md:px-0'}>
+      <div className="bg-white rounded-sm shadow-md relative w-full md:w-2/5">
+        <div
+          className={
+            'absolute top-0 left-0 bg-gray-400 rounded-tl-sm rounded-br-sm'
+          }
+        >
+          <span className={'p-1 text-white font-bold'}>#{rank}</span>
+        </div>
+        <div className="p-4 flex flex-row">
+          <button
+            className={'w-1/4'}
+            disabled={!onClick}
+            onClick={() => onClick?.(id)}
+          >
+            <div className={'flex items-center relative w-full h-full'}>
+              <Image
+                className="object-contain"
+                src={`/logos/${imageName}`}
+                fill={true}
+                sizes={'200px'}
+                alt={name}
+              />
+            </div>
+          </button>
+          <div className="w-3/4 pl-4">
+            <div className="font-bold text-lg">{name}</div>
+            <p className="">
+              Win Rate:{' '}
+              <span className={'font-bold'}>{renderPercentage()}</span>
+              <br />
+              Wins: <span className={'text-green-500 font-bold'}>{wins}</span>
+              <br />
+              Losses: <span className={'text-red-500 font-bold'}>{losses}</span>
+            </p>
           </div>
-        </button>
-        <div className="pl-4">
-          <div className="text-gray-900 font-bold text-xl mb-2">{name}</div>
-          <p className="text-gray-700 text-base">
-            Win Rate: <span className={'font-bold'}>{renderPercentage()}</span>
-            <br />
-            Wins: <span className={'text-green-500 font-bold'}>{wins}</span>
-            <br />
-            Losses: <span className={'text-red-500 font-bold'}>{losses}</span>
-          </p>
         </div>
       </div>
     </div>

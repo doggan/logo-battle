@@ -61,10 +61,10 @@ export function PaginatedResourceList({
   );
 
   return (
-    <main className={'flex flex-col items-center'}>
+    <div className={'flex flex-col items-center'}>
       <div className={'text-lg py-2 uppercase'}>{title}</div>
       {pageNavigator}
-      <div className={'flex flex-col gap-4 pt-4 pb-4'}>
+      <div className={'pt-4 pb-4 w-full'}>
         {renderPage({ pageIndex, pageSize })}
 
         {/* Preload the next page for smoother navigation. */}
@@ -77,6 +77,6 @@ export function PaginatedResourceList({
       {/* Keep another navigator on the bottom of the page so users don't have
       to scroll back to the top to go to the next page. */}
       {pageNavigator}
-    </main>
+    </div>
   );
 }
