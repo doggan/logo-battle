@@ -43,7 +43,7 @@ export function PaginatedResourceList({
 
   const totalPageCount = totalItemCount
     ? Math.ceil(totalItemCount / pageSize)
-    : 1;
+    : 0;
   const hasNextPage = pageIndex < totalPageCount - 1;
 
   const pageNavigator = showPageNumbers ? (

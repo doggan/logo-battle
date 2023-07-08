@@ -14,6 +14,10 @@ export function PageNavigatorSimple({
   activePageIndex,
   onPageChanged,
 }: PageNavigatorSimpleProps) {
+  if (pageCount < 1) {
+    return null;
+  }
+
   const hasPreviousPage = activePageIndex > 0;
   const hasNextPage = activePageIndex < pageCount - 1;
 
