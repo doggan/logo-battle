@@ -22,7 +22,7 @@ export function CompanyItem({ rank, company, onClick }: CompanyItemProps) {
 
   return (
     <div className={'w-full flex justify-center px-4 md:px-0'}>
-      <div className="bg-white rounded-sm shadow-md relative w-full md:w-1/2">
+      <div className="bg-white rounded-sm shadow-md relative w-full md:w-1/2 lg:w-2/5">
         <div
           className={
             'absolute top-0 left-0 bg-gray-400 rounded-tl-sm rounded-br-sm'
