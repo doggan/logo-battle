@@ -25,10 +25,10 @@ export function CompanyItem({ rank, company, onClick }: CompanyItemProps) {
       <div className="bg-white rounded-sm shadow-md relative w-full md:w-1/2 lg:w-2/5">
         <div
           className={
-            'absolute top-0 left-0 bg-gray-400 rounded-tl-sm rounded-br-sm'
+            'absolute top-0 left-0 bg-battleship-grey rounded-tl-sm rounded-br-sm'
           }
         >
-          <span className={'p-1 text-white font-bold'}>#{rank}</span>
+          <span className={'p-1 text-white text-sm font-bold'}>#{rank}</span>
         </div>
         <div className="p-4 flex flex-row">
           <button
