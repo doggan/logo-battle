@@ -42,10 +42,8 @@ export default function Page({ params }: { params: { id: string } }) {
 
   return (
     <main>
-      <div className={'w-1/2 m-auto flex flex-col items-center'}>
-        <div className={'pt-4 pb-4'}>
-          <CompanyItem key={company.id} rank={0} company={company} />
-        </div>
+      <div className={'py-4'}>
+        <CompanyItem key={company.id} rank={0} company={company} />
       </div>
       <PaginatedResourceList
         title={'Battle History'}

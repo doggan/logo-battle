@@ -97,27 +97,28 @@ export function RecentList({
 
   const renderedResults = resultsData.results.map((r) => {
     return (
-      <div key={r.id}>
-        <div
-          className={
-            'flex flex-row items-center shadow-md p-4 bg-white rounded'
-          }
-        >
-          <BattleResult
-            company={companiesMap.get(r.companyId1) as Company}
-            onClickCompany={companyClickHandler}
-            isWinner={r.didVoteForCompany1}
-          />
-          <div className={'p-4'}>vs.</div>
-          <BattleResult
-            company={companiesMap.get(r.companyId2) as Company}
-            onClickCompany={companyClickHandler}
-            isWinner={!r.didVoteForCompany1}
-          />
-        </div>
+      <div
+        key={r.id}
+        className={
+          'flex flex-row items-center shadow-md p-4 bg-white rounded-sm'
+        }
+      >
+        <BattleResult
+          company={companiesMap.get(r.companyId1) as Company}
+          onClickCompany={companyClickHandler}
+          isWinner={r.didVoteForCompany1}
+        />
+        <div className={'p-4'}>vs.</div>
+        <BattleResult
+          company={companiesMap.get(r.companyId2) as Company}
+          onClickCompany={companyClickHandler}
+          isWinner={!r.didVoteForCompany1}
+        />
       </div>
     );
   });
 
-  return <>{renderedResults}</>;
+  return (
+    <div className={'flex flex-col gap-4 items-center'}>{renderedResults}</div>
+  );
 }

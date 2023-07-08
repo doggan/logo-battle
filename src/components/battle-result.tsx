@@ -1,7 +1,7 @@
 import { Company } from '@/utils/models';
 import Image from 'next/image';
 
-interface IBattleResult {
+interface BattleResult {
   company: Company;
   onClickCompany: (companyId: string) => void;
   isWinner: boolean;
@@ -11,25 +11,34 @@ export function BattleResult({
   company,
   onClickCompany,
   isWinner,
-}: IBattleResult) {
+}: BattleResult) {
   return (
     <button
-      className={'relative w-28 h-24'}
+      className={'relative w-28 h-28'}
       onClick={() => onClickCompany(company.id)}
     >
       <Image
-        className="w-full"
+        className="object-contain"
         src={`/logos/${company.imageName}`}
-        width={100}
-        height={100}
+        fill={true}
+        sizes={'200px'}
         alt={company.name}
       />
+      {isWinner && (
+        <Image
+          className={'object-contain top-0 left-0 absolute opacity-80'}
+          src={'/o.png'}
+          fill={true}
+          sizes={'100px'}
+          alt={'X'}
+        />
+      )}
       {!isWinner && (
         <Image
-          className={'w-full top-0 left-0 absolute opacity-80'}
+          className={'object-contain top-0 left-0 absolute opacity-80'}
           src={'/x.png'}
-          width={64}
-          height={64}
+          fill={true}
+          sizes={'100px'}
           alt={'X'}
         />
       )}

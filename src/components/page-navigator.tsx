@@ -1,8 +1,8 @@
-import { useState } from 'react';
 import { clsx } from 'clsx';
 
 interface PageNavigatorProps {
   pageCount: number;
+  activePageIndex: number;
   onPageChanged: (pageIndex: number) => void;
 }
 
@@ -11,10 +11,9 @@ interface PageNavigatorProps {
  */
 export function PageNavigator({
   pageCount,
+  activePageIndex,
   onPageChanged,
 }: PageNavigatorProps) {
-  const [activePage, setActivePage] = useState(0);
-
   if (pageCount < 1) {
     return null;
   }
@@ -25,15 +24,14 @@ export function PageNavigator({
       <button
         key={i}
         onClick={() => {
-          setActivePage(i);
           onPageChanged(i);
         }}
       >
         <div
           className={clsx({
-            'text-xs w-5 h-5 leading-5 text-center rounded-sm': true,
-            'bg-imperial-red text-white': activePage === i,
-            'bg-battleship-grey text-white': activePage !== i,
+            'text-xs rounded-sm w-6 h-6 leading-6 text-center': true,
+            'text-white bg-imperial-red': activePageIndex === i,
+            'text-black': activePageIndex !== i,
           })}
         >
           {i + 1}
@@ -42,5 +40,5 @@ export function PageNavigator({
     );
   }
 
-  return <div className={'flex gap-1'}>{content}</div>;
+  return <div className={'flex gap-px'}>{content}</div>;
 }
