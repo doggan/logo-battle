@@ -1,3 +1,5 @@
+import { clsx } from 'clsx';
+
 interface PageNavigatorSimpleProps {
   pageCount: number;
   activePageIndex: number;
@@ -17,11 +19,14 @@ export function PageNavigatorSimple({
 
   return (
     <div className={'flex flex-row gap-4'}>
-      <div className="inline-flex mt-2 xs:mt-0">
+      <div className="inline-flex mt-2">
         <button
           disabled={!hasPreviousPage}
           onClick={() => onPageChanged(activePageIndex - 1)}
-          className="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-gray-800 rounded-l hover:bg-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+          className={clsx({
+            ['inline-flex items-center text-sm px-4']: true,
+            ['opacity-30']: !hasPreviousPage,
+          })}
         >
           <svg
             aria-hidden="true"
@@ -36,14 +41,17 @@ export function PageNavigatorSimple({
               clipRule="evenodd"
             ></path>
           </svg>
-          Prev
+          Newer
         </button>
         <button
           disabled={!hasNextPage}
           onClick={() => onPageChanged(activePageIndex + 1)}
-          className="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-gray-800 border-0 border-l border-gray-700 rounded-r hover:bg-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+          className={clsx({
+            ['inline-flex items-center text-sm px-4']: true,
+            ['opacity-30']: !hasNextPage,
+          })}
         >
-          Next
+          Older
           <svg
             aria-hidden="true"
             className="w-5 h-5 ml-2"
