@@ -62,7 +62,7 @@ export function PaginatedResourceList({
 
   return (
     <main className={'flex flex-col items-center'}>
-      <div className={'text-lg py-1 uppercase'}>{title}</div>
+      <div className={'text-lg py-2 uppercase'}>{title}</div>
       {pageNavigator}
       <div className={'flex flex-col gap-4 pt-4 pb-4'}>
         {renderPage({ pageIndex, pageSize })}

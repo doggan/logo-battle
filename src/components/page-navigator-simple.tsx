@@ -19,7 +19,7 @@ export function PageNavigatorSimple({
 
   return (
     <div className={'flex flex-row gap-4'}>
-      <div className="inline-flex mt-2">
+      <div className="inline-flex">
         <button
           disabled={!hasPreviousPage}
           onClick={() => onPageChanged(activePageIndex - 1)}
