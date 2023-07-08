@@ -100,7 +100,7 @@ export function RecentList({
       <div key={r.id}>
         <div
           className={
-            'flex flex-row items-center shadow-md p-4 bg-white rounded'
+            'flex flex-row items-center shadow-md p-4 bg-white rounded-sm'
           }
         >
           <BattleResult

@@ -21,9 +21,11 @@ export function CompanyItem({ rank, company, onClick }: CompanyItemProps) {
   };
 
   return (
-    <div className="bg-white rounded shadow-md relative">
+    <div className="bg-white rounded-sm shadow-md relative">
       <div
-        className={'absolute top-0 left-0 bg-gray-400 rounded-tl rounded-br'}
+        className={
+          'absolute top-0 left-0 bg-gray-400 rounded-tl-sm rounded-br-sm'
+        }
       >
         <span className={'p-1 text-white font-bold'}>#{rank}</span>
       </div>
