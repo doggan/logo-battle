@@ -2,17 +2,18 @@ import { ObjectId, SortDirection } from 'mongodb';
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 import clientPromise from '@/utils/mongodb';
-import { toResult } from '@/utils/models';
+import { Company, toCompany, toResult } from '@/utils/models';
 import { clamp } from '@/utils/math';
 import { ErrorResponse, GetResultsResponse } from '@/utils/requests';
+import { withTransaction } from '@/utils/transaction';
 
 type PostResponseData = Record<string, never>;
 
 function getBodySchema() {
   return z.object({
-    companyId1: z.string().min(1),
-    companyId2: z.string().min(1),
-    didVoteForCompany1: z.boolean(),
+    winnerCompanyId: z.string().min(1),
+    loserCompanyId: z.string().min(1),
+    winnerIsFirst: z.boolean(),
   });
 }
 
@@ -28,61 +29,120 @@ export async function POST(
     );
   }
 
-  const { companyId1, companyId2, didVoteForCompany1 } = result.data;
+  const { winnerCompanyId, loserCompanyId, winnerIsFirst } = result.data;
 
   // TODO: clean this up; how to predefine the available collections and db?
   // Ref: https://www.mongodb.com/compatibility/using-typescript-with-mongodb-tutorial
+
   const client = await clientPromise;
   const db = client.db();
 
-  // TODO:
-  // - should technically be in a transaction since we're dealing with multiple documents
-  // - move to some type of service so we don't have to deal with the raw mongo commands here?
+  const companiesCollection = db.collection('companies');
+  const resultsCollection = db.collection('results');
 
-  const companies = db.collection('companies');
-  const company1IncUpdate = didVoteForCompany1 ? { wins: 1 } : { losses: 1 };
-  const company2IncUpdate = !didVoteForCompany1 ? { wins: 1 } : { losses: 1 };
+  const session = client.startSession();
+  try {
+    let errorResponse: NextResponse | null = null;
 
-  const company1 = await companies.findOneAndUpdate(
-    {
-      _id: new ObjectId(companyId1),
-    },
-    { $inc: company1IncUpdate },
-  );
-  if (!company1.value) {
-    return NextResponse.json(
-      { error: 'Company not found: ' + companyId1 },
-      { status: 400 },
-    );
-  }
+    await withTransaction(session, async () => {
+      const winnerCompanyDocument = await companiesCollection.findOne(
+        {
+          _id: new ObjectId(winnerCompanyId),
+        },
+        {
+          session,
+        },
+      );
+      if (!winnerCompanyDocument) {
+        errorResponse = NextResponse.json(
+          { error: 'Company not found: ' + winnerCompanyId },
+          { status: 400 },
+        );
+        return false;
+      }
 
-  const company2 = await companies.findOneAndUpdate(
-    {
-      _id: new ObjectId(companyId2),
-    },
-    { $inc: company2IncUpdate },
-  );
-  if (!company2.value) {
-    return NextResponse.json(
-      { error: 'Company not found: ' + companyId2 },
-      { status: 400 },
-    );
-  }
+      const loserCompanyDocument = await companiesCollection.findOne({
+        _id: new ObjectId(loserCompanyId),
+      });
+      if (!loserCompanyDocument) {
+        errorResponse = NextResponse.json(
+          { error: 'Company not found: ' + loserCompanyId },
+          { status: 400 },
+        );
+        return false;
+      }
 
-  // Insert the new result.
-  const results = db.collection('results');
-  const insertResult = await results.insertOne({
-    companyId1: companyId1,
-    companyId2: companyId2,
-    didVoteForCompany1: didVoteForCompany1,
-    createdAt: new Date(Date.now()),
-  });
+      // Insert the new result.
+      const insertResult = await resultsCollection.insertOne({
+        winnerCompanyId: winnerCompanyId,
+        loserCompanyId: loserCompanyId,
+        winnerIsFirst: winnerIsFirst,
+        createdAt: new Date(Date.now()),
+      });
+      if (!insertResult.acknowledged) {
+        errorResponse = NextResponse.json(
+          { error: 'Failed to write result.' },
+          { status: 500 },
+        );
+        return false;
+      }
 
-  if (!insertResult.acknowledged) {
-    return NextResponse.json(
-      { error: 'Failed to write result.' },
-      { status: 500 },
-    );
+      // Update the win/loss counts.
+      const winnerCompany = toCompany(winnerCompanyDocument);
+      const loserCompany = toCompany(loserCompanyDocument);
+
+      const getUpdateValues = (
+        company: Company,
+        incrementWins: boolean,
+      ): any => {
+        const wins = company.wins ?? 0;
+        const losses = company.losses ?? 0;
+        if (incrementWins) {
+          const newWins = wins + 1;
+          return {
+            wins: newWins,
+            winPercentage: newWins / (newWins + losses),
+          };
+        } else {
+          const newLosses = losses + 1;
+          return {
+            losses: newLosses,
+            winPercentage: wins / (wins + newLosses),
+          };
+        }
+      };
+
+      // TODO: how to handle errors
+      await companiesCollection.findOneAndUpdate(
+        {
+          _id: new ObjectId(winnerCompanyId),
+        },
+        {
+          $set: getUpdateValues(winnerCompany, true),
+        },
+      );
+
+      // TODO: how to handle errors
+      await companiesCollection.findOneAndUpdate(
+        {
+          _id: new ObjectId(loserCompanyId),
+        },
+        {
+          $set: getUpdateValues(loserCompany, false),
+        },
+      );
+
+      return true;
+    });
+
+    if (errorResponse) {
+      return errorResponse;
+    }
+  } catch (e) {
+    console.error('Transaction aborted due to an unexpected error: ' + e);
+    return NextResponse.json({ error: 'Unexpected error.' }, { status: 500 });
+  } finally {
+    await session.endSession();
   }
 
   return NextResponse.json({}, { status: 200 });
