@@ -21,8 +21,8 @@ export interface RecentListProps {
 
 const getCompanyIds = (results: Result[]) => {
   return results.reduce((accumulator: Set<string>, currentValue) => {
-    accumulator.add(currentValue.companyId1);
-    accumulator.add(currentValue.companyId2);
+    accumulator.add(currentValue.winnerCompanyId);
+    accumulator.add(currentValue.loserCompanyId);
     return accumulator;
   }, new Set<string>());
 };
@@ -96,6 +96,13 @@ export function RecentList({
   // ... handle loading and error states
 
   const renderedResults = resultsData.results.map((r) => {
+    const firstCompanyId = r.winnerIsFirst
+      ? r.winnerCompanyId
+      : r.loserCompanyId;
+    const secondCompanyId = r.winnerIsFirst
+      ? r.loserCompanyId
+      : r.winnerCompanyId;
+
     return (
       <div
         key={r.id}
@@ -104,15 +111,15 @@ export function RecentList({
         }
       >
         <BattleResult
-          company={companiesMap.get(r.companyId1) as Company}
+          company={companiesMap.get(firstCompanyId) as Company}
           onClickCompany={companyClickHandler}
-          isWinner={r.didVoteForCompany1}
+          isWinner={r.winnerIsFirst}
         />
         <div className={'p-4'}>vs.</div>
         <BattleResult
-          company={companiesMap.get(r.companyId2) as Company}
+          company={companiesMap.get(secondCompanyId) as Company}
           onClickCompany={companyClickHandler}
-          isWinner={!r.didVoteForCompany1}
+          isWinner={!r.winnerIsFirst}
         />
       </div>
     );

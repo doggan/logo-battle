@@ -8,6 +8,7 @@ import {
   GetCompaniesResponse,
 } from '@/utils/requests';
 import { clamp } from '@/utils/math';
+import { getCompanyRankWindowFields } from '@/app/api/companies/[id]/route';
 
 const DEFAULT_LIMIT = 20;
 const MAX_LIMIT = 100;
@@ -29,6 +30,7 @@ async function getManyCompanies(companyIds: string[]) {
     };
   }
 
+  // TODO: this is not returning rank
   const cursor = companiesCollection.find(filter);
   const companyDocuments = await cursor.toArray();
 
@@ -56,40 +58,17 @@ async function listCompanies(
   const db = client.db();
 
   const companiesCollection = db.collection('companies');
-
   const filter = {};
-  const cursor = companiesCollection.find(filter).skip(offset).limit(limit);
+  const cursor = companiesCollection
+    .aggregate([
+      {
+        $setWindowFields: getCompanyRankWindowFields(),
+      },
+    ])
+    .skip(offset)
+    .limit(limit);
   const companyDocuments = await cursor.toArray();
-
   const companies = companyDocuments.map((d) => toCompany(d));
-
-  if (sortBy === CompanySortBy.WinPercentageDesc) {
-    companies.sort((x, y) => {
-      const xWins = x.wins ?? 0;
-      const xLosses = x.losses ?? 0;
-      const yWins = y.wins ?? 0;
-      const yLosses = y.losses ?? 0;
-
-      const xTotalBattles = xWins + xLosses;
-      const yTotalBattles = yWins + yLosses;
-
-      if (xTotalBattles === 0 && yTotalBattles === 0) {
-        return 0;
-      }
-      if (xTotalBattles === 0) {
-        return 1;
-      }
-      if (yTotalBattles === 0) {
-        return -1;
-      }
-
-      const xWinPercentage = xWins / xTotalBattles;
-      const yWinPercentage = yWins / yTotalBattles;
-
-      return xWinPercentage > yWinPercentage ? -1 : 1;
-    });
-  }
-
   const totalCompaniesCount = await companiesCollection.countDocuments(filter);
 
   return NextResponse.json(

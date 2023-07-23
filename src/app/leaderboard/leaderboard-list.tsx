@@ -49,12 +49,7 @@ export function LeaderboardList({
   // TODO: rank is not correct since this is paginated
   const renderedResults = companiesData.companies.map((c, i) => {
     return (
-      <CompanyItem
-        key={c.name}
-        rank={i + 1}
-        company={c}
-        onClick={companyClickHandler}
-      />
+      <CompanyItem key={c.name} company={c} onClick={companyClickHandler} />
     );
   });
 

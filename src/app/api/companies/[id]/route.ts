@@ -4,7 +4,7 @@ import { ObjectId } from 'mongodb';
 import { toCompany } from '@/utils/models';
 import { GetCompanyResponse, ErrorResponse } from '@/utils/requests';
 
-function getCompanyRankWindowFields() {
+export function getCompanyRankWindowFields() {
   return {
     sortBy: { winPercentage: -1 },
     output: {
