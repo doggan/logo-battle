@@ -61,9 +61,14 @@ export async function POST(
         return false;
       }
 
-      const loserCompanyDocument = await companiesCollection.findOne({
-        _id: new ObjectId(loserCompanyId),
-      });
+      const loserCompanyDocument = await companiesCollection.findOne(
+        {
+          _id: new ObjectId(loserCompanyId),
+        },
+        {
+          session,
+        },
+      );
       if (!loserCompanyDocument) {
         errorResponse = NextResponse.json(
           { error: 'Company not found: ' + loserCompanyId },
@@ -73,12 +78,17 @@ export async function POST(
       }
 
       // Insert the new result.
-      const insertResult = await resultsCollection.insertOne({
-        winnerCompanyId: winnerCompanyId,
-        loserCompanyId: loserCompanyId,
-        winnerIsFirst: winnerIsFirst,
-        createdAt: new Date(Date.now()),
-      });
+      const insertResult = await resultsCollection.insertOne(
+        {
+          winnerCompanyId: winnerCompanyId,
+          loserCompanyId: loserCompanyId,
+          winnerIsFirst: winnerIsFirst,
+          createdAt: new Date(Date.now()),
+        },
+        {
+          session,
+        },
+      );
       if (!insertResult.acknowledged) {
         errorResponse = NextResponse.json(
           { error: 'Failed to write result.' },
@@ -120,6 +130,9 @@ export async function POST(
         {
           $set: getUpdateValues(winnerCompany, true),
         },
+        {
+          session,
+        },
       );
 
       // TODO: how to handle errors
@@ -129,6 +142,9 @@ export async function POST(
         },
         {
           $set: getUpdateValues(loserCompany, false),
+        },
+        {
+          session,
         },
       );
 
