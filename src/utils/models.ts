@@ -4,7 +4,6 @@ export type Company = {
   id: string;
   name: string;
   imageName: string;
-  // TODO: consider refactoring to a nested RankInfo object
   rank: number;
   winPercentage: number;
   wins: number;

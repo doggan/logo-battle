@@ -51,6 +51,7 @@ async function getManyCompanies(companyIds: string[]) {
 async function listCompanies(
   offset: number,
   limit: number,
+  // TODO: param not used
   sortBy: CompanySortBy | undefined,
 ) {
   // TODO: clean this up; how to predefine the available collections and db?
