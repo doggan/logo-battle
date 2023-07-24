@@ -204,8 +204,8 @@ export async function GET(
   if (companyId) {
     filter = {
       $or: [
-        { companyId1: { $eq: companyId } },
-        { companyId2: { $eq: companyId } },
+        { winnerCompanyId: { $eq: companyId } },
+        { loserCompanyId: { $eq: companyId } },
       ],
     };
   }

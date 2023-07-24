@@ -28,7 +28,7 @@ async function getManyCompanies(companyIds: string[]) {
     {
       $match: {
         _id: {
-          $in: [companyIds.map((v) => new ObjectId(v))],
+          $in: companyIds.map((v) => new ObjectId(v)),
         },
       },
     },

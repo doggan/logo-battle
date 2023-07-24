@@ -22,17 +22,15 @@ export function CompanyItem({ company, onClick }: CompanyItemProps) {
   return (
     <div className={'w-full flex justify-center px-4 md:px-0'}>
       <div className="bg-white rounded-sm shadow-md relative w-full md:w-1/2 lg:w-2/5">
-        {company.rank && (
-          <div
-            className={
-              'absolute top-0 left-0 bg-battleship-grey rounded-tl-sm rounded-br-sm'
-            }
-          >
-            <span className={'p-1 text-white text-sm font-bold'}>
-              #{company.rank}
-            </span>
-          </div>
-        )}
+        <div
+          className={
+            'absolute top-0 left-0 bg-battleship-grey rounded-tl-sm rounded-br-sm'
+          }
+        >
+          <span className={'p-1 text-white text-sm font-bold'}>
+            #{company.rank}
+          </span>
+        </div>
         <div className="p-4 flex flex-row">
           <button
             className={'w-1/3'}
