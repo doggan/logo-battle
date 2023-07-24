@@ -21,20 +21,8 @@ async function getCompany(companyId: string) {
   const client = await clientPromise;
   const db = client.db();
 
-  const companies = db.collection('companies');
-
-  // TODO: potentially use this method if rank is not needed
-  // const company = await companies.findOne({
-  //   _id: new ObjectId(companyId),
-  // });
-  // if (!company) {
-  //   return NextResponse.json(
-  //     { error: 'Company not found: ' + companyId },
-  //     { status: 400 },
-  //   );
-  // }
-
-  const cursor = companies.aggregate([
+  const companiesCollection = db.collection('companies');
+  const cursor = companiesCollection.aggregate([
     {
       $setWindowFields: getCompanyRankWindowFields(),
     },

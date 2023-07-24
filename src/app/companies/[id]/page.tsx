@@ -25,8 +25,6 @@ export default function Page({ params }: { params: { id: string } }) {
 
   const company: Company = companyData.company;
 
-  // TODO: get rank for the company
-
   const renderPage = ({ pageIndex, pageSize }: RenderPageProps) => (
     <RecentList
       pageIndex={pageIndex}

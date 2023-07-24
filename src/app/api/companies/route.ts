@@ -19,21 +19,22 @@ async function getManyCompanies(companyIds: string[]) {
   const client = await clientPromise;
   const db = client.db();
 
+  const filter = {};
   const companiesCollection = db.collection('companies');
-
-  let filter = {};
-  if (companyIds.length > 0) {
-    filter = {
-      _id: {
-        $in: companyIds.map((v) => new ObjectId(v)),
+  const cursor = companiesCollection.aggregate([
+    {
+      $setWindowFields: getCompanyRankWindowFields(),
+    },
+    {
+      $match: {
+        _id: {
+          $in: [companyIds.map((v) => new ObjectId(v))],
+        },
       },
-    };
-  }
+    },
+  ]);
 
-  // TODO: this is not returning rank
-  const cursor = companiesCollection.find(filter);
   const companyDocuments = await cursor.toArray();
-
   const companies = companyDocuments.map((d) => toCompany(d));
 
   const totalCompaniesCount = await companiesCollection.countDocuments(filter);

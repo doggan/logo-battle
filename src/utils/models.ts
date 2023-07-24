@@ -5,7 +5,7 @@ export type Company = {
   name: string;
   imageName: string;
   // TODO: consider refactoring to a nested RankInfo object
-  rank?: number;
+  rank: number;
   winPercentage: number;
   wins: number;
   losses: number;
@@ -18,7 +18,7 @@ export function toCompany(document: Document): Company {
     imageName: document.imageName,
     winPercentage: document.winPercentage,
     wins: document.wins,
-    rank: document.rank ?? undefined,
+    rank: document.rank,
     losses: document.losses,
   };
 }

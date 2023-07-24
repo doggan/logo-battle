@@ -6,6 +6,7 @@ import { Company, toCompany, toResult } from '@/utils/models';
 import { clamp } from '@/utils/math';
 import { ErrorResponse, GetResultsResponse } from '@/utils/requests';
 import { withTransaction } from '@/utils/transaction';
+import { getCompanyRankWindowFields } from '@/app/api/companies/[id]/route';
 
 type PostResponseData = Record<string, never>;
 
@@ -165,15 +166,13 @@ export async function POST(
 }
 
 const DEFAULT_LIMIT = 20;
-const MAX_LIMIT = 20;
+const MAX_LIMIT = 100;
 
 export async function GET(
   req: NextRequest,
 ): Promise<NextResponse<GetResultsResponse | ErrorResponse>> {
   // TODO:
-  // - paginate (limit, offset)... if we sort in code, we need to handle this.
-  //    if we want to do it on the db layer, we'll need to store win % in the document.
-  // - take a sort parameter (win %)
+  // - take a sort parameter (CreatedAtAsc/Desc)
 
   const { searchParams } = new URL(req.url);
 
