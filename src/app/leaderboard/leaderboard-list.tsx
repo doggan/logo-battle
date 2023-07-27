@@ -43,9 +43,6 @@ export function LeaderboardList({
     return <Spinner />;
   }
 
-  // TODO:
-  // ... error states
-
   const renderedResults = companiesData.companies.map((c) => {
     return (
       <CompanyItem key={c.name} company={c} onClick={companyClickHandler} />

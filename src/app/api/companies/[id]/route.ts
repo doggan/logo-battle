@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
-import clientPromise from '@/utils/mongodb';
+import { collections, getClient } from '@/utils/mongodb';
 import { ObjectId } from 'mongodb';
 import { toCompany } from '@/utils/models';
-import { GetCompanyResponse, ErrorResponse } from '@/utils/requests';
+import { ErrorResponse, GetCompanyResponse } from '@/utils/requests';
 
 export function getCompanyRankWindowFields() {
   return {
@@ -13,15 +13,9 @@ export function getCompanyRankWindowFields() {
   };
 }
 
-// TODO: should ideally return a Company | null... not a promise. Then we can make
-// easier to use service functions
 async function getCompany(companyId: string) {
-  // TODO: clean this up; how to predefine the available collections and db?
-  // Ref: https://www.mongodb.com/compatibility/using-typescript-with-mongodb-tutorial
-  const client = await clientPromise;
-  const db = client.db();
-
-  const companiesCollection = db.collection('companies');
+  const { db } = await getClient();
+  const companiesCollection = collections.companies(db);
   const cursor = companiesCollection.aggregate([
     {
       $setWindowFields: getCompanyRankWindowFields(),
@@ -46,13 +40,14 @@ async function getCompany(companyId: string) {
   );
 }
 
-export function GET(
+export async function GET(
   req: NextRequest,
   context: { params: { id: string } },
 ): Promise<NextResponse<GetCompanyResponse | ErrorResponse>> {
-  // TODO: error handling
-  // - exists, is valid object id, etc
-
   const companyId = context.params.id;
+  if (!ObjectId.isValid(companyId)) {
+    return NextResponse.json({ error: 'Invalid company id.' }, { status: 400 });
+  }
+
   return getCompany(companyId);
 }

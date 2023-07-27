@@ -209,7 +209,7 @@ export function CompanyBattle({
       didCompany1Win ? BattleState.Company1Won : BattleState.Company2Won,
     );
 
-    const response = await fetch('/api/results', {
+    const _response = await fetch('/api/results', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -225,9 +225,6 @@ export function CompanyBattle({
       }),
     });
     // TOOD: error handling
-
-    console.log('### response: ');
-    console.log(response);
 
     onRequestNewBattle();
   };

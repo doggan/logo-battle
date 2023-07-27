@@ -92,9 +92,6 @@ export function RecentList({
     return <Spinner />;
   }
 
-  // TODO:
-  // ... handle loading and error states
-
   const renderedResults = resultsData.results.map((r) => {
     const firstCompanyId = r.winnerIsFirst
       ? r.winnerCompanyId
