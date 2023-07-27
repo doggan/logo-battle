@@ -4,6 +4,15 @@ import { ObjectId } from 'mongodb';
 import { toCompany } from '@/utils/models';
 import { GetCompanyResponse, ErrorResponse } from '@/utils/requests';
 
+export function getCompanyRankWindowFields() {
+  return {
+    sortBy: { winPercentage: -1 },
+    output: {
+      rank: { $denseRank: {} },
+    },
+  };
+}
+
 // TODO: should ideally return a Company | null... not a promise. Then we can make
 // easier to use service functions
 async function getCompany(companyId: string) {
@@ -12,11 +21,17 @@ async function getCompany(companyId: string) {
   const client = await clientPromise;
   const db = client.db();
 
-  const companies = db.collection('companies');
-  const company = await companies.findOne({
-    _id: new ObjectId(companyId),
-  });
-  if (!company) {
+  const companiesCollection = db.collection('companies');
+  const cursor = companiesCollection.aggregate([
+    {
+      $setWindowFields: getCompanyRankWindowFields(),
+    },
+    {
+      $match: { _id: new ObjectId(companyId) },
+    },
+  ]);
+  const results = await cursor.toArray();
+  if (results.length !== 1) {
     return NextResponse.json(
       { error: 'Company not found: ' + companyId },
       { status: 400 },
@@ -25,7 +40,7 @@ async function getCompany(companyId: string) {
 
   return NextResponse.json(
     {
-      company: toCompany(company),
+      company: toCompany(results[0]),
     },
     { status: 200 },
   );

@@ -46,15 +46,9 @@ export function LeaderboardList({
   // TODO:
   // ... error states
 
-  // TODO: rank is not correct since this is paginated
-  const renderedResults = companiesData.companies.map((c, i) => {
+  const renderedResults = companiesData.companies.map((c) => {
     return (
-      <CompanyItem
-        key={c.name}
-        rank={i + 1}
-        company={c}
-        onClick={companyClickHandler}
-      />
+      <CompanyItem key={c.name} company={c} onClick={companyClickHandler} />
     );
   });
 

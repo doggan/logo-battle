@@ -3,12 +3,11 @@ import Image from 'next/image';
 import { formatPercentage } from '@/utils/math';
 
 interface CompanyItemProps {
-  rank: number;
   company: Company;
   onClick?: (companyId: string) => void;
 }
 
-export function CompanyItem({ rank, company, onClick }: CompanyItemProps) {
+export function CompanyItem({ company, onClick }: CompanyItemProps) {
   const { id, imageName, name, wins = 0, losses = 0 } = company;
 
   const totalBattles = wins + losses;
@@ -28,7 +27,9 @@ export function CompanyItem({ rank, company, onClick }: CompanyItemProps) {
             'absolute top-0 left-0 bg-battleship-grey rounded-tl-sm rounded-br-sm'
           }
         >
-          <span className={'p-1 text-white text-sm font-bold'}>#{rank}</span>
+          <span className={'p-1 text-white text-sm font-bold'}>
+            #{company.rank}
+          </span>
         </div>
         <div className="p-4 flex flex-row">
           <button

@@ -25,8 +25,6 @@ export default function Page({ params }: { params: { id: string } }) {
 
   const company: Company = companyData.company;
 
-  // TODO: get rank for the company
-
   const renderPage = ({ pageIndex, pageSize }: RenderPageProps) => (
     <RecentList
       pageIndex={pageIndex}
@@ -43,7 +41,7 @@ export default function Page({ params }: { params: { id: string } }) {
   return (
     <main>
       <div className={'py-4'}>
-        <CompanyItem key={company.id} rank={0} company={company} />
+        <CompanyItem key={company.id} company={company} />
       </div>
       <PaginatedResourceList
         title={'Battle History'}

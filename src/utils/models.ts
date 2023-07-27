@@ -4,6 +4,8 @@ export type Company = {
   id: string;
   name: string;
   imageName: string;
+  rank: number;
+  winPercentage: number;
   wins: number;
   losses: number;
 };
@@ -13,25 +15,30 @@ export function toCompany(document: Document): Company {
     id: document._id,
     name: document.name,
     imageName: document.imageName,
+    winPercentage: document.winPercentage,
     wins: document.wins,
+    rank: document.rank,
     losses: document.losses,
   };
 }
 
 export type Result = {
   id: string;
-  companyId1: string;
-  companyId2: string;
-  didVoteForCompany1: boolean;
+  winnerCompanyId: string;
+  loserCompanyId: string;
+  // If true, the winner company was on the left/top of the display during the battle.
+  // This is used to preserve the original battle order of companies when displaying
+  // result battles.
+  winnerIsFirst: boolean;
   createdAt: Date;
 };
 
 export function toResult(document: Document): Result {
   return {
     id: document._id,
-    companyId1: document.companyId1,
-    companyId2: document.companyId2,
-    didVoteForCompany1: document.didVoteForCompany1,
+    winnerCompanyId: document.winnerCompanyId,
+    loserCompanyId: document.loserCompanyId,
+    winnerIsFirst: document.winnerIsFirst,
     createdAt: document.createdAt,
   };
 }

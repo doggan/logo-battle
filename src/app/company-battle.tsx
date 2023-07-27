@@ -215,9 +215,13 @@ export function CompanyBattle({
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        companyId1: activeCompanies[0].id,
-        companyId2: activeCompanies[1].id,
-        didVoteForCompany1: didCompany1Win,
+        winnerCompanyId: didCompany1Win
+          ? activeCompanies[0].id
+          : activeCompanies[1].id,
+        loserCompanyId: didCompany1Win
+          ? activeCompanies[1].id
+          : activeCompanies[0].id,
+        winnerIsFirst: didCompany1Win,
       }),
     });
     // TOOD: error handling
