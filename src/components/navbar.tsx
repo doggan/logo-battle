@@ -28,8 +28,11 @@ export function Navbar() {
 
   return (
     <nav className="sticky w-full top-0 z-20 flex flex-wrap items-center justify-between py-2 mb-3 bg-dark-purple">
-      <div className="relative container px-4 mx-auto flex flex-wrap items-center justify-between min-h-[42px]">
-        <div className={'absolute top-0 left-0 ml-4'}>
+      <div className="relative container px-4 mx-auto flex flex-wrap justify-between">
+        {/* The z modification here is needed because the links on larger screens use absolute positioning
+        in order to maintain center alignment. Without the z modification, those links will block the click
+        area of the logo to navigate back to the main page. */}
+        <div className={'z-30'}>
           <Link href={'/'}>
             <Image
               src={'/logo-no-background.png'}
@@ -37,10 +40,15 @@ export function Navbar() {
               height={40}
               alt={'Logo Battle'}
               priority={true}
+              onClick={() => setNavbarOpen(false)}
             />
           </Link>
         </div>
-        <div className="w-full relative flex justify-end md:w-auto md:static md:block md:justify-start">
+        <div
+          className={
+            'grow relative flex justify-end md:w-auto md:static md:block md:justify-start'
+          }
+        >
           <button
             className="text-white cursor-pointer text-xl leading-none px-3 border border-solid border-transparent rounded bg-transparent block md:hidden outline-none focus:outline-none"
             type="button"
@@ -63,7 +71,7 @@ export function Navbar() {
         </div>
         <div
           className={
-            'md:flex flex-grow items-center justify-center' +
+            'md:flex md:absolute md:h-full w-full flex-grow items-center justify-center' +
             (navbarOpen ? ' flex' : ' hidden')
           }
         >
