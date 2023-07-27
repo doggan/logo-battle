@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
-import clientPromise from '@/utils/mongodb';
+import { collections, getClient } from '@/utils/mongodb';
 import { ObjectId } from 'mongodb';
 import { toCompany } from '@/utils/models';
-import { GetCompanyResponse, ErrorResponse } from '@/utils/requests';
+import { ErrorResponse, GetCompanyResponse } from '@/utils/requests';
 
 export function getCompanyRankWindowFields() {
   return {
@@ -16,12 +16,8 @@ export function getCompanyRankWindowFields() {
 // TODO: should ideally return a Company | null... not a promise. Then we can make
 // easier to use service functions
 async function getCompany(companyId: string) {
-  // TODO: clean this up; how to predefine the available collections and db?
-  // Ref: https://www.mongodb.com/compatibility/using-typescript-with-mongodb-tutorial
-  const client = await clientPromise;
-  const db = client.db();
-
-  const companiesCollection = db.collection('companies');
+  const { db } = await getClient();
+  const companiesCollection = collections.companies(db);
   const cursor = companiesCollection.aggregate([
     {
       $setWindowFields: getCompanyRankWindowFields(),

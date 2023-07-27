@@ -1,12 +1,11 @@
 import { ObjectId, SortDirection } from 'mongodb';
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
-import clientPromise from '@/utils/mongodb';
+import { collections, getClient } from '@/utils/mongodb';
 import { Company, toCompany, toResult } from '@/utils/models';
 import { clamp } from '@/utils/math';
 import { ErrorResponse, GetResultsResponse } from '@/utils/requests';
 import { withTransaction } from '@/utils/transaction';
-import { getCompanyRankWindowFields } from '@/app/api/companies/[id]/route';
 
 type PostResponseData = Record<string, never>;
 
@@ -32,14 +31,9 @@ export async function POST(
 
   const { winnerCompanyId, loserCompanyId, winnerIsFirst } = result.data;
 
-  // TODO: clean this up; how to predefine the available collections and db?
-  // Ref: https://www.mongodb.com/compatibility/using-typescript-with-mongodb-tutorial
-
-  const client = await clientPromise;
-  const db = client.db();
-
-  const companiesCollection = db.collection('companies');
-  const resultsCollection = db.collection('results');
+  const { client, db } = await getClient();
+  const companiesCollection = collections.companies(db);
+  const resultsCollection = collections.results(db);
 
   const session = client.startSession();
   try {
@@ -193,12 +187,8 @@ export async function GET(
   }
   limit = clamp(limit, 1, MAX_LIMIT);
 
-  // TODO: clean this up; how to predefine the available collections and db?
-  // Ref: https://www.mongodb.com/compatibility/using-typescript-with-mongodb-tutorial
-  const client = await clientPromise;
-  const db = client.db();
-
-  const resultsCollection = db.collection('results');
+  const { db } = await getClient();
+  const resultsCollection = collections.results(db);
 
   let filter = {};
   if (companyId) {

@@ -1,4 +1,4 @@
-import { MongoClient } from 'mongodb';
+import { Collection, Db, MongoClient } from 'mongodb';
 
 if (!process.env.MONGODB_URI) {
   throw new Error('Please define the MONGODB_URI environment variable.');
@@ -28,6 +28,18 @@ if (process.env.NODE_ENV === 'development') {
   clientPromise = client.connect();
 }
 
-// Export a module-scoped MongoClient promise. By doing this in a
-// separate module, the client can be shared across functions.
-export default clientPromise;
+// Define the collections for easy access.
+export const collections = {
+  companies: (db: Db) => {
+    return db.collection('companies');
+  },
+  results: (db: Db) => {
+    return db.collection('results');
+  },
+};
+
+export async function getClient() {
+  const client = await clientPromise;
+  const db = client.db();
+  return { client, db };
+}

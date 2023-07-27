@@ -12,7 +12,6 @@ export async function withTransaction(
     const didSucceed = await closure();
 
     if (!didSucceed) {
-      console.log('### abort');
       await session.abortTransaction();
     }
   });

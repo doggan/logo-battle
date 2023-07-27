@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import clientPromise from '@/utils/mongodb';
+import { collections, getClient } from '@/utils/mongodb';
 import { toCompany } from '@/utils/models';
 import { ErrorResponse, GetBattleResponse } from '@/utils/requests';
 
@@ -13,14 +13,10 @@ export const revalidate = 0;
 export async function GET(
   _req: Request,
 ): Promise<NextResponse<GetBattleResponse | ErrorResponse>> {
-  // TODO: clean this up; how to predefine the available collections and db?
-  // Ref: https://www.mongodb.com/compatibility/using-typescript-with-mongodb-tutorial
-  const client = await clientPromise;
-  const db = client.db();
+  const { db } = await getClient();
+  const companiesCollection = collections.companies(db);
 
-  const companies = db.collection('companies');
-
-  const cursor = companies.aggregate([{ $sample: { size: 2 } }]);
+  const cursor = companiesCollection.aggregate([{ $sample: { size: 2 } }]);
   const results = await cursor.toArray();
 
   if (results.length < 2) {

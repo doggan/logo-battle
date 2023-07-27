@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import clientPromise from '@/utils/mongodb';
+import { collections, getClient } from '@/utils/mongodb';
 import { toCompany } from '@/utils/models';
 import { ObjectId } from 'mongodb';
 import {
@@ -14,13 +14,9 @@ const DEFAULT_LIMIT = 20;
 const MAX_LIMIT = 100;
 
 async function getManyCompanies(companyIds: string[]) {
-  // TODO: clean this up; how to predefine the available collections and db?
-  // Ref: https://www.mongodb.com/compatibility/using-typescript-with-mongodb-tutorial
-  const client = await clientPromise;
-  const db = client.db();
-
+  const { db } = await getClient();
+  const companiesCollection = collections.companies(db);
   const filter = {};
-  const companiesCollection = db.collection('companies');
   const cursor = companiesCollection.aggregate([
     {
       $setWindowFields: getCompanyRankWindowFields(),
@@ -54,12 +50,9 @@ async function listCompanies(
   // TODO: param not used
   sortBy: CompanySortBy | undefined,
 ) {
-  // TODO: clean this up; how to predefine the available collections and db?
-  // Ref: https://www.mongodb.com/compatibility/using-typescript-with-mongodb-tutorial
-  const client = await clientPromise;
-  const db = client.db();
+  const { db } = await getClient();
+  const companiesCollection = collections.companies(db);
 
-  const companiesCollection = db.collection('companies');
   const filter = {};
   const cursor = companiesCollection
     .aggregate([
