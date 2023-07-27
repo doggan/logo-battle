@@ -117,8 +117,7 @@ export async function POST(
         }
       };
 
-      // TODO: how to handle errors
-      await companiesCollection.findOneAndUpdate(
+      const company1 = await companiesCollection.findOneAndUpdate(
         {
           _id: new ObjectId(winnerCompanyId),
         },
@@ -129,9 +128,15 @@ export async function POST(
           session,
         },
       );
+      if (!company1.ok) {
+        errorResponse = NextResponse.json(
+          { error: 'Failed to update winner company.' },
+          { status: 500 },
+        );
+        return false;
+      }
 
-      // TODO: how to handle errors
-      await companiesCollection.findOneAndUpdate(
+      const company2 = await companiesCollection.findOneAndUpdate(
         {
           _id: new ObjectId(loserCompanyId),
         },
@@ -142,6 +147,13 @@ export async function POST(
           session,
         },
       );
+      if (!company2.ok) {
+        errorResponse = NextResponse.json(
+          { error: 'Failed to update loser company.' },
+          { status: 500 },
+        );
+        return false;
+      }
 
       return true;
     });

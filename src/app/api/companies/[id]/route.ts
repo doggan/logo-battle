@@ -42,13 +42,14 @@ async function getCompany(companyId: string) {
   );
 }
 
-export function GET(
+export async function GET(
   req: NextRequest,
   context: { params: { id: string } },
 ): Promise<NextResponse<GetCompanyResponse | ErrorResponse>> {
-  // TODO: error handling
-  // - exists, is valid object id, etc
-
   const companyId = context.params.id;
+  if (!ObjectId.isValid(companyId)) {
+    return NextResponse.json({ error: 'Invalid company id.' }, { status: 400 });
+  }
+
   return getCompany(companyId);
 }
