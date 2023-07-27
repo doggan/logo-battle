@@ -1,7 +1,5 @@
 export const fetcher = async (url: string) => {
   const response = await fetch(url);
-
-  // TODO: better error handling???
   if (!response.ok) {
     throw new Error('An error occurred while fetching the data.');
   }

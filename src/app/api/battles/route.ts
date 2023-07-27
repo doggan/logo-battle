@@ -28,13 +28,40 @@ export async function GET(
     );
   }
 
-  // TODO: confirm whether we're guaranteed to ge unique results from 'aggregate', or if we need to retry
-  // if we encounter dupes.
+  // Retry logic since $sample may return the same document twice.
+  const company1 = toCompany(results[0]);
+  let company2 = toCompany(results[1]);
+  if (company1.id === company2.id) {
+    console.log('Retrying company selection for battle...');
+    const RETRY_COUNT = 2;
+    for (let i = 0; i < RETRY_COUNT; i++) {
+      const newCursor = companiesCollection.aggregate([
+        { $sample: { size: 1 } },
+      ]);
+      const newResults = await newCursor.toArray();
+      company2 = toCompany(newResults[0]);
+      if (company1.id !== company2.id) {
+        break;
+      }
+    }
+
+    if (company1.id === company2.id) {
+      console.error(
+        'Max retry count exeeded for company selection during battle.',
+      );
+      return NextResponse.json(
+        {
+          error: 'Unable to select companies for battle.',
+        },
+        { status: 500 },
+      );
+    }
+  }
 
   return NextResponse.json(
     {
-      company1: toCompany(results[0]),
-      company2: toCompany(results[1]),
+      company1,
+      company2,
     },
     { status: 200 },
   );
