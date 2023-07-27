@@ -1,6 +1,6 @@
 {
   "name": "logo-battle",
-  "description": "....",
+  "description": "An app to determine which S&P 500 Company has the best looking logo, based on user votes.",
   "version": "1.0.0",
   "private": true,
   "author": "Shyam Guthikonda <shyamguth@gmail.com>",
