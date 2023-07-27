@@ -13,8 +13,6 @@ export function getCompanyRankWindowFields() {
   };
 }
 
-// TODO: should ideally return a Company | null... not a promise. Then we can make
-// easier to use service functions
 async function getCompany(companyId: string) {
   const { db } = await getClient();
   const companiesCollection = collections.companies(db);
